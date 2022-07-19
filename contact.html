@@ -186,4 +186,33 @@
       <script src="https://www.google.com/maps/place/%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82%E2%80%AD/@33.1402342,48.2050984,6z/data=!3m1!4b1!4m5!3m4!1s0x1557823d54f54a11:0x6da561bba2061602!8m2!3d33.223191!4d43.679291"></script>
       <!-- end google map js --> 
    </body>
+   <!-- Messenger المكون الإضافي "دردشة" Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your المكون الإضافي "دردشة" code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "2223294151217546");
+      chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+    <!-- Your SDK code -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v14.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/ar_AR/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
 </html>
