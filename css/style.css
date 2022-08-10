@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------------- File Name: style.css ---------------------------------------------------------------------*/
-
+@import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
 
 /*--------------------------------------------------------------------- import Fonts ---------------------------------------------------------------------*/
 
@@ -10,7 +10,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,800i&display=swap');
 
 /*****---------------------------------------- 1) font-family: 'Rajdhani', sans-serif;
- 2) font-family: 'Poppins', sans-serif;
+ 2) font-family: 'Lalezar', cursive;
  ----------------------------------------*****/
 
 
@@ -41,7 +41,7 @@ html {
 body {
      color: #666666;
      font-size: 14px;
-     font-family: 'Poppins', sans-serif;
+     font-family: 'Lalezar', cursive;
      line-height: 1.80857;
      font-weight: normal;
 }
@@ -776,7 +776,7 @@ button {
      background: #252525;
      padding-top: 90px;
      text-align: center;
-     font-family: 'Roboto', sans-serif;
+     font-family: 'Lalezar', cursive;
 }
 
 ul.location_icon {
