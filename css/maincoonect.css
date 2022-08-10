@@ -4,24 +4,25 @@
 
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
+@import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
 
 @font-face {
-  font-family: Montserrat-Regular;
+  font-family: 'Lalezar', cursive;
   src: url('../fonts/montserrat/Montserrat-Regular.ttf'); 
 }
 
 @font-face {
-  font-family: Montserrat-Bold;
+  font-family: 'Lalezar', cursive;
   src: url('../fonts/montserrat/Montserrat-Bold.ttf'); 
 }
 
 @font-face {
-  font-family: Montserrat-ExtraBold;
+  font-family: 'Lalezar', cursive;
   src: url('../fonts/montserrat/Montserrat-ExtraBold.ttf'); 
 }
 
 @font-face {
-  font-family: Montserrat-Medium;
+  font-family: 'Lalezar', cursive;
   src: url('../fonts/montserrat/Montserrat-Medium.ttf'); 
 }
 
@@ -38,12 +39,12 @@
 
 body, html {
 	height: 100%;
-	font-family: Montserrat-Regular, sans-serif;
+	font-family: 'Lalezar', cursive;
 }
 
 /*---------------------------------------------*/
 a {
-	font-family: Montserrat-Regular;
+	font-family: 'Lalezar', cursive;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -69,7 +70,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 p {
-	font-family: Montserrat-Regular;
+	font-family: 'Lalezar', cursive;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -186,7 +187,7 @@ iframe {
 
 .contact1-form-title {
   display: block;
-  font-family: Montserrat-ExtraBold;
+  font-family: 'Lalezar', cursive;
   font-size: 24px;
   color: #333333;
   line-height: 1.2;
@@ -224,7 +225,7 @@ textarea.input1 + .shadow-input1 {
   display: block;
   width: 100%;
   background: #e6e6e6;
-  font-family: Montserrat-Bold;
+  font-family: 'Lalezar', cursive;
   font-size: 15px;
   line-height: 1.5;
   color: #666666;
@@ -278,7 +279,7 @@ textarea.input1 + .shadow-input1 {
   height: 50px;
   border-radius: 25px;
   background: #57b846;
-  font-family: Montserrat-Bold;
+  font-family: 'Lalezar', cursive;
   font-size: 15px;
   line-height: 1.5;
   color: #fff;
@@ -393,7 +394,7 @@ textarea.input1 + .shadow-input1 {
   right: 8px;
   pointer-events: none;
 
-  font-family: Montserrat-Medium;
+  font-family: 'Lalezar', cursive;
   color: #c80000;
   font-size: 13px;
   line-height: 1.4;
@@ -410,7 +411,7 @@ textarea.input1 + .shadow-input1 {
 
 .alert-validate::after {
   content: "\f06a";
-  font-family: FontAwesome;
+  font-family: 'Lalezar', cursive;
   display: block;
   position: absolute;
   color: #c80000;
