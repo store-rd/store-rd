@@ -1,2 +1,3 @@
 # store-rd
-Home.html
+index.html
+href="Home.html"
