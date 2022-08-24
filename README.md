@@ -1,2 +1,2 @@
 # store-rd
-Home.html
+index.html
