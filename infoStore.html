@@ -1,36 +1,191 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Info Store RD</title>
 
-  <head>
+  <!-- روابط الخطوط وأكواد الستايل -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/fontawesome.css">
+  <link rel="stylesheet" href="assets/css/templatemo-cyborg-gaming.css">
+  <link rel="stylesheet" href="assets/css/owl.css">
+  <link rel="stylesheet" href="assets/css/animate.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+  <!-- مكتبة AOS للأنيميشن أثناء التمرير (CDN) -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <title>Info Store RD</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-cyborg-gaming.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-<!--
-
-store rd
-
-https://www.facebook.com/store.iq.rd
-
--->
-  </head>
+  <!-- ==========  تنسيقات مخصصة لجعل الصفحة حديثة و3D  ========== -->
+  <style>
+    /* بدلنا الخلفية العامة للصفحة إلى #1f2122 */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #1f2122; /* <-- بدلًا من #0f0f0f */
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      position: relative;
+    }
+    .header-area {
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(5px);
+      position: fixed;
+      width: 100%;
+      z-index: 999;
+    }
+    /* تنسيق مربع البحث */
+    .search-input form {
+      position: relative;
+    }
+    #searchText {
+      background: #1f1f1f; /* محتفظون به لخانة البحث */
+      color: #fff;
+      border: 1px solid #444;
+      padding: 8px 35px 8px 10px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+    #searchText:focus {
+      border-color: #04ffac;
+      outline: none;
+    }
+    .search-input i.fa-search {
+      position: absolute;
+      right: 10px;
+      top: 8px;
+      color: #888;
+    }
+    .page-content {
+      margin-top: 120px; /* مسافة كافية أسفل الهيدر الثابت */
+    }
+    /* نجعل مربعات العناصر أغمق (#27292a) كي تتباين مع الخلفية #1f2122 */
+    .item {
+      background: #27292a; /* <-- أغمق قليلًا من خلفية الصفحة */
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 10px; /* تقليل المسافة بين الصناديق */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      perspective: 1000px; /* لتمكين الـ 3D */
+    }
+    .item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+    }
+    .item img {
+      border-radius: 10px;
+      max-width: 100%;
+      display: block;
+    }
+    .main-profile img {
+      border-radius: 23px;
+      max-width: 100%;
+    }
+    /* الأزرار */
+    .main-border-button a,
+    .main-button a {
+      background: linear-gradient(45deg, #00b09b, #96c93d);
+      color: #fff !important;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: inline-block;
+    }
+    .main-button a:hover,
+    .main-border-button a:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+      text-decoration: none;
+    }
+    /* مربعات الإحصائيات (ثري دي) */
+    .stats-box {
+      background: #27292a; /* <-- نفس لون .item لضمان التوحيد */
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 15px;
+    }
+    .stats-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.4);
+    }
+    .stats-box h6 {
+      font-size: 14px;
+      color: #ccc;
+      margin: 0 0 5px 0;
+    }
+    .stats-box h3 {
+      color: #04ffac;
+      margin: 0;
+      font-size: 24px;
+      font-weight: 700;
+    }
+    /* العناصر السفلية (الدعم الفني - السرعة ...) */
+    .clips .item .thumb img {
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .clips .item .down-content h4 {
+      margin: 0;
+      font-size: 16px;
+      color: #fff;
+    }
+    /* الفوتر */
+    footer {
+      background: #111;
+      padding: 20px 0;
+      text-align: center;
+      margin-top: 30px;
+    }
+    footer p {
+      margin: 0;
+      color: #aaa;
+      font-size: 14px;
+    }
+    footer p a {
+      color: #04ffac;
+      text-decoration: none;
+    }
+    footer p a:hover {
+      text-decoration: underline;
+    }
+    /* زر الصعود للأعلى (Scroll to Top) */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #04ffac;
+      color: #000;
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+      z-index: 1000;
+      visibility: hidden; /* يبدأ مخفي */
+      opacity: 0;
+      transition: visibility 0.3s, opacity 0.3s, transform 0.3s;
+    }
+    #scrollTopBtn.show {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #scrollTopBtn:hover {
+      background: #00b09b;
+    }
+  </style>
+</head>
 
 <body>
-
   <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
     <div class="preloader-inner">
@@ -45,199 +200,284 @@ https://www.facebook.com/store.iq.rd
   <!-- ***** Preloader End ***** -->
 
   <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
+  <header class="header-area header-sticky" data-aos="fade-down">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
-                        <img src="assets/images/logo.gif" alt="">
-                    </a>
-                    <!-- ***** Logo End ***** -->
-                    <!-- ***** Search End ***** -->
-                    <div class="search-input">
-                      <form id="search" action="#">
-                        <input type="text" placeholder="البحث ؟" id='searchText' name="searchKeyword" onkeypress="handle" />
-                        <i class="fa fa-search"></i>
-                      </form>
-                    </div>
-                    <!-- ***** Search End ***** -->
-                    <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-                        <li><a href="index.html">المنزل</a></li>
-                        <li><a href="Bestoffers.html">افضل العروض</a></li>
-                        <li><a href="Gift.html">الهداية</a></li>
-                        <li><a href="infoStore.html">حول المتجر<img src="assets/images/profile-header.jpg" alt=""></a></li>
-                    </ul>   
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-                    <!-- ***** Menu End ***** -->
-                </nav>
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="index.html" class="logo">
+              <img src="assets/images/logo.gif" alt="logo">
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Search Start ***** -->
+            <div class="search-input">
+              <form id="search" action="javascript:void(0);">
+                <input type="text" placeholder="البحث ؟" id="searchText" onkeyup="handleSearch()" />
+                <i class="fa fa-search"></i>
+              </form>
             </div>
+            <!-- ***** Search End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li><a href="index.html">المنزل</a></li>
+              <li><a href="Bestoffers.html">افضل العروض</a></li>
+              <li><a href="Gift.html">الهداية</a></li>
+              <li><a href="infoStore.html" class="active">حول المتجر <img src="assets/images/profile-header.jpg" alt=""></a></li>
+            </ul>   
+            <a class='menu-trigger'>
+              <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
         </div>
+      </div>
     </div>
   </header>
   <!-- ***** Header Area End ***** -->
 
-  <div class="container">
+  <div class="container page-content">
     <div class="row">
       <div class="col-lg-12">
         <div class="page-content">
 
-          <!-- ***** Banner Start ***** -->
+          <!-- ***** Banner/Profile Start ***** -->
           <div class="row">
             <div class="col-lg-12">
-              <div class="main-profile ">
+              <div class="main-profile" data-aos="fade-up">
                 <div class="row">
-                  <div class="col-lg-4">
-                    <img src="assets/images/profile.gif" alt="" style="border-radius: 23px;">
+                  <!-- صورة جانبية -->
+                  <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <img src="assets/images/profile.gif" alt="">
                   </div>
-                  <div class="col-lg-4 align-self-center">
+                  <!-- معلومات المتجر -->
+                  <div class="col-lg-4 align-self-center" data-aos="fade-up" data-aos-delay="200">
                     <div class="main-info header-text">
                       <span>Online</span>
                       <h4>STORE RD</h4>
-                      <p>لوحة المبيعات الخاصة في المتجر، * سوف يتم تجديتها تلقائيا</p>
-                      <div class="main-border-button">
-                        <br>: <a href="https://www.facebook.com/store.iq.rd" target="_blank" title="">الذهاب الئ متجر في فيس بوك ؟</a>
+                      <p>
+                        لوحة المبيعات الخاصة بالمتجر<br>
+                        * يتم تحديثها تلقائياً
+                      </p>
+                      <div class="main-border-button" style="margin-top: 10px;">
+                        <a href="https://www.facebook.com/store.iq.rd" target="_blank" title="">
+                          الذهاب إلى متجر الفيس بوك
+                        </a>
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-4 align-self-center">
-                    <ul>
-                      <li>عدد الطلبات لحد الان ؟<span>9722</span></li>
-                      <li>عدد الرسائل المستلمة<span>10200</span></li>
-                      <li>عدد الحسابات المطلوبة ؟ <span>9022</span></li>
-                      <li>عدد الطلبات المرفوضة  <span>78</span></li>
-                    </ul>
+                  <!-- إحصائيات وأرقام في مربعات 3D -->
+                  <div class="col-lg-4 align-self-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="row">
+                      <!-- مربع 1 -->
+                      <div class="col-12">
+                        <div class="stats-box">
+                          <h6>عدد الطلبات لحد الآن</h6>
+                          <h3>9,722</h3>
+                        </div>
+                      </div>
+                      <!-- مربع 2 -->
+                      <div class="col-12">
+                        <div class="stats-box">
+                          <h6>عدد الرسائل المستلمة</h6>
+                          <h3>10,200</h3>
+                        </div>
+                      </div>
+                      <!-- مربع 3 -->
+                      <div class="col-12">
+                        <div class="stats-box">
+                          <h6>عدد الحسابات المطلوبة</h6>
+                          <h3>9,022</h3>
+                        </div>
+                      </div>
+                      <!-- مربع 4 -->
+                      <div class="col-12">
+                        <div class="stats-box">
+                          <h6>عدد الطلبات المرفوضة</h6>
+                          <h3>78</h3>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="row">
+
+                <!-- معلومات إضافية عن ماذا يقدم المتجر -->
+                <div class="row" style="margin-top: 40px;">
                   <div class="col-lg-12">
                     <div class="clips">
                       <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-12" data-aos="zoom-in">
                           <div class="heading-section">
-                            <h4><em>(ماذا يقدم المتجر</em> للزبون ؟)</h4>
+                            <h4><em>ماذا يقدم المتجر</em> للزبون؟</h4>
                           </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6">
+
+                        <!-- عنصر 1 (الدعم الفني) -->
+                        <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="100">
                           <div class="item">
                             <div class="thumb">
-                              <img src="assets/images/clip-01.jpg" alt="" style="border-radius: 23px;">
+                              <img src="assets/images/clip-01.jpg" alt="">
                             </div>
                             <div class="down-content">
-                              <h4>الدعم الفني </h4>
-                              <span><i class="fa fa-eye"></i> 3500</span>
+                              <h4>الدعم الفني</h4>
+                              <div class="main-button" style="margin-top: 10px;">
+                                <a href="https://m.me/store.iq.rd" target="_blank">تواصل في فيسبوك</a>
+                              </div>
                             </div>
                           </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6">
+                        <!-- عنصر 2 (السرعة في التعامل) -->
+                        <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="200">
                           <div class="item">
                             <div class="thumb">
-                              <img src="assets/images/clip-02.jpg" alt="" style="border-radius: 23px;">
+                              <img src="assets/images/clip-02.jpg" alt="">
                             </div>
                             <div class="down-content">
-                              <h4>السرعة في التعامل </h4>
-                              <span><i class="fa fa-eye"></i> 3500</span>
+                              <h4>السرعة في التعامل</h4>
+                              <div class="main-button" style="margin-top: 10px;">
+                                <a href="https://discord.gg/yourDiscordServer" target="_blank">
+                                  تواصل في ديسكورد
+                                </a>
+                              </div>
                             </div>
                           </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6">
+                        <!-- عنصر 3 (الضمان الحقيقي) -->
+                        <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="300">
                           <div class="item">
                             <div class="thumb">
-                              <img src="assets/images/clip-03.jpg" alt="" style="border-radius: 23px;">
+                              <img src="assets/images/clip-03.jpg" alt="">
                             </div>
                             <div class="down-content">
-                              <h4>الضمان الحقيقي </h4>
-                              <span><i class="fa fa-eye"></i> 3500</span>
+                              <h4>الضمان الحقيقي</h4>
+                              <div class="main-button" style="margin-top: 10px;">
+                                <a href="https://wa.me/123456789" target="_blank">
+                                  تواصل في واتساب
+                                </a>
+                              </div>
                             </div>
                           </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6">
+                        <!-- عنصر 4 (الثقة) -->
+                        <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="400">
                           <div class="item">
                             <div class="thumb">
-                              <img src="assets/images/clip-04.jpg" alt="" style="border-radius: 23px;">
+                              <img src="assets/images/clip-04.jpg" alt="">
                             </div>
                             <div class="down-content">
-                              <h4>الثقة </h4>
-                              <span><i class="fa fa-eye"></i> 3500</span>
+                              <h4>الثقة</h4>
+                              <div class="main-button" style="margin-top: 10px;">
+                                <a href="https://m.me/store.iq.rd" target="_blank">
+                                  تواصل في فيسبوك
+                                </a>
+                              </div>
                             </div>
                           </div>
                         </div>
-                        <div class="col-lg-12">
+
+                        <!-- زر للرجوع للأعلى -->
+                        <div class="col-lg-12" data-aos="zoom-in" style="margin-top: 30px;">
                           <div class="main-button">
-                            <a href="#">الرجوع الئ اعلئ ؟</a>
+                            <a href="#top" onclick="scrollToTop()">الرجوع إلى أعلى؟</a>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                      </div> <!-- row -->
+                    </div> <!-- clips -->
+                  </div> <!-- col-lg-12 -->
+                </div> <!-- /row -->
+              </div> <!-- main-profile -->
+            </div> <!-- /col-lg-12 -->
           </div>
-          <!-- ***** Banner End ***** -->
+          <!-- ***** Banner/Profile End ***** -->
+
         </div>
       </div>
     </div>
   </div>
   
-  <footer>
+  <!-- ***** Footer Start ***** -->
+  <footer data-aos="fade-up">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <p>Copyright © 2022 <a href="https://www.facebook.com/anwar.rd.129" target="_blank" title="">ANO-RD</a> Cy. All rights reserved.
-          
-          <br>facebook: <a href= "https://www.facebook.com/store.iq.rd" target="_blank" title="">Store RD</a></p>
+          <p>
+            Copyright © 2022 
+            <a href="https://www.facebook.com/anwar.rd.129" target="_blank" title="">ANO-RD</a> Cy. All rights reserved.
+            <br>
+            facebook: 
+            <a href="https://www.facebook.com/store.iq.rd" target="_blank" title="">Store RD</a>
+          </p>
         </div>
       </div>
     </div>
   </footer>
+  <!-- ***** Footer End ***** -->
 
+  <!-- زر الصعود للأعلى -->
+  <button id="scrollTopBtn" onclick="scrollToTop()">
+    <i class="fa fa-chevron-up"></i>
+  </button>
 
   <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
   <script src="assets/js/isotope.min.js"></script>
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/tabs.js"></script>
   <script src="assets/js/popup.js"></script>
   <script src="assets/js/custom.js"></script>
 
+  <!-- مكتبة AOS للأنيميشن -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000, // مدة الحركة
+      offset: 50,     // المسافة قبل بدء الحركة
+    });
 
+    // زر الصعود للأعلى
+    var scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        scrollBtn.classList.add("show");
+      } else {
+        scrollBtn.classList.remove("show");
+      }
+    };
+    function scrollToTop() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    // دالة بحث افتراضية
+    function handleSearch() {
+      var text = document.getElementById('searchText').value.toLowerCase();
+      console.log("بحث عن:", text);
+      // يمكنك إضافة منطق بحث مخصص لو أردت
+    }
+  </script>
+
+  <!-- ==========  إضافة فيسبوك ماسنجر  ========== -->
+  <div id="fb-root"></div>
+  <div id="fb-customer-chat" class="fb-customerchat"></div>
+  <script>
+    var chatbox = document.getElementById('fb-customer-chat');
+    chatbox.setAttribute("page_id", "103743918039608");
+    chatbox.setAttribute("attribution", "biz_inbox");
+  </script>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        xfbml : true,
+        version : 'v14.0'
+      });
+    };
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/ar_AR/sdk/xfbml.customerchat.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
 </body>
-   <!-- Messenger المكون الإضافي "دردشة" Code -->
-    <div id="fb-root"></div>
-
-    <!-- Your المكون الإضافي "دردشة" code -->
-    <div id="fb-customer-chat" class="fb-customerchat">
-    </div>
-
-    <script>
-      var chatbox = document.getElementById('fb-customer-chat');
-      chatbox.setAttribute("page_id", "103743918039608");
-      chatbox.setAttribute("attribution", "biz_inbox");
-    </script>
-
-    <!-- Your SDK code -->
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          xfbml            : true,
-          version          : 'v14.0'
-        });
-      };
-
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/ar_AR/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-    </script>
 </html>
