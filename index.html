@@ -1,559 +1,576 @@
-<!--storerd html-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl"> 
+<head>
+  <meta name="google-site-verification" content="emrpEuaTTvCYN7o4SYtG8M183zHBMmT2mpAGO2Tv1_c" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Store RD</title>
+  
+  <!-- روابط الخطوط وأكواد الستايل -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/fontawesome.css">
+  <link rel="stylesheet" href="assets/css/templatemo-cyborg-gaming.css">
+  <link rel="stylesheet" href="assets/css/owl.css">
+  <link rel="stylesheet" href="assets/css/animate.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-  <head>
-<meta name="google-site-verification" content="emrpEuaTTvCYN7o4SYtG8M183zHBMmT2mpAGO2Tv1_c" />
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <title>Store RD</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-cyborg-gaming.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-<!--
-
-store rd
-
-https://www.facebook.com/store.iq.rd
-
--->
-  </head>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(135deg, #1f2122, #0f0f0f);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      position: relative;
+    }
+    .header-area {
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      width: 100%;
+      z-index: 999;
+      padding: 10px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+    .search-input form {
+      position: relative;
+    }
+    #searchText {
+      background: #1f1f1f;
+      color: #fff;
+      border: 1px solid #444;
+      padding: 8px 35px 8px 10px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+    #searchText:focus {
+      border-color: #04ffac;
+      outline: none;
+    }
+    .search-input i.fa-search {
+      position: absolute;
+      right: 10px;
+      top: 8px;
+      color: #888;
+    }
+    .page-content {
+      margin-top: 120px;
+    }
+    .item {
+      background: #27292a;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      perspective: 1000px;
+    }
+    .item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.6);
+    }
+    .item img {
+      border-radius: 10px;
+      max-width: 100%;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .item h4, .item h3 {
+      text-align: center;
+      margin: 5px 0;
+    }
+    .item h3 {
+      color: #04ffac;
+    }
+    .item ul {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+      color: #bbb;
+      margin-bottom: 0;
+    }
+    .item ul li {
+      display: inline-block;
+      margin: 0 4px;
+    }
+    .main-button a {
+      background: linear-gradient(45deg, #00b09b, #96c93d);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: inline-block;
+    }
+    .main-button a:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
+    .heading-section h1,
+    .heading-section h4 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .heading-section h1 {
+      font-size: 32px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    footer {
+      background: #111;
+      padding: 20px 0;
+      text-align: center;
+      margin-top: 30px;
+    }
+    footer p {
+      margin: 0;
+      color: #aaa;
+      font-size: 14px;
+    }
+    footer p a {
+      color: #04ffac;
+      text-decoration: none;
+    }
+    footer p a:hover {
+      text-decoration: underline;
+    }
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #04ffac;
+      color: #000;
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+      z-index: 1000;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0.3s, opacity 0.3s, transform 0.3s;
+    }
+    #scrollTopBtn.show {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #scrollTopBtn:hover {
+      background: #00b09b;
+    }
+    /* تحسين قسم معلومات حول الشراء */
+    .gaming-library .item {
+      background: #27292a;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .gaming-library .item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.5);
+    }
+    .gaming-library .item h5 {
+      font-size: 14px;
+      margin: 4px 0;
+    }
+    .gaming-library .item h5 span {
+      color: #04ffac;
+    }
+  </style>
+</head>
 
 <body>
-
-
-  <!-- ***** Preloader Start ***** -->
+  <!-- Preloader Start -->
   <div id="js-preloader" class="js-preloader">
     <div class="preloader-inner">
       <span class="dot"></span>
-      <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+      <div class="dots"><span></span><span></span><span></span></div>
     </div>
   </div>
-  <!-- ***** Preloader End ***** -->
+  <!-- Preloader End -->
 
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
-      <div class="container">
-          <div class="row">
-              <div class="col-12">
-                  <nav class="main-nav">
-                      <!-- ***** Logo Start ***** -->
-                      <a href="index.html" class="logo">
-                          <img src="assets/images/logo.gif" alt="">
-                      </a>
-                      <!-- ***** Logo End ***** -->
-                      <!-- ***** Search End ***** -->
-                      <div class="search-input">
-                          <form id="search" action="#">
-                              <input type="text" placeholder="البحث غير متوفر حاليا" id='searchText' name="searchKeyword" onkeypress="handle" />
-                              <i class="fa fa-search"></i>
-                          </form>
-                      </div>
-                      <!-- ***** Search End ***** -->
-                      <!-- ***** Menu Start ***** -->
-                      <ul class="nav">
-                          <li><a href="index.html" class="active">المنزل</a></li>
-                          <li><a href="Bestoffers.html">افضل العروض</a></li>
-                          <li><a href="Gift.html">الهداية</a></li>
-                          <li><a href="infoStore.html">حول المتجر <img src="assets/images/profile-header.jpg" alt=""></a></li>
-                      </ul>
-                      <a class='menu-trigger'>
-                          <span>Menu</span>
-                      </a>
-                      <!-- ***** Menu End ***** -->
-                  </nav>
-              </div>
-          </div>
-      </div>
+  <!-- Header Start -->
+  <header class="header-area header-sticky" data-aos="fade-down">
+    <div class="container">
+      <nav class="main-nav">
+        <a href="index.html" class="logo">
+          <img src="assets/images/logo.gif" alt="logo">
+        </a>
+        <div class="search-input">
+          <form id="search" action="javascript:void(0);">
+            <input type="text" placeholder="اكتب للبحث عن منتج..." id="searchText" onkeyup="filterProducts()" />
+            <i class="fa fa-search"></i>
+          </form>
+        </div>
+        <ul class="nav">
+          <li><a href="index.html" class="active">المنزل</a></li>
+          <li><a href="Bestoffers.html">افضل العروض</a></li>
+          <li><a href="Gift.html">الهداية</a></li>
+          <li><a href="infoStore.html">حول المتجر <img src="assets/images/profile-header.jpg" alt=""></a></li>
+        </ul>
+        <a class='menu-trigger'><span>Menu</span></a>
+      </nav>
+    </div>
   </header>
-  <!-- ***** Header Area End ***** -->
-  <div class="container">
+  <!-- Header End -->
+
+  <div class="container page-content">
     <div class="row">
       <div class="col-lg-12">
-        <div class="page-content">
+        <!-- Banner Start -->
+        <div class="main-banner" data-aos="fade-up">
+          <div class="row">
+            <div class="col-lg-7">
+              <div class="header-text">
+                <h4>(Store RD)</h4>
+                <h4><em></em></h4>
+                <div class="main-button">
+                  <a href="Bestoffers.html">افضل العروض</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Banner End -->
 
-          <!-- ***** Banner Start ***** -->
-          <div class="main-banner">
-            <div class="row">
-              <div class="col-lg-7">
-                <div class="header-text">
-                    <h4>(Store RD) اهلا بكم في</h4>
-                  <h4><em>!نقدم لكم افضل العروض الحصرية</em></h4>
-                  <div class="main-button">
-                    <a href="Bestoffers.html">افضل العروض </a>
+        <!-- Most Popular Start -->
+        <div class="most-popular">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="heading-section" data-aos="zoom-in">
+                <h1><em>(المنتجات المتوفرة)</em></h1>
+              </div>
+              <div class="row" id="productsContainer">
+                <!-- نسخ المنتجات بالكامل كما في الكود السابق هنا -->
+                <!-- مثال لمنتج واحد، كرر هذا الكود لكل منتج -->
+                <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="item" data-tilt>
+                    <img src="assets/images/11.jpg" alt="">
+                    <ul>
+                      <li><i class="fa fa-shopping-basket"></i>متوفر</li>
+                      <li><i class="*"></i></li>
+                    </ul>
+                    <h4>ديسكورد شهر كامل <br> 
+                      <h3>8,000 د.ع</h3>
+                    </h4>
+                    <div class="main-button"><a href="http://wa.me/9647711359997">شراء الان؟</a></div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <!-- ***** Banner End ***** -->
-
-          <!-- ***** Most Popular Start ***** -->
-          <div class="most-popular">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="heading-section">
-                  <h1><em>(المتجر)</em> </h1>
+                <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="item" data-tilt>
+                    <img src="assets/images/9.jpg" alt="">
+                    <ul>
+                      <li><i class="fa fa-shopping-basket"></i>متوفر</li>
+                      <li><i class="*"></i></li>
+                    </ul>
+                    <h4>نتفليكس شهر كامل <br> 
+                      <h3>4,000 د.ع</h3>
+                    </h4>
+                    <div class="main-button"><a href="http://wa.me/9647711359997">شراء الان؟</a></div>
+                  </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/popular-01.jpg" alt=""> <ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fab fa-asymmetrik"></i>PC+MOBILE</li>
-                            </ul>
-                            <h4>netflix<br> <h3> 3 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                            <ul>
-                                <
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/popular-02.jpg" alt=""><ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fab fa-asymmetrik"></i>PC+MOBILE</li>
-                            </ul>
-                            <h4>XBOX GAME 1 MOTH<br> <h3> 3  الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/popular-03.jpg" alt=""><ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fab fa-asymmetrik"></i>PC+MOBILE</li>
-                            </ul>
-                            <h4>Discord 3 months<br> <h3> 10 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div>
-					<div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/popular-04.jpg" alt=""> <ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fab fa-asymmetrik"></i>PC+MOBILE</li>
-                            </ul>
-                            <h4>VPN 1YERS<br> <h3> 10 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div><div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/popular-05.jpg" alt=""> <ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fab fa-asymmetrik"></i>PC+MOBILE</li>
-                            </ul>
-                            <h4>SPOTFIY<br> <h3> 5 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div><div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/popular-06.jpg" alt=""> <ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fab fa-asymmetrik"></i>PC+MOBILE</li>
-                            </ul>
-                            <h4>SOUND-CLOUD<br> <h3> 5 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div><div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/popular-07.jpg" alt=""> <ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fab fa-asymmetrik"></i>PC+MOBILE</li>
-                            </ul>
-                            <h4>CANVA 1-YERS<br> <h3> 10 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div><div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/popular-08.jpg" alt=""> <ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fab fa-asymmetrik"></i>PC+MOBILE</li>
-                            </ul>
-                            <h4>Sniper Elite 4<br> <h3> 10 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div><div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/popular-09.jpg" alt=""> <ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fa fa-television"></i>PC</li>
-                            </ul>
-                            <h4>Sniper Elite 4<br> <h3> 10 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div><div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/popular-10.jpg" alt=""> <ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fa fa-television"></i>pc</li>
-                            </ul>
-                            <h4>Among Us<br> <h3> 5 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div><div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/popular-11.jpg" alt=""> <ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fa fa-television"></i>PC</li>
-                            </ul>
-                            <h4>Call of Duty-3<br> <h3> 10 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div><div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/popular-12.jpg" alt=""> <ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fa fa-television"></i>pc</li>
-                            </ul>
-                            <h4>Call of Duty®: Black Ops<br> <h3> 10 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div><div class="col-lg-3 col-sm-6">
-                        <div class="item">
-						<h2 style="color:#ffff00" value;"><center> تخفيض موقت </center></h2>
-                            <img src="assets/images/popular-13.jpg" alt=""> <ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fa fa-television"></i>pc</li>
-                            </ul>
-                            <h4>Dead by Daylight<br> <h3> 8 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div><div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/popular-14.jpg" alt=""> <ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fa fa-television"></i>pc</li>
-                            </ul>
-                            <h4>Only Up!<br> <h3> 10 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div><div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/popular-15.jpg" alt=""> <ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fa fa-television"></i>pc</li>
-                            </ul>
-                            <h4>Far Cry® 5<br> <h3> 30 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div><div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/popular-16.jpg" alt=""> <ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fa fa-television"></i>عرض موقت</li>
-                            </ul>
-                            <h4>forza horizon 4<br> <h3> 8 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div><div class="col-lg-3 col-sm-6">
-                        <div class="item">
-						<h2 style="color:#008000" value;"><center> تخفيض موقت </center></h2>
-                            <img src="assets/images/popular-17.jpg" alt=""> <ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fas fa-tag"></i>عرض موقت</li>
-                            </ul>
-                            <h4>forza horizon 5 <br> <h3> 20 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div><div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/popular-18.jpg" alt=""> <ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fa fa-television"></i>pc</li>
-                            </ul>
-                            <h4>Portal 2<br> <h3> 8 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div><div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/popular-19.jpg" alt=""> <ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fa fa-television"></i>pc</li>
-                            </ul>
-                            <h4>Wallpaper Engine<br> <h3> 8 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div><div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/popular-20.jpg" alt=""> <ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fa fa-television"></i>pc</li>
-                            </ul>
-                            <h4>payday 2<br> <h3> 5 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div><div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/popular-21.jpg" alt=""> <ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fa fa-television"></i>pc</li>
-                            </ul>
-                            <h4>squad<br> <h3> 20 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div><div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/popular-22.jpg" alt=""> <ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fa fa-television"></i>PC</li>
-                            </ul>
-                            <h4>RUST<br> <h3> 20 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div><div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/popular-23.jpg" alt=""> <ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fa fa-television"></i>PC</li>
-                            </ul>
-                            <h4>ghost recon <br> <h3> 20 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div><div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/popular-24.jpg" alt=""> <ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fa fa-television"></i>PC</li>
-                            </ul>
-                            <h4>dying light 2<br> <h3> 40 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div><div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/popular-25.jpg" alt=""> <ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fa fa-television"></i>PC</li>
-                            </ul>
-                            <h4>FC24<br> <h3> 70 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div><div class="col-lg-3 col-sm-6">
-                        <div class="item">
-						<h2 style="color:#008000" value;"><center> تخفيض موقت </center></h2>
-                            <img src="assets/images/popular-26.jpg" alt=""> <ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fa fa-television"></i>PC</li>
-                            </ul>
-                            <h4>GTA5<br> <h3> 35 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div><div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/popular-27.jpg" alt=""> <ul>
-                                <li><i class="fas fa-vote-yea"></i>متوفر</li>
-                                <li><i class="fa fa-television"></i>PC</li>
-                            </ul>
-                            <h4>rainbow six siege<br> <h3> 15 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/popular-28.jpg" alt=""><ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fa fa-television"></i>PC</li>
-                            </ul>
-                            <h4>Sekiro™ <br> <h3> 20 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div>
-                                    </div>
-                                </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="item">
-						<h2 style="color:#008000" value;"><center> تخفيض موقت </center></h2>
-                            <img src="assets/images/popular-29.jpg" alt=""><ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fa fa-television"></i>PC</li>
-                            </ul>
-                            <h4>Hogwarts Legacy<br> <h3> 30 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="item">
-						<h2 style="color:#008000" value;"><center> تخفيض موقت </center></h2>
-                            <img src="assets/images/popular-30.jpg" alt=""><ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fa fa-television"></i>PC</li>
-                            </ul>
-                            <h4> Marvel’s Spider-Man<br> <h3>35 الف</h3>  </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div> 
-					<div class="col-lg-3 col-sm-6">
-                        <div class="item">
-						<h2 style="color:#008000" value;"><center> تخفيض موقت </center></h2>
-                            <img src="assets/images/popular-31.jpg" alt=""><ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fa fa-television"></i>PC</li>
-                            </ul>
-                            <h4> The Witcher® 3<br> <h3>14 الف</h3>  </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div>
-					<div class="col-lg-3 col-sm-6"> 
-                        <div class="item">
-                            <img src="assets/images/popular-32.jpg" alt=""><ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fa fa-television"></i>PC</li>
-                            </ul>
-                            <h4> Shadow Tomb Raider<br> <h3>15 الف</h3>  <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="item">
-						<h2 style="color:#008000" value;"><center> تخفيض موقت </center></h2>
-                            <img src="assets/images/popular-33.jpg" alt=""><ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fa fa-shopping-basket"></i>pc</li>
-                            </ul>
-                            <h4>Sniper Elite 5<br> <h3>10 الف</h3> </h4>  <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/popular-34.jpg" alt=""><ul> 
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fa fa-shopping-basket"></i>pc</li>
-                            </ul>
-                            <h4>Euro Truck  2<br> <h3> 18 الف </h3> </h4>   <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/popular-36.jpg" alt=""><ul> 
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fa fa-shopping-basket"></i>pc</li>
-                            </ul>
-                            <h4>payday 3<br> <h3>55 الف </h3> </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div>
-					<div class="col-lg-3 col-sm-6">
-                        <div class="item">
-						<h2 style="color:#008000" value;"><center> تخفيض موقت </center></h2>
-                            <img src="assets/images/popular-35.jpg" alt=""><ul>
-                                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                                <li><i class="fa fa-television"></i>PC</li>
-                            </ul>
-                            <h4> Back 4 Blood<br> <h3>7 الف</h3>  </h4> <div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                        </div>
-                    </div>
-					<div class="col-lg-3 col-sm-6">
-                        <div class="item">
-                            <img src="assets/images/vr.gif" alt=""><ul>
-                                <li><i class="fa fa-shopping-basket"></i>غير متوفر</li>
-                                <li><i class=""></i>??</li>
-                            </ul>
-                            <h4> coming soon<br> <h3>قادم قريبا</h3>  </h4> 
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="item"> 
-                            <img src="assets/images/vr.gif" alt=""> <ul>
-                                <li><i class="fa fa-shopping-basket"></i>غير متوفر</li>
-                                <li><i class=""></i>??</li>
-                            </ul>
-                            <h4>coming soon<br> <h3> قادم قريبا  </h3> </h4> </h4>  
-                        </div> 
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="main-button">
-                            <a href="Bestoffers.html"><em>افضل الع</em>روض ؟</a>
-                        </div>
-                    </div>
+                <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="item" data-tilt>
+                    <img src="assets/images/8.jpg" alt="">
+                    <ul>
+                      <li><i class="fa fa-shopping-basket"></i>متوفر</li>
+                      <li><i class="*"></i></li>
+                    </ul>
+                    <h4>برايم فيديو شهر كامل<br> 
+                      <h3>4,000 د.ع</h3>
+                    </h4>
+                    <div class="main-button"><a href="http://wa.me/9647711359997">شراء الان؟</a></div>
+                  </div>
                 </div>
+                <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="item" data-tilt>
+                    <img src="assets/images/10.jpg" alt="">
+                    <ul>
+                      <li><i class="fa fa-shopping-basket"></i>متوفر</li>
+                      <li><i class="*"></i></li>
+                    </ul>
+                    <h4>شاهد اشتراك شامل<br> 
+                      <h3>4,000 د.ع</h3>
+                    </h4>
+                    <div class="main-button"><a href="http://wa.me/9647711359997">شراء الان؟</a></div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="item" data-tilt>
+                    <img src="assets/images/12.jpg" alt="">
+                    <ul>
+                      <li><i class="fa fa-shopping-basket"></i>متوفر</li>
+                      <li><i class="*"></i></li>
+                    </ul>
+                    <h4>ديسكورد 3 اشهر<br> 
+                      <h3>15,000 د.ع</h3>
+                    </h4>
+                    <div class="main-button"><a href="http://wa.me/9647711359997">شراء الان؟</a></div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="item" data-tilt>
+                    <img src="assets/images/13.jpg" alt="">
+                    <ul>
+                      <li><i class="fa fa-shopping-basket"></i>متوفر</li>
+                      <li><i class="*"></i></li>
+                    </ul>
+                    <h4>جات جي بي تي بــلاص<br> 
+                      <h3>5,000 د.ع</h3>
+                    </h4>
+                    <div class="main-button"><a href="http://wa.me/9647711359997">شراء الان؟</a></div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="item" data-tilt>
+                    <img src="assets/images/13.jpg" alt="">
+                    <ul>
+                      <li><i class="fa fa-shopping-basket"></i>متوفر</li>
+                      <li><i class="*"></i></li>
+                    </ul>
+                    <h4>جي بي تي بزنزس<br> 
+                      <h3>10,000 د.ع</h3>
+                    </h4>
+                    <div class="main-button"><a href="http://wa.me/9647711359997">شراء الان؟</a></div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="item" data-tilt>
+                    <img src="assets/images/14.jpg" alt="">
+                    <ul>
+                      <li><i class="fa fa-shopping-basket"></i>متوفر</li>
+                      <li><i class="*"></i></li>
+                    </ul>
+                    <h4>يوتيوب برايم شهري<br> 
+                      <h3>5,000 د.ع</h3>
+                    </h4>
+                    <div class="main-button"><a href="http://wa.me/9647711359997">شراء الان؟</a></div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="item" data-tilt>
+                    <img src="assets/images/15.jpg" alt="">
+                    <ul>
+                      <li><i class="fa fa-shopping-basket"></i>متوفر</li>
+                      <li><i class="*"></i></li>
+                    </ul>
+                    <h4>سبوتفاي شهري<br> 
+                      <h3>5,000 د.ع</h3>
+                    </h4>
+                    <div class="main-button"><a href="http://wa.me/9647711359997">شراء الان؟</a></div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="item" data-tilt>
+                    <img src="assets/images/16.jpg" alt="">
+                    <ul>
+                      <li><i class="fa fa-shopping-basket"></i>متوفر</li>
+                      <li><i class="*"></i></li>
+                    </ul>
+                    <h4> كريتف كلاود شهري<br> 
+                      <h3>5,000 د.ع</h3>
+                    </h4>
+                    <div class="main-button"><a href="http://wa.me/9647711359997">شراء الان؟</a></div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="item" data-tilt>
+                    <img src="assets/images/17.jpg" alt="">
+                    <ul>
+                      <li><i class="fa fa-shopping-basket"></i>متوفر</li>
+                      <li><i class="*"></i></li>
+                    </ul>
+                    <h4>نورد في بي ان شهري<br> 
+                      <h3>3,000 د.ع</h3>
+                    </h4>
+                    <div class="main-button"><a href="http://wa.me/9647711359997">شراء الان؟</a></div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="item" data-tilt>
+                    <img src="assets/images/18.jpg" alt="">
+                    <ul>
+                      <li><i class="fa fa-shopping-basket"></i>متوفر</li>
+                      <li><i class="*"></i></li>
+                    </ul>
+                    <h4>انمي شهري<br> 
+                      <h3>5,000 د.ع</h3>
+                    </h4>
+                    <div class="main-button"><a href="http://wa.me/9647711359997">شراء الان؟</a></div>
+                  </div>
+                </div>
+                <!-- أضف باقي المنتجات بنفس النمط -->
               </div>
             </div>
           </div>
-          <!-- ***** Most Popular End ***** -->
-
-          <!-- ***** Gaming Library Start ***** -->
-          <div class="gaming-library">
-            <div class="col-lg-12">
-              <div class="heading-section">
-                <h4><em>(معلومات </em> حول الشراء) </h4>
-              </div>
-              <div class="item">
-                <ul>
-                  <li><img src="assets/images/game-01.jpg" alt="" class="templatemo-item"></li>
-                  <li><h4>نتفليكس</h4><span>3 الف</span></li>
-                  <li><h4> مدة الاشتراك </h4><span>شهر كامل</span></li>
-                  <li><h4>الجودة</h4><span>4k</span></li>
-                  <li><h4>الضمان</h4><span>شهر كامل</span></li>
-                  <li><div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-              </div>
-              <div class="item">
-                <ul>
-                  <li><img src="assets/images/game-02.jpg" alt="" class="templatemo-item"></li>
-                  <li><h4>اكس بوكس كيم باس</h4><span>1 الف </span></li>
-                  <li><h4>مدة الاشتراك</h4><span>شهر كامل</span></li>
-                  <li><h4>الخدمة</h4><span>التمت </span></li>
-                  <li><h4>الضمان</h4><span>28 يوم </span></li>
-                  <li><div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-              </div>
-              <div class="item last-item">
-                <ul>
-                  <li><img src="assets/images/game-03.jpg" alt="" class="templatemo-item"></li>
-                  <li><h4>في بي ان</h4><span>5 الف </span></li>
-                  <li><h4>مدة الاشتراك</h4><span>6 اشهر</span></li>
-                  <li><h4>الخدمة</h4><span>اكثر من 15 دولة</span></li>
-                  <li><h4>الضمان</h4><span>6 اشهر </span></li>
-                  <li><div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-              </div>
-              <div class="item">
-                <ul>
-                  <li><img src="assets/images/popular-04.jpg" alt="" class="templatemo-item"></li>
-                  <li><h4>فورت نايت</h4><span>15 الف  </span></li>
-                  <li><h4>مدة الاشتراك</h4><span>غير محدود</span></li>
-                  <li><h4>الخدمة</h4><span>نقود فورت نايت</span></li>
-                  <li><h4>الضمان</h4><span> مدة الحياة </span></li>
-                  <li><div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-              </div>
-              <div class="item"><div class="item">
-                <ul>
-                  <li><img src="assets/images/popular-222.jpg" alt="" class="templatemo-item"></li>
-                  <li><h4>جميع العاب كومبيوتر</h4><span>حسب سعر لعبة </span></li>
-                  <li><h4>مدة الاشتراك</h4><span>مدة الحياة</span></li>
-                  <li><h4>الخدمة</h4><span> شراء العاب  </span></li>
-                  <li><h4>الضمان</h4><span>مدة الحياة </span></li>
-                  <li><div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-              </div>
-                <ul>
-                  <li><img src="assets/images/popular-06.jpg" alt="" class="templatemo-item"></li>
-                  <li><h4>سبو تيفاي</h4><span>6 الف </span></li>
-                  <li><h4>مدة الاشتراك</h4><span>شهر كامل</span></li>
-                  <li><h4>الخدمة</h4><span> برايم </span></li>
-                  <li><h4>الضمان</h4><span>30 يوم </span></li>
-                  <li><div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-              </div>
-              <div class="item">
-                <ul>
-                  <li><img src="assets/images/popular-07.jpg" alt="" class="templatemo-item"></li>
-                  <li><h4>ساوند كلاود</h4><span>3 الف </span></li>
-                  <li><h4>مدة الاشتراك</h4><span>شهر كامل</span></li>
-                  <li><h4>الخدمة</h4><span> برايم </span></li>
-                  <li><h4>الضمان</h4><span>30 يوم </span></li>
-                  <li><div class="main-button"><a href="https://m.me/store.iq.rd">شراء الان ؟</a></div>
-                </ul>
-              </div>
-            </div>
-            <div class="col-lg-12">
-              <div class="main-button">
-                <a href="infoStore.html"<em>من نح</em>ن؟</a>
-              </div>
-            </div>
-          </div>
-          <!-- ***** Gaming Library End ***** -->
         </div>
+        <!-- Most Popular End -->
+
+        <!-- Gaming Library Start -->
+        <div class="gaming-library" data-aos="fade-up" style="margin-top: 60px;">
+          <div class="col-lg-12">
+            <div class="heading-section">
+              <h4><em>(معلومات</em> حول الشراء)</h4>
+            </div>
+          </div>
+          <div class="row">
+            <!-- أدخل هنا جميع المنتجات مع معلومات الشراء بتنسيق البطاقة -->
+            <!-- مثال على منتج ضمن قسم معلومات حول الشراء -->
+            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="item" data-tilt>
+                <img src="assets/images/11.jpg" alt="">
+                <h4>ديسكورد نيتور شهري</h4>
+                <h5>السعر: <span>8,000 د.ع</span></h5>
+                <h5>مدة الاشتراك: <span>شهر كامل علئ حسابك الخاص</span></h5>
+                <h5>الاشتراك: <span>كيمنك مع 2 بوست</span></h5>
+                <h5>الضمان: <span>شهر كامل</span></h5>
+                <p style="font-size: 13px; color: #ccc;">ينتهي العرض في: 31 ديسمبر 2025</p>
+                <div class="main-button">
+                  <a href="https://m.me/store.iq.rd">شراء الان؟</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="item" data-tilt>
+                <img src="assets/images/9.jpg" alt="">
+                <h4>نتفليكس</h4>
+                <h5>السعر: <span>4,000 د.ع</span></h5>
+                <h5>مدة الاشتراك: <span>شهر كامل</span></h5>
+                <h5>الجودة: <span>4K</span></h5>
+                <h5>الضمان: <span>شهر كامل</span></h5>
+                <p style="font-size: 13px; color: #ccc;">ينتهي العرض في: 31 ديسمبر 2025</p>
+                <div class="main-button">
+                  <a href="https://m.me/store.iq.rd">شراء الان؟</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="item" data-tilt>
+                <img src="assets/images/8.jpg" alt="">
+                <h4>امزون برايم شهري</h4>
+                <h5>السعر: <span>4,000 د.ع</span></h5>
+                <h5>مدة الاشتراك: <span>شهر كامل</span></h5>
+                <h5>الجودة: <span>4K</span></h5>
+                <h5>الضمان: <span>شهر كامل</span></h5>
+                <p style="font-size: 13px; color: #ccc;">ينتهي العرض في: 31 ديسمبر 2025</p>
+                <div class="main-button">
+                  <a href="https://m.me/store.iq.rd">شراء الان؟</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="item" data-tilt>
+                <img src="assets/images/10.jpg" alt="">
+                <h4>شاهد الشامل</h4>
+                <h5>السعر: <span>4,000 د.ع</span></h5>
+                <h5>مدة الاشتراك: <span>شهر كامل</span></h5>
+                <h5>الجودة: <span>4K</span></h5>
+                <h5>الضمان: <span>شهر كامل</span></h5>
+                <p style="font-size: 13px; color: #ccc;">ينتهي العرض في: 31 ديسمبر 2025</p>
+                <div class="main-button">
+                  <a href="https://m.me/store.iq.rd">شراء الان؟</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="item" data-tilt>
+                <img src="assets/images/12.jpg" alt="">
+                <h4>ديسكورد 3 اشهر</h4>
+                <h5>السعر: <span>5,000 د.ع</span></h5>
+                <h5>مدة الاشتراك: <span>3 اشهري</span></h5>
+                <h5>الحساب: <span>علئ حساب جديد فقط</span></h5>
+                <h5>الضمان: <span>3 اشهر </span></h5>
+                <p style="font-size: 13px; color: #ccc;">ينتهي العرض في: 31 ديسمبر 2025</p>
+                <div class="main-button">
+                  <a href="https://m.me/store.iq.rd">شراء الان؟</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="item" data-tilt>
+                <img src="assets/images/13.jpg" alt="">
+                <h4>جات جي بي تي </h4>
+                <h5>السعر: <span>5,000 د.ع</span></h5>
+                <h5>مدة الاشتراك: <span>شهر كامل</span></h5>
+                <h5>التفعيل: <span>علئ حساب جاهز </span></h5>
+                <h5>الضمان: <span>شهر كامل</span></h5>
+                <p style="font-size: 13px; color: #ccc;">ينتهي العرض في: 31 ديسمبر 2025</p>
+                <div class="main-button">
+                  <a href="https://m.me/store.iq.rd">شراء الان؟</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="item" data-tilt>
+                <img src="assets/images/14.jpg" alt="">
+                <h4>يوتيوب برايم</h4>
+                <h5>السعر: <span>5,000 د.ع</span></h5>
+                <h5>مدة الاشتراك: <span>شهر كامل</span></h5>
+                <h5>التفعيل: <span>عن طريق ارسال رابط دعوة </span></h5>
+                <h5>الضمان: <span>شهر كامل</span></h5>
+                <p style="font-size: 13px; color: #ccc;">ينتهي العرض في: 31 ديسمبر 2025</p>
+                <div class="main-button">
+                  <a href="https://m.me/store.iq.rd">شراء الان؟</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="item" data-tilt>
+                <img src="assets/images/15.jpg" alt="">
+                <h4>سبتوفاي شهري</h4>
+                <h5>السعر: <span>5,000 د.ع</span></h5>
+                <h5>مدة الاشتراك: <span>شهر كامل</span></h5>
+                <h5>التفعيل: <span>حساب جاهز لل استخدام</span></h5>
+                <h5>الضمان: <span>شهر كامل</span></h5>
+                <p style="font-size: 13px; color: #ccc;">ينتهي العرض في: 31 ديسمبر 2025</p>
+                <div class="main-button">
+                  <a href="https://m.me/store.iq.rd">شراء الان؟</a>
+                </div>
+              </div>
+            </div>
+            <!-- كرر البنية أعلاه لجميع المنتجات في قسم معلومات حول الشراء -->
+          </div>
+        </div>
+        <!-- Gaming Library End -->
+
       </div>
     </div>
   </div>
-  
-  <footer>
+
+  <!-- Footer Start -->
+  <footer data-aos="fade-up">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <p>Copyright © 2022 <a href="https://www.facebook.com/anwar.rd.129" target="_blank" title="">ANO-RD</a> Cy. All rights reserved. 
-          
-          <br>facebook: <a href="https://www.facebook.com/store.iq.rd" target="_blank" title="">Store RD</a></p>
+          <p>
+            Copyright © 2022 
+            <a href="https://www.facebook.com/anwar.rd.129" target="_blank" title="">ANO-RD</a> Cy. All rights reserved.
+            <br>facebook:
+            <a href="https://www.facebook.com/store.iq.rd" target="_blank" title="">Store RD</a>
+          </p>
         </div>
       </div>
     </div>
   </footer>
+  <!-- Footer End -->
 
+  <!-- زر الصعود للأعلى -->
+  <button id="scrollTopBtn" onclick="scrollToTop()">
+    <i class="fa fa-chevron-up"></i>
+  </button>
 
   <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
   <script src="assets/js/isotope.min.js"></script>
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/tabs.js"></script>
@@ -561,38 +578,66 @@ https://www.facebook.com/store.iq.rd
   <script src="assets/js/custom.js"></script>
   <script src="assets/js/particles.min.js"></script>
   <script src="assets/js/app.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
+  <!-- VanillaTilt.js لإضافة تأثير 3D -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+  
+  <script>
+    AOS.init({
+      duration: 1000,
+      offset: 50
+    });
 
+    var scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        scrollBtn.classList.add("show");
+      } else {
+        scrollBtn.classList.remove("show");
+      }
+    };
+    function scrollToTop() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
 
+    function filterProducts() {
+      var input = document.getElementById("searchText");
+      var filter = input.value.toLowerCase();
+      console.log("بحث عن:", filter);
+      // إضافة منطق البحث حسب الحاجة
+    }
+
+    // تطبيق تأثير VanillaTilt على جميع العناصر التي تحمل الصنف "item"
+    VanillaTilt.init(document.querySelectorAll(".item"), {
+      max: 15,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.2,
+    });
+  </script>
+
+  <div id="fb-root"></div>
+  <div id="fb-customer-chat" class="fb-customerchat"></div>
+  <script>
+    var chatbox = document.getElementById('fb-customer-chat');
+    chatbox.setAttribute("page_id", "103743918039608");
+    chatbox.setAttribute("attribution", "biz_inbox");
+  </script>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        xfbml            : true,
+        version          : 'v14.0'
+      });
+    };
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/ar_AR/sdk/xfbml.customerchat.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
 </body>
-   <!-- Messenger المكون الإضافي "دردشة" Code -->
-    <div id="fb-root"></div>
-
-    <!-- Your المكون الإضافي "دردشة" code -->
-    <div id="fb-customer-chat" class="fb-customerchat">
-    </div>
-
-    <script>
-      var chatbox = document.getElementById('fb-customer-chat');
-      chatbox.setAttribute("page_id", "103743918039608");
-      chatbox.setAttribute("attribution", "biz_inbox");
-    </script>
-
-    <!-- Your SDK code -->
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          xfbml            : true,
-          version          : 'v14.0'
-        });
-      };
-
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/ar_AR/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-    </script>
 </html>
