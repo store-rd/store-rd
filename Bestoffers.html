@@ -1,36 +1,222 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Best-offers Store RD</title>
 
-  <head>
+  <!-- الروابط وأكواد الستايل -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/fontawesome.css">
+  <link rel="stylesheet" href="assets/css/templatemo-cyborg-gaming.css">
+  <link rel="stylesheet" href="assets/css/animate.css">
+  <!-- مكتبة Swiper بدلًا من Owl Carousel -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+  <!-- AOS للأنيميشن -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      position: relative;
+    }
+    /* الهيدر */
+    .header-area {
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(5px);
+      position: fixed;
+      width: 100%;
+      z-index: 999;
+    }
+    /* نجعل الشعار في الوسط */
+    .main-nav .logo {
+      margin: 0 auto;
+      text-align: center;
+      display: block;
+    }
+    .main-nav .logo img {
+      max-width: 120px; /* يمكنك تصغير أو تكبير اللوغو */
+    }
+    /* جعل القوائم والبحث موزعة حول الشعار */
+    .main-nav .nav,
+    .main-nav .search-input {
+      position: relative;
+    }
+    .search-input form {
+      position: relative;
+    }
+    #searchText {
+      background: #1f1f1f;
+      color: #fff;
+      border: 1px solid #444;
+      padding: 8px 35px 8px 10px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+    #searchText:focus {
+      border-color: #04ffac;
+      outline: none;
+    }
+    .search-input i.fa-search {
+      position: absolute;
+      right: 10px;
+      top: 8px;
+      color: #888;
+    }
+    /* توزيع عناصر القائمة حول الشعار إذا أردت:
+       لكن بشكل افتراضي تبقى يمين ويسار 
+       يمكنك تخصيص أكثر باستخدام Flex */
+    /* المسافة أسفل الهيدر */
+    .page-content {
+      margin-top: 120px;
+    }
+    /* تنسيقات البطاقات */
+    .item {
+      background: #1c1c1c;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      perspective: 1000px;
+    }
+    .item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+    }
+    .item img {
+      border-radius: 10px;
+      max-width: 100%;
+      display: block;
+      margin: 0 auto 10px auto;
+    }
+    .item h4 {
+      font-size: 15px;
+      margin: 6px 0;
+      text-align: center;
+    }
+    .item h3 {
+      color: #04ffac;
+      margin: 5px 0;
+      display: inline-block;
+    }
+    .item ul {
+      list-style: none;
+      padding: 0;
+      margin: 6px 0;
+      text-align: center;
+      color: #bbb;
+    }
+    .item ul li {
+      display: inline-block;
+      margin: 0 4px;
+    }
+    /* الأزرار */
+    .main-button a {
+      background: linear-gradient(45deg, #00b09b, #96c93d);
+      color: #fff !important;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: inline-block;
+    }
+    .main-button a:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+      text-decoration: none;
+    }
+    .heading-section h4 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    /* الفوتر */
+    footer {
+      background: #111;
+      padding: 20px 0;
+      text-align: center;
+    }
+    footer p {
+      margin: 0;
+      color: #aaa;
+      font-size: 14px;
+    }
+    footer p a {
+      color: #04ffac;
+      text-decoration: none;
+    }
+    footer p a:hover {
+      text-decoration: underline;
+    }
+    /* زر الصعود للأعلى */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #04ffac;
+      color: #000;
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+      z-index: 1000;
+      visibility: hidden; 
+      opacity: 0;
+      transition: visibility 0.3s, opacity 0.3s, transform 0.3s;
+    }
+    #scrollTopBtn.show {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #scrollTopBtn:hover {
+      background: #00b09b;
+    }
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <title>Best-offers Store RD</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-cyborg-gaming.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-<!--
-
-store rd
-
-https://www.facebook.com/store.iq.rd
-
--->
-  </head>
+    /* تنسيقات Swiper */
+    .swiper {
+      width: 100%;
+      position: relative;
+    }
+    .swiper-slide {
+      background: #1c1c1c;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      perspective: 1000px;
+      padding: 15px;
+    }
+    .swiper-slide:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+    }
+    .swiper-slide .thumb img {
+      border-radius: 10px;
+      max-width: 100%;
+      display: block;
+      margin: 0 auto 10px auto;
+    }
+    .swiper-button-next, .swiper-button-prev {
+      color: #04ffac; /* لون الأسهم */
+    }
+    .swiper-pagination-bullet {
+      background: #04ffac; /* لون النقاط */
+    }
+  </style>
+</head>
 
 <body>
-
   <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
     <div class="preloader-inner">
@@ -45,391 +231,447 @@ https://www.facebook.com/store.iq.rd
   <!-- ***** Preloader End ***** -->
 
   <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
+  <header class="header-area header-sticky" data-aos="fade-down">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
-                        <img src="assets/images/logo.gif" alt="">
-                    </a>
-                    <!-- ***** Logo End ***** -->
-                    <!-- ***** Search End ***** -->
-                    <div class="search-input">
-                      <form id="search" action="#">
-                        <input type="text" placeholder="البحث ؟" id='searchText' name="searchKeyword" onkeypress="handle" />
-                        <i class="fa fa-search"></i>
-                      </form>
-                    </div>
-                    <!-- ***** Search End ***** -->
-                    <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-                        <li><a href="index.html">المنزل</a></li>
-                        <li><a href="Bestoffers.html" class="active">افضل العروض</a></li>
-                        <li><a href="Gift.html">الهداية</a></li>
-                        <li><a href="infoStore.html">حول المتجر<img src="assets/images/profile-header.jpg" alt=""></a></li>
-                    </ul>   
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-                    <!-- ***** Menu End ***** -->
-                </nav>
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav d-flex justify-content-center align-items-center">
+            <!-- الشعار في المنتصف -->
+            <a href="index.html" class="logo">
+              <img src="assets/images/logo.gif" alt="logo">
+            </a>
+            <!-- بحث وقائمة قد تضعها يمين أو يسار الشعار -->
+            <!-- إذا أردت توزيع أفضل، يمكن استخدام Flex columns أو أكواد إضافية -->
+            <div class="search-input" style="position:absolute; left: 15px; top:15px;">
+              <form id="search" action="javascript:void(0);">
+                <input type="text" placeholder="البحث ؟" id="searchText"/>
+                <i class="fa fa-search"></i>
+              </form>
             </div>
+            <ul class="nav" style="position:absolute; right:15px; top:15px;">
+              <li><a href="index.html">المنزل</a></li>
+              <li><a href="Bestoffers.html" class="active">افضل العروض</a></li>
+              <li><a href="Gift.html">الهداية</a></li>
+              <li><a href="infoStore.html">حول المتجر <img src="assets/images/profile-header.jpg" alt=""></a></li>
+            </ul>
+            <!-- زر لقوائم الجوال -->
+            <a class="menu-trigger">
+              <span>Menu</span>
+            </a>
+          </nav>
         </div>
+      </div>
     </div>
   </header>
   <!-- ***** Header Area End ***** -->
 
-  <div class="container">
+  <div class="container page-content">
     <div class="row">
       <div class="col-lg-12">
-        <div class="page-content">
 
-          <!-- ***** Featured Games Start ***** -->
-          <div class="row">
-            <div class="col-lg-8">
-              <div class="featured-games header-text">
-                <div class="heading-section">
-                  <h4><em>( افضل </em>العروض !)</h4>
-                </div>
-                <div class="owl-features owl-carousel">
-                  <div class="item">
+        <!-- ***** قسم أفضل العروض (سلايدر) باستخدام Swiper ***** -->
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-8">
+            <div class="featured-games header-text">
+              <div class="heading-section">
+                <h4><em>افضل</em> العروض !</h4>
+              </div>
+
+              <!-- سلايدر Swiper -->
+              <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <!-- شريحة 1 -->
+                  <div class="swiper-slide">
                     <div class="thumb">
                       <img src="assets/images/featured-01.jpg" alt="">
-                      <div class="hover-effect">
-                        <h6>عرض موقت</h6>
-                      </div>
+                      <div class="hover-effect"><h6>عرض موقت</h6></div>
                     </div>
-                    <h4>netflix<br><span>3 اسيا</span></h4>
+                    <!-- اجعل النص في سطر واحد -->
+                    <h4>Netflix <span style="color: #04ffac;">(3 اسيا)</span></h4>
                     <ul>
                       <li><i class="fa fa-star"></i> 5.0</li>
                       <li><i class="fa fa-star"></i> 850 Buy</li>
                     </ul>
                   </div>
-                  <div class="item">
+                  <!-- شريحة 2 -->
+                  <div class="swiper-slide">
                     <div class="thumb">
                       <img src="assets/images/steamoffline1.gif" alt="">
-                      <div class="hover-effect">
-                        <h6>عرض موقت</h6>
-                      </div>
+                      <div class="hover-effect"><h6>عرض موقت</h6></div>
                     </div>
-                    <h4>حسابات ستيم اوف لاين <br><span>1 اسيا</span></h4>
+                    <h4>حسابات ستيم اوف لاين <span style="color: #04ffac;">(1 اسيا)</span></h4>
                     <ul>
                       <li><i class="fa fa-star"></i> 4.8</li>
                       <li><i class="fa fa-star"></i> 41.2</li>
                     </ul>
                   </div>
-                  <div class="item">
+                  <!-- شريحة 3 -->
+                  <div class="swiper-slide">
                     <div class="thumb">
                       <img src="assets/images/dis1.gif" alt="">
-                      <div class="hover-effect">
-                        <h6>عرض موقت</h6>
-                      </div>
+                      <div class="hover-effect"><h6>عرض موقت</h6></div>
                     </div>
-                    <h4>discord<br><span>10 اسيا </span></h4>
+                    <h4>Discord <span style="color: #04ffac;">(10 اسيا)</span></h4>
                     <ul>
                       <li><i class="fa fa-star"></i> 4.6</li>
                       <li><i class="fa fa-star"></i> 20.0</li>
                     </ul>
                   </div>
-                  <div class="item">
+                  <!-- شريحة 4 -->
+                  <div class="swiper-slide">
                     <div class="thumb">
                       <img src="assets/images/t1.gif" alt="">
-                      <div class="hover-effect">
-                        <h6>عرض موقت</h6>
-                      </div>
+                      <div class="hover-effect"><h6>عرض موقت</h6></div>
                     </div>
-                    <h4>The Witcher® 3<br><span>14 اسيا </span></h4>
+                    <h4>The Witcher® 3 <span style="color: #04ffac;">(14 اسيا)</span></h4>
                     <ul>
                       <li><i class="fa fa-star"></i> 4.6</li>
                       <li><i class="fa fa-star"></i> 2.3</li>
                     </ul>
                   </div>
-                  <div class="item">
+                  <!-- شريحة 5 -->
+                  <div class="swiper-slide">
                     <div class="thumb">
                       <img src="assets/images/tes5.gif" alt="">
-                      <div class="hover-effect">
-                        <h6>عرض موقت</h6>
-                      </div>
+                      <div class="hover-effect"><h6>عرض موقت</h6></div>
                     </div>
-                    <h4>GTAV<br><span>18 اسيا</span></h4>
+                    <h4>GTAV <span style="color: #04ffac;">(18 اسيا)</span></h4>
                     <ul>
                       <li><i class="fa fa-star"></i> 4.2</li>
                       <li><i class="fa fa-star"></i> 2.7</li>
                     </ul>
                   </div>
-                  <div class="item">
+                  <!-- شريحة 6 -->
+                  <div class="swiper-slide">
                     <div class="thumb">
                       <img src="assets/images/tes6.gif" alt="">
-                      <div class="hover-effect">
-                        <h6>عرض موقت</h6>
-                      </div>
+                      <div class="hover-effect"><h6>عرض موقت</h6></div>
                     </div>
-                    <h4>rainbow six siege<br><span>15 اسيا </span></h4>
+                    <h4>Rainbow Six Siege <span style="color: #04ffac;">(15 اسيا)</span></h4>
                     <ul>
                       <li><i class="fa fa-star"></i> 4.5</li>
                       <li><i class="fa fa-star"></i> 3.0</li>
                     </ul>
                   </div>
                 </div>
+                <!-- الأزرار -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <!-- النقاط (الصفحات) -->
+                <div class="swiper-pagination"></div>
               </div>
+              <!-- نهاية Swiper -->
             </div>
-            <div class="col-lg-4">
-              <div class="top-downloaded">
-                <div class="heading-section">
-                  <h4><em> اكثر </em> المبيعات </h4>
-                </div>
-                <ul>
-                  <li>
-                    <img src="assets/images/game-01.jpg" alt="" class="templatemo-item">
-                    <h4>netflix</h4>
-                    <h6>TOP 1  </h6>
-                    <span><i class="fa fa-star" style="color: yellow;"></i> 5.0</span>
-                    <span><i class="" style="color: #ec6090;"></i>850 Buy</span>
-                    <div>
-                    </div>
-                  </li>
-                  <li>
-                    <img src="assets/images/game-02.jpg" alt="" class="templatemo-item">
-                    <h4>Xbox Game Pass</h4>
-                    <h6>TOP 2</h6>
-                    <span><i class="fa fa-star" style="color: yellow;"></i> 4.2</span>
-                    <span><i class="" style="color: #ec6090;"></i> 600 Buy</span>
-                    <div>
-                    </div>
-                  </li>
-                  <li>
-                    <img src="assets/images/game-03.jpg" alt="" class="templatemo-item">
-                    <h4>VPN 3M</h4>
-                    <h6>TOP 3</h6>
-                    <span><i class="fa fa-star" style="color: yellow;"></i> 4.0</span>
-                    <span><i class="" style="color: #ec6090;"></i> 397 Buy</span>
-                    <div> 
-                    </div>
-                  </li>
-                </ul>
-                <div class="text-button">
-                  <a href="infoStore.html">من نحن ؟</a>
-                </div>
+          </div>
+
+          <!-- أكثر المبيعات -->
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="top-downloaded">
+              <div class="heading-section">
+                <h4><em>أكثر</em> المبيعات</h4>
+              </div>
+              <ul>
+                <li>
+                  <img src="assets/images/game-01.jpg" alt="" class="templatemo-item">
+                  <h4>netflix</h4>
+                  <h6>TOP 1</h6>
+                  <span><i class="fa fa-star" style="color: yellow;"></i> 5.0</span>
+                  <span>850 Buy</span>
+                </li>
+                <li>
+                  <img src="assets/images/game-02.jpg" alt="" class="templatemo-item">
+                  <h4>Xbox Game Pass</h4>
+                  <h6>TOP 2</h6>
+                  <span><i class="fa fa-star" style="color: yellow;"></i> 4.2</span>
+                  <span>600 Buy</span>
+                </li>
+                <li>
+                  <img src="assets/images/game-03.jpg" alt="" class="templatemo-item">
+                  <h4>VPN 3M</h4>
+                  <h6>TOP 3</h6>
+                  <span><i class="fa fa-star" style="color: yellow;"></i> 4.0</span>
+                  <span>397 Buy</span>
+                </li>
+              </ul>
+              <div class="main-button">
+                <a href="infoStore.html">من نحن ؟</a>
               </div>
             </div>
           </div>
-          <!-- ***** Featured Games End ***** -->
+        </div>
+        <!-- ***** قسم أفضل العروض End ***** -->
 
-          <!-- ***** Start Stream Start ***** -->
-          <div class="start-stream">
-            <div class="col-lg-12">
-              <div class="heading-section">
-                <h4><em> !نبذة عن طريقة  </em>  الدفع  </h4>
-              </div>
-              <div class="row">
-                <div class="col-lg-4">
-                  <div class="item">
-                    <div class="icon">
-                      <img src="assets/images/service-01.jpg" alt="" style="max-width: 60px; border-radius: 50%;">
-                    </div>
-                    <h4>من نحن ؟</h4>
-                    <p>من نحن ؟ متجر ار دي هو احد المتاجر المعروفة في العراق , يتميز في تقديم اقضل العروض الحصرية للكيمرية ,وبأرخص الاسعار </p>
-                  </div>
-                </div>
-                <div class="col-lg-4">
-                  <div class="item">
-                    <div class="icon">
-                      <img src="assets/images/service-02.jpg" alt="" style="max-width: 60px; border-radius: 50%;">
-                    </div>
-                    <h4>الضمان ؟</h4>
-                    <p>متجرنا يقدم الضمان الحقيقي ,   , جميع المنتجات تحتوي  علئ ضمان اقل منتج يحتوي علئ شهر واحد ضمان  فقط ! ,
-                  </div>
-                </div>
-                <div class="col-lg-4">
-                  <div class="item">
-                    <div class="icon">
-                      <img src="assets/images/service-03.jpg" alt="" style="max-width: 60px; border-radius: 50%;">
-                    </div>
-                    <h4>طرق الدفع ؟ </h4>
-                    <p>متجرنا يدعم الان فقط الدفع عن طريق اسيا سيل , مستقبلا سوف ندعم المزيد </p>
-                  </div>
-                </div>
-                <div class="col-lg-12">
-                  <div class="main-button">
-                    <a href="infoStore.html">معرفة المزيد من المعلومات عنا ! </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- ***** Start Stream End ***** -->
-
-          <!-- ***** Live Stream Start ***** -->
-          <div class="live-stream">
-            <div class="col-lg-12">
-              <div class="heading-section">
-                <h4><em>(الدعم</em> الفني ؟ )</h4>
-              </div>
+        <!-- ***** قسم نبذة عن الدفع Start ***** -->
+        <div class="start-stream" data-aos="fade-up" style="margin-top: 60px;">
+          <div class="col-lg-12">
+            <div class="heading-section">
+              <h4><em>نبذة عن طريقة</em> الدفع</h4>
             </div>
             <div class="row">
-              <div class="col-lg-3 col-sm-6">
+              <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
                 <div class="item">
-                  <div class="thumb">
-                    <img src="assets/images/stream-01.jpg" alt="">
-                    <div class="hover-effect">
-                      <div class="content">
-                        <div class="live">
-                          <a href="#">متوفر</a>
-                        </div>
-                        <ul>
-                        </ul>
-                      </div>
-                    </div>
+                  <div class="icon">
+                    <img src="assets/images/service-01.jpg" alt="" style="max-width: 60px; border-radius: 50%;">
                   </div>
-                  <div class="down-content">
-                    <div class="avatar">
-                      <img src="assets/images/avatar-01.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
-                    </div>
-                    <span><i class="fa fa-check"></i> واتس اب </span>
-                    <h4><a href="https://wa.me/+9647711359997">الذهاب الئ واتس اب </a></h4>
-                  </div> 
+                  <h4>من نحن ؟</h4>
+                  <p>متجر RD هو أحد المتاجر المعروفة في العراق، يتميز بتقديم أفضل العروض الحصرية وبأسعار تنافسية.</p>
                 </div>
               </div>
-              <div class="col-lg-3 col-sm-6">
+              <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
                 <div class="item">
-                  <div class="thumb">
-                    <img src="assets/images/stream-02.jpg" alt="">
-                    <div class="hover-effect">
-                      <div class="content">
-                        <div class="live">
-                          <a href="#">متوفر</a>
-                        </div>
-                        <ul>
-                        </ul>
-                      </div>
-                    </div>
+                  <div class="icon">
+                    <img src="assets/images/service-02.jpg" alt="" style="max-width: 60px; border-radius: 50%;">
                   </div>
-                  <div class="down-content">
-                    <div class="avatar">
-                      <img src="assets/images/avatar-02.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
-                    </div>
-                    <span><i class="fa fa-check"></i> ماسنجر</span>
-                    <h4><a href="https://m.me/store.iq.rd">الذهاب الئ ماسنجر ؟</a></h4>
-                  </div> 
+                  <h4>الضمان ؟</h4>
+                  <p>جميع المنتجات تحتوي على ضمان حقيقي. أقل منتج بضمان شهر كامل.</p>
                 </div>
               </div>
-              <div class="col-lg-3 col-sm-6">
+              <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
                 <div class="item">
-                  <div class="thumb">
-                    <img src="assets/images/stream-03.jpg" alt="">
-                    <div class="hover-effect">
-                      <div class="content">
-                        <div class="live">
-                          <a href="#">متوفر</a>
-                        </div>
-                        <ul>
-                        </ul>
-                      </div>
-                    </div>
+                  <div class="icon">
+                    <img src="assets/images/service-03.jpg" alt="" style="max-width: 60px; border-radius: 50%;">
                   </div>
-                  <div class="down-content">
-                    <div class="avatar">
-                      <img src="assets/images/avatar-03.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
-                    </div>
-                    <span><i class="fa fa-check"></i> ديسكورد</span>
-                    <h4><a href="https://discord.gg/PEUyyAQadq">الذهاب الئ ديسكورد !</a></h4>
-                  </div> 
+                  <h4>طرق الدفع ؟</h4>
+                  <p>يدعم المتجر حاليًا الدفع عن طريق آسيا سيل. سيتم إضافة المزيد قريبًا.</p>
                 </div>
               </div>
-              <div class="col-lg-3 col-sm-6">
-                <div class="item">
-                  <div class="thumb">
-                    <img src="assets/images/stream-04.jpg" alt="">
-                    <div class="hover-effect">
-                      <div class="content">
-                        <div class="live">
-                          <a href="#">متوفر</a>
-                        </div>
-                        <ul>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="down-content">
-                    <div class="avatar">
-                      <img src="assets/images/avatar-04.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
-                    </div>
-                    <span><i class="fa fa-check"></i> الاتصال الهاتفي </span>
-                    <h4>07711 35 999 7</h4>
-                  </div> 
-                </div>
-              </div>
-              <div class="col-lg-12">
-                <div class="main-button">
-                  <a href="index.html">الرجوع الئ الصفحة الرئيسية ؟</a>
+              <div class="col-lg-12" data-aos="zoom-in" data-aos-delay="350">
+                <div class="main-button" style="margin-top: 20px;">
+                  <a href="infoStore.html">معرفة المزيد من المعلومات عنا !</a>
                 </div>
               </div>
             </div>
           </div>
-          <!-- ***** Live Stream End ***** -->
-
         </div>
+        <!-- ***** قسم نبذة عن الدفع End ***** -->
+
+        <!-- ***** قسم الدعم الفني Start ***** -->
+        <div class="live-stream" data-aos="fade-up" style="margin-top: 60px;">
+          <div class="col-lg-12">
+            <div class="heading-section">
+              <h4><em>الدعم</em> الفني ؟</h4>
+            </div>
+          </div>
+          <div class="row">
+            <!-- واتساب -->
+            <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+              <div class="item">
+                <div class="thumb">
+                  <img src="assets/images/stream-01.jpg" alt="">
+                  <div class="hover-effect">
+                    <div class="content">
+                      <div class="live"><a href="#">متوفر</a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="down-content" style="text-align:center;">
+                  <div class="avatar">
+                    <img src="assets/images/avatar-01.jpg" alt="" style="max-width: 46px; border-radius: 50%;">
+                  </div>
+                  <br>
+                  <span><i class="fa fa-check"></i> واتساب</span>
+                  <div class="main-button" style="margin-top:10px;">
+                    <a href="https://wa.me/+9647711359997" target="_blank">
+                      الذهاب إلى واتساب
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- ماسنجر -->
+            <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="150">
+              <div class="item">
+                <div class="thumb">
+                  <img src="assets/images/stream-02.jpg" alt="">
+                  <div class="hover-effect">
+                    <div class="content">
+                      <div class="live"><a href="#">متوفر</a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="down-content" style="text-align:center;">
+                  <div class="avatar">
+                    <img src="assets/images/avatar-02.jpg" alt="" style="max-width: 46px; border-radius: 50%;">
+                  </div>
+                  <br>
+                  <span><i class="fa fa-check"></i> ماسنجر</span>
+                  <div class="main-button" style="margin-top:10px;">
+                    <a href="https://m.me/store.iq.rd" target="_blank">
+                      الذهاب إلى ماسنجر
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- ديسكورد -->
+            <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
+              <div class="item">
+                <div class="thumb">
+                  <img src="assets/images/stream-03.jpg" alt="">
+                  <div class="hover-effect">
+                    <div class="content">
+                      <div class="live"><a href="#">متوفر</a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="down-content" style="text-align:center;">
+                  <div class="avatar">
+                    <img src="assets/images/avatar-03.jpg" alt="" style="max-width: 46px; border-radius: 50%;">
+                  </div>
+                  <br>
+                  <span><i class="fa fa-check"></i> ديسكورد</span>
+                  <div class="main-button" style="margin-top:10px;">
+                    <a href="https://discord.gg/PEUyyAQadq" target="_blank">
+                      الذهاب إلى ديسكورد
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- اتصال هاتفي -->
+            <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="250">
+              <div class="item">
+                <div class="thumb">
+                  <img src="assets/images/stream-04.jpg" alt="">
+                  <div class="hover-effect">
+                    <div class="content">
+                      <div class="live"><a href="#">متوفر</a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="down-content" style="text-align:center;">
+                  <div class="avatar">
+                    <img src="assets/images/avatar-04.jpg" alt="" style="max-width: 46px; border-radius: 50%;">
+                  </div>
+                  <br>
+                  <span><i class="fa fa-check"></i> اتصال هاتفي</span>
+                  <div class="main-button" style="margin-top:10px;">
+                    <a href="tel:+9647711359997" target="_blank">
+                      07711 35 999 7
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12" data-aos="zoom-in" data-aos-delay="300" style="margin-top: 20px; text-align:center;">
+              <div class="main-button">
+                <a href="index.html">الرجوع إلى الصفحة الرئيسية</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ***** قسم الدعم الفني End ***** -->
+
       </div>
     </div>
   </div>
-  
-  <footer>
+
+  <!-- ***** Footer Start ***** -->
+  <footer data-aos="fade-up">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <p>Copyright © 2022 <a href="https://www.facebook.com/anwar.rd.129" target="_blank" title="">ANO-RD</a> Cy. All rights reserved.
-          
-          <br>facebook: <a href="https://www.facebook.com/store.iq.rd" target="_blank" title="">Store RD</a></p>
+          <p>
+            Copyright © 2022 
+            <a href="https://www.facebook.com/anwar.rd.129" target="_blank" title="">ANO-RD</a> Cy. All rights reserved.
+            <br>facebook:
+            <a href="https://www.facebook.com/store.iq.rd" target="_blank" title="">Store RD</a>
+          </p>
         </div>
       </div>
     </div>
   </footer>
+  <!-- ***** Footer End ***** -->
 
+  <!-- زر الصعود للأعلى -->
+  <button id="scrollTopBtn" onclick="scrollToTop()">
+    <i class="fa fa-chevron-up"></i>
+  </button>
 
-  <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
+  <!-- سكربتات أساسية -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
   <script src="assets/js/isotope.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/tabs.js"></script>
   <script src="assets/js/popup.js"></script>
   <script src="assets/js/custom.js"></script>
+  <script src="assets/js/particles.min.js"></script>
+  <script src="assets/js/app.js"></script>
+  <!-- مكتبة AOS للأنيميشن -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
+  <!-- استيراد Swiper JS من الـCDN -->
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
+  <script>
+    // تفعيل مكتبة AOS
+    AOS.init({
+      duration: 1000,
+      offset: 50
+    });
 
+    // إعدادات Swiper
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 2,
+      spaceBetween: 20,
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        0:   { slidesPerView: 1 },
+        768: { slidesPerView: 2 },
+        992: { slidesPerView: 3 }
+      },
+      // لو احتجت إجبار الاتجاه RTL استخدم:
+      // direction: 'rtl',
+    });
+
+    // زر الصعود للأعلى
+    var scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        scrollBtn.classList.add("show");
+      } else {
+        scrollBtn.classList.remove("show");
+      }
+    };
+    function scrollToTop() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+  </script>
+
+  <!-- فيسبوك ماسنجر -->
+  <div id="fb-root"></div>
+  <div id="fb-customer-chat" class="fb-customerchat"></div>
+  <script>
+    var chatbox = document.getElementById('fb-customer-chat');
+    chatbox.setAttribute("page_id", "103743918039608");
+    chatbox.setAttribute("attribution", "biz_inbox");
+  </script>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        xfbml : true,
+        version : 'v14.0'
+      });
+    };
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/ar_AR/sdk/xfbml.customerchat.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
 </body>
-   <!-- Messenger المكون الإضافي "دردشة" Code -->
-   <div id="fb-root"></div>
-
-    <!-- Your المكون الإضافي "دردشة" code -->
-    <div id="fb-customer-chat" class="fb-customerchat">
-    </div>
-
-    <script>
-      var chatbox = document.getElementById('fb-customer-chat');
-      chatbox.setAttribute("page_id", "103743918039608");
-      chatbox.setAttribute("attribution", "biz_inbox");
-    </script>
-
-    <!-- Your SDK code -->
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          xfbml            : true,
-          version          : 'v14.0'
-        });
-      };
-
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/ar_AR/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-    </script>
 </html>
