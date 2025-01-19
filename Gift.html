@@ -1,33 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
+<head>
+  <meta name="google-site-verification" content="emrpEuaTTvCYN7o4SYtG8M183zHBMmT2mpAGO2Tv1_c" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Gift Store RD</title>
+  
+  <!-- الروابط وأكواد الستايل -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/fontawesome.css">
+  <link rel="stylesheet" href="assets/css/templatemo-cyborg-gaming.css">
+  <link rel="stylesheet" href="assets/css/owl.css">
+  <link rel="stylesheet" href="assets/css/animate.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+  <!-- مكتبة AOS للأنيميشن أثناء التمرير (CDN) -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-  <head>
+  <!-- ==========  تنسيقات مخصصة لجعل الصفحة ثلاثية الأبعاد وجذابة  ========== -->
+  <style>
+    /* الخط العام */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      position: relative;
+    }
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    /* رأس الصفحة (Header) */
+    .header-area {
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(5px);
+      position: fixed;
+      width: 100%;
+      z-index: 999;
+    }
+    .header-area.header-sticky {
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+    .main-nav .nav li a {
+      color: #fff; /* لضمان ظهور الروابط باللون الأبيض */
+    }
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    /* شكل البحث */
+    .search-input form {
+      position: relative;
+    }
+    #searchText {
+      background: #1f1f1f;
+      color: #fff;
+      border: 1px solid #444;
+      padding: 8px 35px 8px 10px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+    #searchText:focus {
+      border-color: #04ffac;
+      outline: none;
+    }
+    .search-input i.fa-search {
+      position: absolute;
+      right: 10px;
+      top: 8px;
+      color: #888;
+    }
 
-    <title>Gift Store RD</title>
+    /* شكل البطاقات مع تأثير 3D */
+    .item {
+      background: #1c1c1c;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 30px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      perspective: 1000px; /* لتمكين الـ 3D */
+    }
+    .item:hover {
+      transform: translateY(-5px) rotateX(3deg) rotateY(3deg);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+    }
+    .item img {
+      border-radius: 10px;
+      max-width: 100%;
+      display: block;
+      margin: 0 auto 10px auto;
+      transition: transform 0.4s ease;
+    }
+    .item:hover img {
+      transform: scale(1.05) rotateX(2deg) rotateY(-2deg);
+    }
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    /* الأزرار مع تأثير 3D */
+    .main-button a {
+      background: linear-gradient(45deg, #00b09b, #96c93d);
+      color: #fff !important;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: inline-block;
+    }
+    .main-button a:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+      text-decoration: none;
+    }
 
+    /* تباعد أسفل الهيدر حتى لا يختفي المحتوى تحته */
+    .page-content {
+      margin-top: 120px; 
+    }
 
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-cyborg-gaming.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-<!--
+    /* الفوتر */
+    footer {
+      background: #111;
+      padding: 20px 0;
+      text-align: center;
+    }
+    footer p {
+      margin: 0;
+      color: #aaa;
+      font-size: 14px;
+    }
+    footer p a {
+      color: #04ffac;
+      text-decoration: none;
+    }
+    footer p a:hover {
+      text-decoration: underline;
+    }
 
-store rd v2.0
+    /* زر الصعود للأعلى (Scroll to Top) */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px; /* يمكنك تعديله إلى right: 20px إن أحببت */
+      background: #04ffac;
+      color: #000;
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+      z-index: 1000;
+      visibility: hidden; /* يبدأ مخفي */
+      opacity: 0;
+      transition: visibility 0.3s, opacity 0.3s, transform 0.3s;
+    }
+    #scrollTopBtn.show {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #scrollTopBtn:hover {
+      background: #00b09b;
+    }
 
-https://www.facebook.com/store.iq.rd
-
--->
-  </head>
+    /* تنسيقات إضافية لعرض الصور بشكل متناسق */
+    .feature-banner .row .item {
+      margin-bottom: 15px;
+    }
+    .game-details img {
+      border-radius: 10px;
+      margin-bottom: 30px;
+      max-width: 100%;
+      height: auto;
+      transition: transform 0.4s ease;
+    }
+    .game-details .item:hover img {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
 
 <body>
 
@@ -45,172 +198,209 @@ https://www.facebook.com/store.iq.rd
   <!-- ***** Preloader End ***** -->
 
   <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
+  <header class="header-area header-sticky" data-aos="fade-down">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
-                        <img src="assets/images/logo.gif" alt="">
-                    </a>
-                    <!-- ***** Logo End ***** -->
-                    <!-- ***** Search End ***** -->
-                    <div class="search-input">
-                      <form id="search" action="#">
-                        <input type="text" placeholder="البحث ؟" id='searchText' name="searchKeyword" onkeypress="handle" />
-                        <i class="fa fa-search"></i>
-                      </form>
-                    </div>
-                    <!-- ***** Search End ***** -->
-                    <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-                        <li><a href="index.html">المنزل</a></li>
-                        <li><a href="Bestoffers.html">افضل العروض</a></li>
-                        <li><a href="Gift.html" class="active">الهداية</a></li>
-                        <li><a href="infoStore.html">حول المتجر<img src="assets/images/profile-header.jpg" alt=""></a></li>
-                    </ul>   
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-                    <!-- ***** Menu End ***** -->
-                </nav>
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="index.html" class="logo">
+              <img src="assets/images/logo.gif" alt="logo">
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Search Start ***** -->
+            <div class="search-input">
+              <!-- يمكنك استخدام onkeyup أو onkeypress للبحث الديناميكي -->
+              <form id="search" action="javascript:void(0);">
+                <input type="text" placeholder="اكتب للبحث عن منتج..." id="searchText" onkeyup="filterProducts()"/>
+                <i class="fa fa-search"></i>
+              </form>
             </div>
+            <!-- ***** Search End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li><a href="index.html">المنزل</a></li>
+              <li><a href="Bestoffers.html">افضل العروض</a></li>
+              <li><a href="Gift.html" class="active">الهداية</a></li>
+              <li><a href="infoStore.html">حول المتجر <img src="assets/images/profile-header.jpg" alt=""></a></li>
+            </ul>
+            <a class='menu-trigger'>
+              <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
         </div>
+      </div>
     </div>
   </header>
   <!-- ***** Header Area End ***** -->
 
-  <div class="container">
+  <!-- بداية محتوى الصفحة -->
+  <div class="container page-content">
     <div class="row">
       <div class="col-lg-12">
-        <div class="page-content">
 
-          <!-- ***** Featured Start ***** -->
+        <!-- ***** قسم Featured Start ***** -->
+        <div class="row feature-banner header-text" data-aos="fade-up">
+          <div class="col-lg-4">
+            <div class="item">
+              <img src="assets/images/feature-left.jpg" alt="Left Banner">
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="item">
+              <img src="assets/images/feature-right.jpg" alt="Right Banner">
+            </div>
+          </div>
+        </div>
+        <!-- ***** قسم Featured End ***** -->
+
+        <!-- ***** قسم تفاصيل (أمثلة على صور الهدايا) Start ***** -->
+        <div class="game-details" data-aos="fade-up" style="margin-top: 40px;">
           <div class="row">
             <div class="col-lg-12">
-              <div class="feature-banner header-text">
-                <div class="row">
-                  <div class="col-lg-4">
-                    <img src="assets/images/feature-left.jpg" alt="" style="border-radius: 23px;">
-                  </div>
-                  <div class="col-lg-8">
-                    <div class="thumb">
-                      <img src="assets/images/feature-right.jpg" alt="" style="border-radius: 23px;">
-                    </div>
-                  </div>
-                </div>
+              <h2>(كيفية تقديم الهداية ؟)</h2>
+              <p style="margin-top: 10px;">
+                يمكنك تقديم الهدايا للأصدقاء عبر شراء أكواد/بطاقات أو إعطاء حسابات جاهزة
+                لتطبيقات وألعاب. كما يمكننا توفير التخفيضات الحصرية والعروض الخاصة 
+                ليكون تقديم الهدية تجربة فريدة.
+              </p>
+            </div>
+            <!-- بطاقات صور إضافية مع تأثير 3D -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+              <div class="item">
+                <img src="assets/images/details-01.jpg" alt="تفاصيل 1">
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+              <div class="item">
+                <img src="assets/images/details-02.jpg" alt="تفاصيل 2">
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+              <div class="item">
+                <img src="assets/images/details-03.jpg" alt="تفاصيل 3">
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <p style="margin-top: 20px;">
+                للمزيد من المعلومات أو الأسئلة يُرجى مراسلتنا على الفيسبوك،
+                <a href="https://www.facebook.com/store.iq.rd" target="_blank">اضغط هنا</a>.
+              </p>
+              <div class="main-button" style="margin: 20px 0;">
+                <a href="#">الرجوع للأعلى؟</a>
               </div>
             </div>
           </div>
-          <!-- ***** Featured End ***** -->
-
-          <!-- ***** Details Start ***** -->
-          <div class="game-details">
-            <div class="row">
-              <div class="col-lg-12">
-                <h2>(كيفية تقديم الهداية ؟)</h2>
-              </div>
-              <div class="col-lg-12">
-                <div class="content">
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <div class="">
-                        <div class="left">
-                        </div>
-                        <ul>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="">
-                        <ul>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="col-lg-4">
-                      <img src="assets/images/details-01.jpg" alt="" style="border-radius: 23px; margin-bottom: 30px;">
-                    </div>
-                    <div class="col-lg-4">
-                      <img src="assets/images/details-02.jpg" alt="" style="border-radius: 23px; margin-bottom: 30px;">
-                    </div>
-                    <div class="col-lg-4">
-                      <img src="assets/images/details-03.jpg" alt="" style="border-radius: 23px; margin-bottom: 30px;">
-                    </div>
-                    <div class="col-lg-12">
-                      <p> للمزيد من المعلومات او اسئلة يرجئ مراسلتنة علئ الفيس بوك ,  <a href="https://www.facebook.com/store.iq.rd" target="_blank">اضغط هنا  </a>.</p>
-                    </div>
-                    <div class="col-lg-12">
-                      <div class="main-border-button">
-                        <a href="#">الرجوع الئ اعلئ ؟!</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- ***** Details End ***** -->
         </div>
+        <!-- ***** قسم تفاصيل End ***** -->
+
       </div>
     </div>
   </div>
-  
-  <footer>
+  <!-- نهاية محتوى الصفحة -->
+
+  <!-- ***** Footer Start ***** -->
+  <footer data-aos="fade-up">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <p>Copyright © 2022 <a href="https://www.facebook.com/anwar.rd.129" target="_blank" title="">ANO-RD</a> Cy. All rights reserved. 
-          
-          <br>facebook: <a href="https://www.facebook.com/store.iq.rd"  target="_blank" title="">Store RD</a></p>
+          <p>
+            Copyright © 2022 
+            <a href="https://www.facebook.com/anwar.rd.129" target="_blank" title="">ANO-RD</a> Cy. All rights reserved.
+            <br>facebook:
+            <a href="https://www.facebook.com/store.iq.rd" target="_blank" title="">Store RD</a>
+          </p>
         </div>
       </div>
     </div>
   </footer>
+  <!-- ***** Footer End ***** -->
 
+  <!-- زر الصعود للأعلى -->
+  <button id="scrollTopBtn" onclick="scrollToTop()">
+    <i class="fa fa-chevron-up"></i>
+  </button>
 
-  <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
+  <!-- ====== سكربتات جافاسكربت الأساسية ====== -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
   <script src="assets/js/isotope.min.js"></script>
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/tabs.js"></script>
   <script src="assets/js/popup.js"></script>
   <script src="assets/js/custom.js"></script>
+  <!-- جزيئات متحركة (Particles) كي تطابق تصميم الصفحة الرئيسية إن أردت -->
+  <script src="assets/js/particles.min.js"></script>
+  <script src="assets/js/app.js"></script>
+  <!-- مكتبة AOS للأنيميشن -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
+  <script>
+    // تفعيل مكتبة AOS
+    AOS.init({
+      duration: 1000, // مدة الحركة
+      offset: 50,     // المسافة قبل بدء الحركة
+    });
 
+    // زر الصعود للأعلى
+    var scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        scrollBtn.classList.add("show");
+      } else {
+        scrollBtn.classList.remove("show");
+      }
+    };
+    function scrollToTop() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    // كود البحث (إن أردت استخدامه مستقبلًا مع منتجات في الصفحة)
+    function filterProducts() {
+      var input = document.getElementById("searchText");
+      var filter = input.value.toLowerCase();
+      // ابحث عن حاوية المنتجات لو كانت موجودة في نفس الصفحة
+      // var productsContainer = document.getElementById("productsContainer");
+      // if(!productsContainer) return;
+      // var productCols = productsContainer.getElementsByClassName("col-lg-3");
+      // for (var i = 0; i < productCols.length; i++) {
+      //   var item = productCols[i].getElementsByClassName("item")[0];
+      //   if (item) {
+      //     var textValue = item.textContent || item.innerText;
+      //     if (textValue.toLowerCase().indexOf(filter) > -1) {
+      //       productCols[i].style.display = "";
+      //     } else {
+      //       productCols[i].style.display = "none";
+      //     }
+      //   }
+      // }
+    }
+  </script>
+
+  <!-- ==========  إضافة فيسبوك ماسنجر  ========== -->
+  <div id="fb-root"></div>
+  <div id="fb-customer-chat" class="fb-customerchat"></div>
+  <script>
+    var chatbox = document.getElementById('fb-customer-chat');
+    chatbox.setAttribute("page_id", "103743918039608");
+    chatbox.setAttribute("attribution", "biz_inbox");
+  </script>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        xfbml            : true,
+        version          : 'v14.0'
+      });
+    };
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/ar_AR/sdk/xfbml.customerchat.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
 
 </body>
-   <!-- Messenger المكون الإضافي "دردشة" Code -->
-    <div id="fb-root"></div>
-
-    <!-- Your المكون الإضافي "دردشة" code -->
-    <div id="fb-customer-chat" class="fb-customerchat">
-    </div>
-
-    <script>
-      var chatbox = document.getElementById('fb-customer-chat');
-      chatbox.setAttribute("page_id", "103743918039608");
-      chatbox.setAttribute("attribution", "biz_inbox");
-    </script>
-
-    <!-- Your SDK code -->
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          xfbml            : true,
-          version          : 'v14.0'
-        });
-      };
-
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/ar_AR/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-    </script>
 </html>
