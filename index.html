@@ -1,88 +1,312 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl"> 
+<html lang="ar" dir="rtl">
 <head>
-  <meta name="google-site-verification" content="emrpEuaTTvCYN7o4SYtG8M183zHBMmT2mpAGO2Tv1_c" />
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="utf-8" />
   <title>Store RD</title>
-  
-  <!-- روابط الخطوط وأكواد الستايل -->
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/fontawesome.css">
-  <link rel="stylesheet" href="assets/css/templatemo-cyborg-gaming.css">
-  <link rel="stylesheet" href="assets/css/owl.css">
-  <link rel="stylesheet" href="assets/css/animate.css">
-  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- خطوط Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Bootstrap وCSS أساسي -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/fontawesome.css" />
+  <!-- FontAwesome (CDN) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  />
+  <link rel="stylesheet" href="assets/css/templatemo-cyborg-gaming.css" />
+  <link rel="stylesheet" href="assets/css/owl.css" />
+  <link rel="stylesheet" href="assets/css/animate.css" />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+  />
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <!-- SweetAlert2 لإشعارات العروض -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+  />
 
   <style>
+    /***********************************
+     *        ألوان وخلفيات عامة       *
+     ***********************************/
     body {
-      font-family: 'Cairo', sans-serif;
-      background: linear-gradient(135deg, #1f2122, #0f0f0f);
-      color: #fff;
+      font-family: "Cairo", sans-serif;
+      background: #121212; /* خلفية داكنة */
+      color: #eeeeee;      /* نص شبه أبيض */
       margin: 0;
       padding: 0;
       scroll-behavior: smooth;
-      position: relative;
+      overflow-x: hidden;
     }
+    a,
+    a:visited {
+      color: #00d592; /* درجة خضراء */
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    a:hover {
+      color: #00f5ac;
+    }
+
+    /* خلفية Particles */
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /***********************************
+     *       الشريط العلوي (الهيدر)     *
+     ***********************************/
     .header-area {
-      background: rgba(0,0,0,0.85);
+      background: rgba(0, 0, 0, 0.85);
       backdrop-filter: blur(10px);
       position: fixed;
       width: 100%;
       z-index: 999;
       padding: 10px 0;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
+    .main-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo img {
+      height: 40px;
+      width: auto;
+    }
+    .nav li a img {
+      height: 20px;
+      width: auto;
+      margin-left: 5px;
+      vertical-align: middle;
+    }
+
     .search-input form {
       position: relative;
+      margin-right: 15px;
+      display: flex;
+      align-items: center;
     }
     #searchText {
-      background: #1f1f1f;
+      background: #1e1e1e;
       color: #fff;
       border: 1px solid #444;
       padding: 8px 35px 8px 10px;
       border-radius: 20px;
       transition: all 0.3s ease;
+      width: 180px;
+      max-width: 100%;
     }
     #searchText:focus {
-      border-color: #04ffac;
+      border-color: #00d592;
       outline: none;
     }
     .search-input i.fa-search {
       position: absolute;
-      right: 10px;
+      right: 20px;
       top: 8px;
       color: #888;
     }
+    /* تنسيق زر فلتر السعر */
+    select#priceFilter {
+      margin-left: 10px;
+      background: #1e1e1e;
+      color: #fff;
+      border-radius: 20px;
+      border: 1px solid #444;
+      padding: 5px 20px;
+      transition: all 0.3s ease;
+    }
+    select#priceFilter:focus {
+      border-color: #00d592;
+      outline: none;
+    }
+
+    /* إخفاء القائمة الأساسية على الشاشات الأصغر */
+    .nav li {
+      display: inline-block;
+      margin: 0 5px;
+    }
+    .nav li a {
+      color: #ccc;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+    .nav li a.active,
+    .nav li a:hover {
+      color: #00d592;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .menu-trigger {
+      color: #fff;
+      border: 1px solid #444;
+      padding: 3px 10px;
+      border-radius: 5px;
+      display: none; /* زر القائمة على الجوال */
+    }
+    @media (max-width: 991px) {
+      .nav {
+        display: none; /* إخفاء القائمة على الجوال، ويمكنك تفعيل قائمة منسدلة */
+      }
+      .menu-trigger {
+        display: block;
+      }
+    }
+
+    /* تحسين مظهر البحث والفلتر في الشاشات الأصغر */
+    @media (max-width: 576px) {
+      .search-input form {
+        flex-direction: column;
+        gap: 10px;
+        margin-right: 0;
+      }
+      #searchText,
+      #priceFilter {
+        margin-left: 0 !important;
+        width: 100%;
+      }
+      .search-input i.fa-search {
+        right: 10px;
+      }
+    }
+
     .page-content {
       margin-top: 120px;
+      /* إضافة خلفية أو إطار للموقع */
+      background-color: #1b1b1b;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     }
+
+    /***********************************
+     *   زر واتساب عائم + الإشعارات    *
+     ***********************************/
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 80px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #00d592;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+      z-index: 1001;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .whatsapp-btn:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    }
+    .whatsapp-btn img {
+      width: 30px;
+      height: 30px;
+    }
+
+    .notification-btn {
+      position: fixed;
+      bottom: 140px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #00d592;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+      z-index: 1001;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .notification-btn i {
+      color: #000;
+      font-size: 22px;
+    }
+    .notification-btn:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    /***********************************
+     *    زر "افضل العروض" ثلاثي الأبعاد
+     ***********************************/
+    .best-offers-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff7e5f, #feb47b); /* برتقالي */
+      color: #fff;
+      font-size: 20px;
+      font-weight: 600;
+      padding: 15px 30px;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 0 8px 0px #d96b53; /* ظل داكن قليلاً */
+      transition: 0.3s;
+      position: relative;
+      margin-top: 15px;
+    }
+    .best-offers-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    /***********************************
+     *     بطاقات المنتجات (3D Tilt)    *
+     ***********************************/
     .item {
       background: #27292a;
       border-radius: 10px;
       padding: 20px;
       margin-bottom: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      position: relative;
+      cursor: pointer;
+      overflow: hidden; /* منع أي تجاوز للزوايا */
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       perspective: 1000px;
+      transform-style: preserve-3d;
     }
     .item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 25px rgba(0,0,0,0.6);
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 25px 30px rgba(0, 0, 0, 0.7), 0 0 15px #00d592;
     }
     .item img {
       border-radius: 10px;
-      max-width: 100%;
+      width: 100%;
+      height: auto;
       display: block;
-      margin-bottom: 10px;
     }
-    .item h4, .item h3 {
+    .item h4,
+    .item h3 {
       text-align: center;
       margin: 5px 0;
     }
     .item h3 {
-      color: #04ffac;
+      color: #00d592;
     }
     .item ul {
       list-style: none;
@@ -94,53 +318,225 @@
     .item ul li {
       display: inline-block;
       margin: 0 4px;
+      font-size: 13px;
     }
-    .main-button a {
-      background: linear-gradient(45deg, #00b09b, #96c93d);
+    /* لون المتوفر - نجعله أكثر وضوحًا */
+    .item ul li i.fa-shopping-basket {
+      color: #ffc107 !important; /* لون أصفر واضح */
+      margin-right: 4px;
+    }
+
+    /* التنبيه الشفاف: انقر للعرض */
+    .view-notify {
+      position: absolute;
+      top: 5px;
+      left: 50%;
+      transform: translateX(-50%);
       color: #fff;
-      padding: 10px 20px;
-      border-radius: 25px;
+      font-size: 13px;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+    }
+    .view-notify i {
+      color: #00d592;
+    }
+
+    /* زر الشراء خارج البطاقة */
+    .buy-button {
+      margin-top: -10px; /* تقريبه من البطاقة */
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .buy-button a {
+      background: #00e7b8;
+      color: #000;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 6px;
       text-decoration: none;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: background 0.3s, transform 0.3s;
       display: inline-block;
+      box-shadow: 0 3px 0 #00ab8a;
     }
-    .main-button a:hover {
-      transform: translateY(-5px) scale(1.03);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    .buy-button a:hover {
+      background: #00f5ac;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
     }
+
+    /***********************************
+     *   النافذة المنبثقة (Popup Modal) *
+     ***********************************/
+    .modal-3d-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      backdrop-filter: blur(5px);
+    }
+    .modal-3d-content {
+      background: #1e1e1e;
+      border-radius: 10px;
+      padding: 25px;
+      width: 90%;
+      max-width: 560px;
+      box-shadow: 0 0 30px #00d592, 0 0 10px rgba(0, 0, 0, 0.8);
+      transform: scale(0.8) translateY(50px);
+      transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      position: relative;
+    }
+    .modal-3d-content.show {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+    .modal-3d-header img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    }
+    .modal-3d-content h2 {
+      margin: 8px 0;
+      text-align: center;
+      font-size: 22px;
+      font-weight: 600;
+    }
+    .modal-close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: #00d592;
+      font-size: 36px;
+      cursor: pointer;
+      z-index: 3000;
+      transition: transform 0.3s;
+    }
+    .modal-close-btn:hover {
+      transform: scale(1.2);
+    }
+    .modal-details {
+      color: #eee;
+      font-size: 15px;
+      margin-top: 10px;
+      text-align: center;
+      line-height: 1.7;
+    }
+    .modal-details h5 {
+      margin: 4px 0;
+      font-size: 14px;
+      font-weight: 400;
+    }
+    .modal-details h5 span {
+      color: #00d592;
+    }
+    .modal-3d-footer {
+      text-align: center;
+      margin-top: 15px;
+    }
+    .modal-3d-footer .main-button a {
+      background: #00d592;
+      color: #000;
+      font-size: 15px;
+      padding: 10px 25px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+    .modal-3d-footer .main-button a:hover {
+      background: #00f5ac;
+      transform: translateY(-3px);
+    }
+
+    /***********************************
+     *     العناوين العامة (Sections)    *
+     ***********************************/
     .heading-section h1,
     .heading-section h4 {
       text-align: center;
       margin-bottom: 30px;
+      text-shadow: 0 0 5px #00d592;
     }
     .heading-section h1 {
       font-size: 32px;
       text-transform: uppercase;
       letter-spacing: 2px;
     }
-    footer {
-      background: #111;
-      padding: 20px 0;
+
+    /***********************************
+     *     قسم الضمان والثقة (3D)       *
+     ***********************************/
+    .trust-section {
+      background: #27292a;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 40px;
       text-align: center;
-      margin-top: 30px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+      position: relative;
     }
-    footer p {
-      margin: 0;
-      color: #aaa;
+    .trust-section h2 {
+      color: #00d592;
+      margin-bottom: 15px;
+      font-size: 24px;
+      text-transform: uppercase;
+    }
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .trust-item {
+      background: #242424;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+      width: 250px;
+      max-width: 100%;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .trust-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 30px rgba(0, 0, 0, 0.7), 0 0 15px #00d592;
+    }
+    .trust-icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+      color: #00d592;
+    }
+    .trust-item h3 {
+      color: #00f5ac;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+    .trust-item p {
+      color: #ccc;
+      margin-bottom: 0;
+      line-height: 1.6;
       font-size: 14px;
     }
-    footer p a {
-      color: #04ffac;
-      text-decoration: none;
-    }
-    footer p a:hover {
-      text-decoration: underline;
-    }
+
+    /***********************************
+     *    زر الصعود للأعلى (ScrollTop)  *
+     ***********************************/
     #scrollTopBtn {
       position: fixed;
       bottom: 20px;
       left: 20px;
-      background: #04ffac;
+      background: #00d592;
       color: #000;
       border: none;
       border-radius: 50%;
@@ -151,7 +547,7 @@
       justify-content: center;
       cursor: pointer;
       font-size: 20px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
       z-index: 1000;
       visibility: hidden;
       opacity: 0;
@@ -163,37 +559,68 @@
       transform: translateY(0);
     }
     #scrollTopBtn:hover {
-      background: #00b09b;
+      background: #00f5ac;
     }
-    /* تحسين قسم معلومات حول الشراء */
-    .gaming-library .item {
-      background: #27292a;
-      border: 1px solid #333;
-      border-radius: 12px;
-      padding: 15px;
-      margin-bottom: 15px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .gaming-library .item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 20px rgba(0,0,0,0.5);
-    }
-    .gaming-library .item h5 {
-      font-size: 14px;
-      margin: 4px 0;
-    }
-    .gaming-library .item h5 span {
-      color: #04ffac;
+
+    @media (max-width: 576px) {
+      .main-banner {
+        padding: 30px 15px;
+      }
+      .header-text h4 {
+        font-size: 22px;
+      }
+      .header-area {
+        padding: 5px 0;
+      }
+      .modal-3d-content {
+        padding: 15px;
+      }
     }
   </style>
 </head>
-
 <body>
+  <!-- خلفية Particles -->
+  <div id="particles-js"></div>
+
+  <!-- زر واتساب عائم -->
+  <a class="whatsapp-btn" href="https://wa.me/9647711359997" target="_blank">
+    <img src="assets/images/kkk.jpg" alt="WhatsApp" />
+  </a>
+
+  <!-- زر الإشعارات -->
+  <button class="notification-btn" onclick="showNotification()">
+    <i class="fa fa-bell"></i>
+  </button>
+
+  <!-- نافذة منبثقة (Popup) -->
+  <div class="modal-3d-overlay" id="modal3DOverlay">
+    <div class="modal-3d-content" id="modal3DContent">
+      <button class="modal-close-btn" onclick="close3DModal()">&times;</button>
+      <div class="modal-3d-header">
+        <img src="" alt="Product" id="modalProductImg" />
+      </div>
+      <h2 id="modalProductName"></h2>
+      <div class="modal-details">
+        <h5>السعر: <span id="modalPriceVal"></span></h5>
+        <h5>مدة الاشتراك: <span id="modalDuration"></span></h5>
+        <h5>ينتهي العرض في: <span id="modalEndDate"></span></h5>
+        <p id="modalProductDesc" style="margin: 10px 0; font-size: 14px;"></p>
+      </div>
+      <div class="modal-3d-footer">
+        <div class="main-button">
+          <a href="#" id="modalBuyLink" target="_blank">شراء الان؟</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Preloader Start -->
   <div id="js-preloader" class="js-preloader">
     <div class="preloader-inner">
       <span class="dot"></span>
-      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="dots">
+        <span></span><span></span><span></span>
+      </div>
     </div>
   </div>
   <!-- Preloader End -->
@@ -203,26 +630,47 @@
     <div class="container">
       <nav class="main-nav">
         <a href="index.html" class="logo">
-          <img src="assets/images/logo.gif" alt="logo">
+          <img src="assets/images/logo.gif" alt="logo" loading="lazy" />
         </a>
         <div class="search-input">
-          <form id="search" action="javascript:void(0);">
-            <input type="text" placeholder="اكتب للبحث عن منتج..." id="searchText" onkeyup="filterProducts()" />
+          <form id="search" action="javascript:void(0);" class="d-flex align-items-center">
+            <input
+              type="text"
+              placeholder="اكتب للبحث عن منتج..."
+              id="searchText"
+              onkeyup="filterProducts()"
+            />
             <i class="fa fa-search"></i>
+            <select id="priceFilter" onchange="filterProducts()">
+              <option value="">السعر</option>
+              <option value="low">اقل من 5 الف</option>
+              <option value="med">5 الف - 10 الف</option>
+              <option value="high">اكثر من 10 الف</option>
+            </select>
           </form>
         </div>
         <ul class="nav">
           <li><a href="index.html" class="active">المنزل</a></li>
           <li><a href="Bestoffers.html">افضل العروض</a></li>
           <li><a href="Gift.html">الهداية</a></li>
-          <li><a href="infoStore.html">حول المتجر <img src="assets/images/profile-header.jpg" alt=""></a></li>
+          <li>
+            <a href="infoStore.html">
+              حول المتجر
+              <img
+                src="assets/images/profile-header.jpg"
+                alt=""
+                loading="lazy"
+              />
+            </a>
+          </li>
         </ul>
-        <a class='menu-trigger'><span>Menu</span></a>
+        <a class="menu-trigger"><span>Menu</span></a>
       </nav>
     </div>
   </header>
   <!-- Header End -->
 
+  <!-- صفحة المحتوى -->
   <div class="container page-content">
     <div class="row">
       <div class="col-lg-12">
@@ -231,10 +679,13 @@
           <div class="row">
             <div class="col-lg-7">
               <div class="header-text">
-                <h4>(Store RD)</h4>
+                <h4></h4>
                 <h4><em></em></h4>
-                <div class="main-button">
-                  <a href="Bestoffers.html">افضل العروض</a>
+                <!-- زر افضل العروض -->
+                <div>
+                  <a href="Bestoffers.html" class="best-offers-btn">
+                    افضل العروض
+                  </a>
                 </div>
               </div>
             </div>
@@ -242,7 +693,7 @@
         </div>
         <!-- Banner End -->
 
-        <!-- Most Popular Start -->
+        <!-- قسم المنتجات المتوفرة (12 منتج) -->
         <div class="most-popular">
           <div class="row">
             <div class="col-lg-12">
@@ -250,298 +701,427 @@
                 <h1><em>(المنتجات المتوفرة)</em></h1>
               </div>
               <div class="row" id="productsContainer">
-                <!-- نسخ المنتجات بالكامل كما في الكود السابق هنا -->
-                <!-- مثال لمنتج واحد، كرر هذا الكود لكل منتج -->
-                <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="item" data-tilt>
-                    <img src="assets/images/11.jpg" alt="">
+                
+                <!-- 1) ديسكورد شهر كامل -->
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12" data-aos="zoom-in" data-aos-delay="100">
+                  <div
+                    class="item"
+                    data-img="assets/images/11.jpg"
+                    data-name="ديسكورد شهر كامل"
+                    data-price="8"
+                    data-desc="اشتراك ديسكورد شهري مع بوست."
+                    data-duration="شهر كامل"
+                    data-endDate="31 ديسمبر 2025"
+                  >
+                    <div class="view-notify">
+                      <i class="fa fa-eye"></i>
+                      انقر للعرض
+                    </div>
+                    <img
+                      src="assets/images/11.jpg"
+                      alt="ديسكورد شهر كامل"
+                      loading="lazy"
+                    />
                     <ul>
                       <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                      <li><i class="*"></i></li>
                     </ul>
-                    <h4>ديسكورد شهر كامل <br> 
-                      <h3>8,000 د.ع</h3>
+                    <h4>
+                      ديسكورد شهر كامل <br /><h3>8,000 د.ع</h3>
                     </h4>
-                    <div class="main-button"><a href="http://wa.me/9647711359997">شراء الان؟</a></div>
+                  </div>
+                  <!-- زر الشراء خارج البطاقة مع هامش سلبي للتقريب -->
+                  <div class="buy-button">
+                    <a href="javascript:void(0)" onclick="buyThisProduct('ديسكورد شهر كامل','8')">شراء الان؟</a>
                   </div>
                 </div>
-                <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="item" data-tilt>
-                    <img src="assets/images/9.jpg" alt="">
+
+                <!-- 2) نتفليكس شهر كامل -->
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12" data-aos="zoom-in" data-aos-delay="100">
+                  <div
+                    class="item"
+                    data-img="assets/images/9.jpg"
+                    data-name="نتفليكس شهر كامل"
+                    data-price="4"
+                    data-desc="نتفليكس بريميوم بدقة 4K لمدة شهر"
+                    data-duration="شهر كامل"
+                    data-endDate="31 ديسمبر 2025"
+                  >
+                    <div class="view-notify">
+                      <i class="fa fa-eye"></i>
+                      انقر للعرض
+                    </div>
+                    <img
+                      src="assets/images/9.jpg"
+                      alt="نتفليكس شهر كامل"
+                      loading="lazy"
+                    />
                     <ul>
                       <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                      <li><i class="*"></i></li>
                     </ul>
-                    <h4>نتفليكس شهر كامل <br> 
-                      <h3>4,000 د.ع</h3>
+                    <h4>
+                      نتفليكس شهر كامل<br /><h3>4,000 د.ع</h3>
                     </h4>
-                    <div class="main-button"><a href="http://wa.me/9647711359997">شراء الان؟</a></div>
+                  </div>
+                  <div class="buy-button">
+                    <a href="javascript:void(0)" onclick="buyThisProduct('نتفليكس شهر كامل','4')">شراء الان؟</a>
                   </div>
                 </div>
-                <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="item" data-tilt>
-                    <img src="assets/images/8.jpg" alt="">
+
+                <!-- 3) برايم فيديو شهر كامل -->
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12" data-aos="zoom-in" data-aos-delay="100">
+                  <div
+                    class="item"
+                    data-img="assets/images/8.jpg"
+                    data-name="برايم فيديو شهر كامل"
+                    data-price="4"
+                    data-desc="Amazon Prime Video لمدة شهر بجودة عالية"
+                    data-duration="شهر كامل"
+                    data-endDate="31 ديسمبر 2025"
+                  >
+                    <div class="view-notify">
+                      <i class="fa fa-eye"></i>
+                      انقر للعرض
+                    </div>
+                    <img
+                      src="assets/images/8.jpg"
+                      alt="برايم فيديو شهر كامل"
+                      loading="lazy"
+                    />
                     <ul>
                       <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                      <li><i class="*"></i></li>
                     </ul>
-                    <h4>برايم فيديو شهر كامل<br> 
-                      <h3>4,000 د.ع</h3>
+                    <h4>
+                      برايم فيديو شهر كامل<br /><h3>4,000 د.ع</h3>
                     </h4>
-                    <div class="main-button"><a href="http://wa.me/9647711359997">شراء الان؟</a></div>
+                  </div>
+                  <div class="buy-button">
+                    <a href="javascript:void(0)" onclick="buyThisProduct('برايم فيديو شهر كامل','4')">شراء الان؟</a>
                   </div>
                 </div>
-                <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="item" data-tilt>
-                    <img src="assets/images/10.jpg" alt="">
+
+                <!-- 4) شاهد اشتراك شامل -->
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12" data-aos="zoom-in" data-aos-delay="100">
+                  <div
+                    class="item"
+                    data-img="assets/images/10.jpg"
+                    data-name="شاهد اشتراك شامل"
+                    data-price="4"
+                    data-desc="اشتراك شامل لجميع قنوات شاهد"
+                    data-duration="شهر كامل"
+                    data-endDate="31 ديسمبر 2025"
+                  >
+                    <div class="view-notify">
+                      <i class="fa fa-eye"></i>
+                      انقر للعرض
+                    </div>
+                    <img
+                      src="assets/images/10.jpg"
+                      alt="شاهد اشتراك شامل"
+                      loading="lazy"
+                    />
                     <ul>
                       <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                      <li><i class="*"></i></li>
                     </ul>
-                    <h4>شاهد اشتراك شامل<br> 
-                      <h3>4,000 د.ع</h3>
+                    <h4>
+                      شاهد اشتراك شامل<br /><h3>4,000 د.ع</h3>
                     </h4>
-                    <div class="main-button"><a href="http://wa.me/9647711359997">شراء الان؟</a></div>
+                  </div>
+                  <div class="buy-button">
+                    <a href="javascript:void(0)" onclick="buyThisProduct('شاهد اشتراك شامل','4')">شراء الان؟</a>
                   </div>
                 </div>
-                <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="item" data-tilt>
-                    <img src="assets/images/12.jpg" alt="">
+
+                <!-- 5) ديسكورد 3 اشهر -->
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12" data-aos="zoom-in" data-aos-delay="100">
+                  <div
+                    class="item"
+                    data-img="assets/images/12.jpg"
+                    data-name="ديسكورد 3 اشهر"
+                    data-price="15"
+                    data-desc="ديسكورد نتور لمدة 3 أشهر على حساب جديد"
+                    data-duration="3 أشهر"
+                    data-endDate="31 ديسمبر 2025"
+                  >
+                    <div class="view-notify">
+                      <i class="fa fa-eye"></i>
+                      انقر للعرض
+                    </div>
+                    <img
+                      src="assets/images/12.jpg"
+                      alt="ديسكورد 3 اشهر"
+                      loading="lazy"
+                    />
                     <ul>
                       <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                      <li><i class="*"></i></li>
                     </ul>
-                    <h4>ديسكورد 3 اشهر<br> 
-                      <h3>15,000 د.ع</h3>
+                    <h4>
+                      ديسكورد 3 اشهر<br /><h3>15,000 د.ع</h3>
                     </h4>
-                    <div class="main-button"><a href="http://wa.me/9647711359997">شراء الان؟</a></div>
+                  </div>
+                  <div class="buy-button">
+                    <a href="javascript:void(0)" onclick="buyThisProduct('ديسكورد 3 اشهر','15')">شراء الان؟</a>
                   </div>
                 </div>
-                <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="item" data-tilt>
-                    <img src="assets/images/13.jpg" alt="">
+
+                <!-- 6) جات جي بي تي بــلاص -->
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12" data-aos="zoom-in" data-aos-delay="100">
+                  <div
+                    class="item"
+                    data-img="assets/images/13.jpg"
+                    data-name="جات جي بي تي بــلاص"
+                    data-price="5"
+                    data-desc="ChatGPT Plus شهري لتجربة مميزة"
+                    data-duration="شهر كامل"
+                    data-endDate="31 ديسمبر 2025"
+                  >
+                    <div class="view-notify">
+                      <i class="fa fa-eye"></i>
+                      انقر للعرض
+                    </div>
+                    <img
+                      src="assets/images/13.jpg"
+                      alt="جات جي بي تي بــلاص"
+                      loading="lazy"
+                    />
                     <ul>
                       <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                      <li><i class="*"></i></li>
                     </ul>
-                    <h4>جات جي بي تي بــلاص<br> 
-                      <h3>5,000 د.ع</h3>
+                    <h4>
+                      جات جي بي تي بــلاص<br /><h3>5,000 د.ع</h3>
                     </h4>
-                    <div class="main-button"><a href="http://wa.me/9647711359997">شراء الان؟</a></div>
+                  </div>
+                  <div class="buy-button">
+                    <a href="javascript:void(0)" onclick="buyThisProduct('جات جي بي تي بــلاص','5')">شراء الان؟</a>
                   </div>
                 </div>
-                <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="item" data-tilt>
-                    <img src="assets/images/19.jpg" alt="">
+
+                <!-- 7) كيم باس شهري -->
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12" data-aos="zoom-in" data-aos-delay="100">
+                  <div
+                    class="item"
+                    data-img="assets/images/19.jpg"
+                    data-name="كيم باس شهري"
+                    data-price="5"
+                    data-desc="Xbox Game Pass لمدة شهر"
+                    data-duration="شهر كامل"
+                    data-endDate="31 ديسمبر 2025"
+                  >
+                    <div class="view-notify">
+                      <i class="fa fa-eye"></i>
+                      انقر للعرض
+                    </div>
+                    <img
+                      src="assets/images/19.jpg"
+                      alt="كيم باس شهري"
+                      loading="lazy"
+                    />
                     <ul>
                       <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                      <li><i class="*"></i></li>
                     </ul>
-                    <h4>كيم باس شهري <br> 
-                      <h3>5,000 د.ع</h3>
+                    <h4>
+                      كيم باس شهري <br /><h3>5,000 د.ع</h3>
                     </h4>
-                    <div class="main-button"><a href="http://wa.me/9647711359997">شراء الان؟</a></div>
+                  </div>
+                  <div class="buy-button">
+                    <a href="javascript:void(0)" onclick="buyThisProduct('كيم باس شهري','5')">شراء الان؟</a>
                   </div>
                 </div>
-                <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="item" data-tilt>
-                    <img src="assets/images/14.jpg" alt="">
+
+                <!-- 8) يوتيوب برايم شهري -->
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12" data-aos="zoom-in" data-aos-delay="100">
+                  <div
+                    class="item"
+                    data-img="assets/images/14.jpg"
+                    data-name="يوتيوب برايم شهري"
+                    data-price="5"
+                    data-desc="YouTube Premium بدون إعلانات لمدة شهر"
+                    data-duration="شهر كامل"
+                    data-endDate="31 ديسمبر 2025"
+                  >
+                    <div class="view-notify">
+                      <i class="fa fa-eye"></i>
+                      انقر للعرض
+                    </div>
+                    <img
+                      src="assets/images/14.jpg"
+                      alt="يوتيوب برايم شهري"
+                      loading="lazy"
+                    />
                     <ul>
                       <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                      <li><i class="*"></i></li>
                     </ul>
-                    <h4>يوتيوب برايم شهري<br> 
-                      <h3>5,000 د.ع</h3>
+                    <h4>
+                      يوتيوب برايم شهري<br /><h3>5,000 د.ع</h3>
                     </h4>
-                    <div class="main-button"><a href="http://wa.me/9647711359997">شراء الان؟</a></div>
+                  </div>
+                  <div class="buy-button">
+                    <a href="javascript:void(0)" onclick="buyThisProduct('يوتيوب برايم شهري','5')">شراء الان؟</a>
                   </div>
                 </div>
-                <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="item" data-tilt>
-                    <img src="assets/images/15.jpg" alt="">
+
+                <!-- 9) سبوتفاي شهري -->
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12" data-aos="zoom-in" data-aos-delay="100">
+                  <div
+                    class="item"
+                    data-img="assets/images/15.jpg"
+                    data-name="سبوتفاي شهري"
+                    data-price="5"
+                    data-desc="Spotify Premium لمدة شهر"
+                    data-duration="شهر كامل"
+                    data-endDate="31 ديسمبر 2025"
+                  >
+                    <div class="view-notify">
+                      <i class="fa fa-eye"></i>
+                      انقر للعرض
+                    </div>
+                    <img
+                      src="assets/images/15.jpg"
+                      alt="سبوتفاي شهري"
+                      loading="lazy"
+                    />
                     <ul>
                       <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                      <li><i class="*"></i></li>
                     </ul>
-                    <h4>سبوتفاي شهري<br> 
-                      <h3>5,000 د.ع</h3>
+                    <h4>
+                      سبوتفاي شهري<br /><h3>5,000 د.ع</h3>
                     </h4>
-                    <div class="main-button"><a href="http://wa.me/9647711359997">شراء الان؟</a></div>
+                  </div>
+                  <div class="buy-button">
+                    <a href="javascript:void(0)" onclick="buyThisProduct('سبوتفاي شهري','5')">شراء الان؟</a>
                   </div>
                 </div>
-                <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="item" data-tilt>
-                    <img src="assets/images/16.jpg" alt="">
+
+                <!-- 10) كريتف كلاود شهري -->
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12" data-aos="zoom-in" data-aos-delay="100">
+                  <div
+                    class="item"
+                    data-img="assets/images/16.jpg"
+                    data-name="كريتف كلاود شهري"
+                    data-price="5"
+                    data-desc="Adobe Creative Cloud لمدة شهر"
+                    data-duration="شهر كامل"
+                    data-endDate="31 ديسمبر 2025"
+                  >
+                    <div class="view-notify">
+                      <i class="fa fa-eye"></i>
+                      انقر للعرض
+                    </div>
+                    <img
+                      src="assets/images/16.jpg"
+                      alt="كريتف كلاود شهري"
+                      loading="lazy"
+                    />
                     <ul>
                       <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                      <li><i class="*"></i></li>
                     </ul>
-                    <h4> كريتف كلاود شهري<br> 
-                      <h3>5,000 د.ع</h3>
+                    <h4>
+                      كريتف كلاود شهري<br /><h3>5,000 د.ع</h3>
                     </h4>
-                    <div class="main-button"><a href="http://wa.me/9647711359997">شراء الان؟</a></div>
+                  </div>
+                  <div class="buy-button">
+                    <a href="javascript:void(0)" onclick="buyThisProduct('كريتف كلاود شهري','5')">شراء الان؟</a>
                   </div>
                 </div>
-                <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="item" data-tilt>
-                    <img src="assets/images/17.jpg" alt="">
+
+                <!-- 11) نورد في بي ان شهري -->
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12" data-aos="zoom-in" data-aos-delay="100">
+                  <div
+                    class="item"
+                    data-img="assets/images/17.jpg"
+                    data-name="نورد في بي ان شهري"
+                    data-price="3"
+                    data-desc="NordVPN لمدة شهر كامل"
+                    data-duration="شهر كامل"
+                    data-endDate="31 ديسمبر 2025"
+                  >
+                    <div class="view-notify">
+                      <i class="fa fa-eye"></i>
+                      انقر للعرض
+                    </div>
+                    <img
+                      src="assets/images/17.jpg"
+                      alt="نورد في بي ان شهري"
+                      loading="lazy"
+                    />
                     <ul>
                       <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                      <li><i class="*"></i></li>
                     </ul>
-                    <h4>نورد في بي ان شهري<br> 
-                      <h3>3,000 د.ع</h3>
+                    <h4>
+                      نورد في بي ان شهري<br /><h3>3,000 د.ع</h3>
                     </h4>
-                    <div class="main-button"><a href="http://wa.me/9647711359997">شراء الان؟</a></div>
+                  </div>
+                  <div class="buy-button">
+                    <a href="javascript:void(0)" onclick="buyThisProduct('نورد في بي ان شهري','3')">شراء الان؟</a>
                   </div>
                 </div>
-                <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="item" data-tilt>
-                    <img src="assets/images/18.jpg" alt="">
+
+                <!-- 12) انمي شهري -->
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12" data-aos="zoom-in" data-aos-delay="100">
+                  <div
+                    class="item"
+                    data-img="assets/images/18.jpg"
+                    data-name="انمي شهري"
+                    data-price="5"
+                    data-desc="اشتراك انمي (كرانشي رول أو بديل) لمدة شهر"
+                    data-duration="شهر كامل"
+                    data-endDate="31 ديسمبر 2025"
+                  >
+                    <div class="view-notify">
+                      <i class="fa fa-eye"></i>
+                      انقر للعرض
+                    </div>
+                    <img
+                      src="assets/images/18.jpg"
+                      alt="انمي شهري"
+                      loading="lazy"
+                    />
                     <ul>
                       <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-                      <li><i class="*"></i></li>
                     </ul>
-                    <h4>انمي شهري<br> 
-                      <h3>5,000 د.ع</h3>
+                    <h4>
+                      انمي شهري<br /><h3>5,000 د.ع</h3>
                     </h4>
-                    <div class="main-button"><a href="http://wa.me/9647711359997">شراء الان؟</a></div>
+                  </div>
+                  <div class="buy-button">
+                    <a href="javascript:void(0)" onclick="buyThisProduct('انمي شهري','5')">شراء الان؟</a>
                   </div>
                 </div>
-                <!-- أضف باقي المنتجات بنفس النمط -->
+                <!-- نهاية الـ12 منتج -->
+
               </div>
             </div>
           </div>
         </div>
-        <!-- Most Popular End -->
+        <!-- نهاية قسم المنتجات المتوفرة (12 منتج) -->
 
-        <!-- Gaming Library Start -->
-        <div class="gaming-library" data-aos="fade-up" style="margin-top: 60px;">
-          <div class="col-lg-12">
-            <div class="heading-section">
-              <h4><em>(معلومات</em> حول الشراء)</h4>
-            </div>
-          </div>
-          <div class="row">
-            <!-- أدخل هنا جميع المنتجات مع معلومات الشراء بتنسيق البطاقة -->
-            <!-- مثال على منتج ضمن قسم معلومات حول الشراء -->
-            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
-              <div class="item" data-tilt>
-                <img src="assets/images/11.jpg" alt="">
-                <h4>ديسكورد نيتور شهري</h4>
-                <h5>السعر: <span>8,000 د.ع</span></h5>
-                <h5>مدة الاشتراك: <span>شهر كامل علئ حسابك الخاص</span></h5>
-                <h5>الاشتراك: <span>كيمنك مع 2 بوست</span></h5>
-                <h5>الضمان: <span>شهر كامل</span></h5>
-                <p style="font-size: 13px; color: #ccc;">ينتهي العرض في: 31 ديسمبر 2025</p>
-                <div class="main-button">
-                  <a href="https://m.me/store.iq.rd">شراء الان؟</a>
-                </div>
+        <!-- قسم الضمان والثقة (3D) -->
+        <div class="trust-section" data-aos="fade-up">
+          <h2>ضمان موقعنا</h2>
+          <div class="trust-row">
+            <div class="trust-item">
+              <div class="trust-icon">
+                <i class="fa fa-shield"></i>
               </div>
+              <h3>الحماية والثقة</h3>
+              <p>نوفر لك مستوى عالي من الأمان والثقة في عمليات الشراء والدفع.</p>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
-              <div class="item" data-tilt>
-                <img src="assets/images/9.jpg" alt="">
-                <h4>نتفليكس</h4>
-                <h5>السعر: <span>4,000 د.ع</span></h5>
-                <h5>مدة الاشتراك: <span>شهر كامل</span></h5>
-                <h5>الجودة: <span>4K</span></h5>
-                <h5>الضمان: <span>شهر كامل</span></h5>
-                <p style="font-size: 13px; color: #ccc;">ينتهي العرض في: 31 ديسمبر 2025</p>
-                <div class="main-button">
-                  <a href="https://m.me/store.iq.rd">شراء الان؟</a>
-                </div>
+            <div class="trust-item">
+              <div class="trust-icon">
+                <i class="fa fa-bolt"></i>
               </div>
+              <h3>سرعة الاستجابة</h3>
+              <p>دعم فني سريع ومتابعة فورية لأي مشكلة تواجهك أو استفسار.</p>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
-              <div class="item" data-tilt>
-                <img src="assets/images/8.jpg" alt="">
-                <h4>امزون برايم شهري</h4>
-                <h5>السعر: <span>4,000 د.ع</span></h5>
-                <h5>مدة الاشتراك: <span>شهر كامل</span></h5>
-                <h5>الجودة: <span>4K</span></h5>
-                <h5>الضمان: <span>شهر كامل</span></h5>
-                <p style="font-size: 13px; color: #ccc;">ينتهي العرض في: 31 ديسمبر 2025</p>
-                <div class="main-button">
-                  <a href="https://m.me/store.iq.rd">شراء الان؟</a>
-                </div>
+            <div class="trust-item">
+              <div class="trust-icon">
+                <i class="fa fa-star"></i>
               </div>
+              <h3>جودة مضمونة</h3>
+              <p>نقدم منتجات بأفضل الأسعار وبجودة تلبي توقعاتك بكل ثقة.</p>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
-              <div class="item" data-tilt>
-                <img src="assets/images/10.jpg" alt="">
-                <h4>شاهد الشامل</h4>
-                <h5>السعر: <span>4,000 د.ع</span></h5>
-                <h5>مدة الاشتراك: <span>شهر كامل</span></h5>
-                <h5>الجودة: <span>4K</span></h5>
-                <h5>الضمان: <span>شهر كامل</span></h5>
-                <p style="font-size: 13px; color: #ccc;">ينتهي العرض في: 31 ديسمبر 2025</p>
-                <div class="main-button">
-                  <a href="https://m.me/store.iq.rd">شراء الان؟</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
-              <div class="item" data-tilt>
-                <img src="assets/images/12.jpg" alt="">
-                <h4>ديسكورد 3 اشهر</h4>
-                <h5>السعر: <span>5,000 د.ع</span></h5>
-                <h5>مدة الاشتراك: <span>3 اشهري</span></h5>
-                <h5>الحساب: <span>علئ حساب جديد فقط</span></h5>
-                <h5>الضمان: <span>3 اشهر </span></h5>
-                <p style="font-size: 13px; color: #ccc;">ينتهي العرض في: 31 ديسمبر 2025</p>
-                <div class="main-button">
-                  <a href="https://m.me/store.iq.rd">شراء الان؟</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
-              <div class="item" data-tilt>
-                <img src="assets/images/13.jpg" alt="">
-                <h4>جات جي بي تي </h4>
-                <h5>السعر: <span>5,000 د.ع</span></h5>
-                <h5>مدة الاشتراك: <span>شهر كامل</span></h5>
-                <h5>التفعيل: <span>علئ حساب جاهز </span></h5>
-                <h5>الضمان: <span>شهر كامل</span></h5>
-                <p style="font-size: 13px; color: #ccc;">ينتهي العرض في: 31 ديسمبر 2025</p>
-                <div class="main-button">
-                  <a href="https://m.me/store.iq.rd">شراء الان؟</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
-              <div class="item" data-tilt>
-                <img src="assets/images/14.jpg" alt="">
-                <h4>يوتيوب برايم</h4>
-                <h5>السعر: <span>5,000 د.ع</span></h5>
-                <h5>مدة الاشتراك: <span>شهر كامل</span></h5>
-                <h5>التفعيل: <span>عن طريق ارسال رابط دعوة </span></h5>
-                <h5>الضمان: <span>شهر كامل</span></h5>
-                <p style="font-size: 13px; color: #ccc;">ينتهي العرض في: 31 ديسمبر 2025</p>
-                <div class="main-button">
-                  <a href="https://m.me/store.iq.rd">شراء الان؟</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
-              <div class="item" data-tilt>
-                <img src="assets/images/15.jpg" alt="">
-                <h4>سبتوفاي شهري</h4>
-                <h5>السعر: <span>5,000 د.ع</span></h5>
-                <h5>مدة الاشتراك: <span>شهر كامل</span></h5>
-                <h5>التفعيل: <span>حساب جاهز لل استخدام</span></h5>
-                <h5>الضمان: <span>شهر كامل</span></h5>
-                <p style="font-size: 13px; color: #ccc;">ينتهي العرض في: 31 ديسمبر 2025</p>
-                <div class="main-button">
-                  <a href="https://m.me/store.iq.rd">شراء الان؟</a>
-                </div>
-              </div>
-            </div>
-            <!-- كرر البنية أعلاه لجميع المنتجات في قسم معلومات حول الشراء -->
           </div>
         </div>
-        <!-- Gaming Library End -->
-
+        <!-- نهاية قسم الضمان والثقة -->
       </div>
     </div>
   </div>
@@ -552,10 +1132,11 @@
       <div class="row">
         <div class="col-lg-12">
           <p>
-            Copyright © 2022 
-            <a href="https://www.facebook.com/anwar.rd.129" target="_blank" title="">ANO-RD</a> Cy. All rights reserved.
-            <br>facebook:
-            <a href="https://www.facebook.com/store.iq.rd" target="_blank" title="">Store RD</a>
+            Copyright © 2022
+            <a href="https://www.facebook.com/anwar.rd.129" target="_blank">ANO-RD</a>
+            Cy. All rights reserved.
+            <br />facebook:
+            <a href="https://www.facebook.com/store.iq.rd" target="_blank">Store RD</a>
           </p>
         </div>
       </div>
@@ -568,76 +1149,200 @@
     <i class="fa fa-chevron-up"></i>
   </button>
 
-  <!-- Scripts -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/js/isotope.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
-  <script src="assets/js/tabs.js"></script>
-  <script src="assets/js/popup.js"></script>
-  <script src="assets/js/custom.js"></script>
-  <script src="assets/js/particles.min.js"></script>
-  <script src="assets/js/app.js"></script>
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <!-- سكربتات -->
+  <script src="vendor/jquery/jquery.min.js" defer></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js" defer></script>
+  <script src="assets/js/isotope.min.js" defer></script>
+  <script src="assets/js/owl-carousel.js" defer></script>
+  <script src="assets/js/tabs.js" defer></script>
+  <script src="assets/js/popup.js" defer></script>
+  <script src="assets/js/custom.js" defer></script>
+  <script src="assets/js/particles.min.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"
+    defer
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"
+    defer
+  ></script>
 
-  <!-- VanillaTilt.js لإضافة تأثير 3D -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
-  
-  <script>
-    AOS.init({
-      duration: 1000,
-      offset: 50
+  <script defer>
+    document.addEventListener("DOMContentLoaded", function () {
+      // تفعيل AOS
+      AOS.init({ duration: 1000, offset: 50 });
+
+      // زر الصعود للأعلى
+      let scrollBtn = document.getElementById("scrollTopBtn");
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 300) {
+          scrollBtn.classList.add("show");
+        } else {
+          scrollBtn.classList.remove("show");
+        }
+      });
+
+      // تفعيل تأثير ثلاثي الأبعاد بالـVanillaTilt
+      VanillaTilt.init(document.querySelectorAll(".item"), {
+        max: 15,         // زاوية الميلان
+        speed: 300,      // سرعة الحركة
+        glare: true,     // تمكين الانعكاس/اللمعة
+        "max-glare": 0.3 // نسبة شدة اللمعة
+      });
+
+      // إغلاق النافذة المنبثقة عند الضغط خارجها
+      let overlay = document.getElementById("modal3DOverlay");
+      overlay.addEventListener("click", function (e) {
+        if (e.target === overlay) {
+          close3DModal();
+        }
+      });
+
+      // جعل البطاقة كلها قابلة للضغط لفتح المنبثق
+      let allItems = document.querySelectorAll(".item");
+      allItems.forEach((item) => {
+        item.addEventListener("click", function (e) {
+          // منع فتح المنبثق إذا ضغط على زر "شراء الآن"
+          if (e.target.tagName.toLowerCase() === "a") {
+            e.stopPropagation();
+            return;
+          }
+          open3DModal(item);
+        });
+      });
     });
 
-    var scrollBtn = document.getElementById("scrollTopBtn");
-    window.onscroll = function() {
-      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        scrollBtn.classList.add("show");
-      } else {
-        scrollBtn.classList.remove("show");
-      }
-    };
     function scrollToTop() {
-      window.scrollTo({top: 0, behavior: 'smooth'});
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
+    // بحث + فلتر السعر
     function filterProducts() {
-      var input = document.getElementById("searchText");
-      var filter = input.value.toLowerCase();
-      console.log("بحث عن:", filter);
-      // إضافة منطق البحث حسب الحاجة
+      let input = document.getElementById("searchText").value.toLowerCase();
+      let priceFilter = document.getElementById("priceFilter").value;
+      let allItems = document.querySelectorAll(".item");
+
+      allItems.forEach((item) => {
+        let name = (item.getAttribute("data-name") || "").toLowerCase();
+        let price = parseInt(item.getAttribute("data-price") || "0", 10);
+
+        let matchSearch = name.indexOf(input) > -1;
+        let matchPrice = true;
+
+        if (priceFilter === "low" && price >= 5) {
+          matchPrice = false;
+        } else if (priceFilter === "med" && (price < 5 || price > 10)) {
+          matchPrice = false;
+        } else if (priceFilter === "high" && price <= 10) {
+          matchPrice = false;
+        }
+
+        if (matchSearch && matchPrice) {
+          item.parentElement.style.display = "";
+        } else {
+          item.parentElement.style.display = "none";
+        }
+      });
     }
 
-    // تطبيق تأثير VanillaTilt على جميع العناصر التي تحمل الصنف "item"
-    VanillaTilt.init(document.querySelectorAll(".item"), {
-      max: 15,
-      speed: 400,
-      glare: true,
-      "max-glare": 0.2,
-    });
+    // فتح النافذة المنبثقة
+    function open3DModal(item) {
+      let overlay = document.getElementById("modal3DOverlay");
+      let content = document.getElementById("modal3DContent");
+      let productImg = document.getElementById("modalProductImg");
+      let productName = document.getElementById("modalProductName");
+      let priceVal = document.getElementById("modalPriceVal");
+      let duration = document.getElementById("modalDuration");
+      let endDate = document.getElementById("modalEndDate");
+      let productDesc = document.getElementById("modalProductDesc");
+      let buyLink = document.getElementById("modalBuyLink");
+
+      let img = item.getAttribute("data-img") || "";
+      let name = item.getAttribute("data-name") || "المنتج";
+      let price = item.getAttribute("data-price") || "0";
+      let desc = item.getAttribute("data-desc") || "وصف المنتج غير متوفر";
+      let dur = item.getAttribute("data-duration") || "غير محدد";
+      let end = item.getAttribute("data-enddate") || "غير محدد";
+
+      productImg.src = img;
+      productName.textContent = name;
+      priceVal.textContent = price + ",000 د.ع";
+      duration.textContent = dur;
+      endDate.textContent = end;
+      productDesc.textContent = desc;
+
+      // تكوين رابط شراء واتساب باسم المنتج + سعره
+      let encodedText = encodeURIComponent(
+        `أرغب بشراء منتج: ${name}\nالسعر: ${price},000 د.ع\n`
+      );
+      let phone = "9647711359997";
+      let finalLink = `https://wa.me/${phone}?text=${encodedText}`;
+      buyLink.href = finalLink;
+
+      overlay.style.display = "flex";
+      setTimeout(() => {
+        content.classList.add("show");
+      }, 50);
+    }
+
+    // إغلاق النافذة المنبثقة
+    function close3DModal() {
+      let overlay = document.getElementById("modal3DOverlay");
+      let content = document.getElementById("modal3DContent");
+      content.classList.remove("show");
+      setTimeout(() => {
+        overlay.style.display = "none";
+      }, 300);
+    }
+
+    // زر "شراء الآن؟" خارج النافذة المنبثقة يرسل رسالة واتساب بالمنتج
+    function buyThisProduct(productName, productPrice) {
+      let encodedText = encodeURIComponent(
+        `أرغب بشراء منتج: ${productName}\nالسعر: ${productPrice},000 د.ع\n`
+      );
+      let phone = "9647711359997";
+      let finalLink = `https://wa.me/${phone}?text=${encodedText}`;
+      window.open(finalLink, "_blank");
+    }
+
+    // زر الإشعارات (SweetAlert2)
+    function showNotification() {
+      Swal.fire({
+        title: "أحدث العروض!",
+        text: "خصم 25% على اشتراكات مختارة لهذا الأسبوع!",
+        icon: "info",
+        confirmButtonText: "رؤية العروض",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = "Bestoffers.html";
+        }
+      });
+    }
   </script>
 
+  <!-- فيسبوك ماسنجر -->
   <div id="fb-root"></div>
   <div id="fb-customer-chat" class="fb-customerchat"></div>
   <script>
-    var chatbox = document.getElementById('fb-customer-chat');
+    var chatbox = document.getElementById("fb-customer-chat");
     chatbox.setAttribute("page_id", "103743918039608");
     chatbox.setAttribute("attribution", "biz_inbox");
   </script>
   <script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        xfbml            : true,
-        version          : 'v14.0'
-      });
+    window.fbAsyncInit = function () {
+      FB.init({ xfbml: true, version: "v14.0" });
     };
-    (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
+    (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = 'https://connect.facebook.net/ar_AR/sdk/xfbml.customerchat.js';
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://connect.facebook.net/ar_AR/sdk/xfbml.customerchat.js";
       fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+    })(document, "script", "facebook-jssdk");
   </script>
 </body>
 </html>
