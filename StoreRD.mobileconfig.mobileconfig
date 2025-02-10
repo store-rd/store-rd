@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" 
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <!-- معلومات البروفايل العامة -->
+    <key>PayloadDisplayName</key>
+    <string>Store RD Full App</string>
+    <key>PayloadIdentifier</key>
+    <string>com.store.rd.fullapp.profile</string>
+    <key>PayloadDescription</key>
+    <string>يضيف ملف بروفايل Store RD أيقونة على الشاشة الرئيسية لتعمل بوضع ملء الشاشة كتطبيق احترافي، مع مجموعة من الميزات المخصصة.</string>
+    <key>PayloadOrganization</key>
+    <string>Store RD Official</string>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>F7EFA7B3-3414-4719-97C4-8B263F90917A</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+    <key>PayloadRemovalDisallowed</key>
+    <false/>
+
+    <!-- محتوى البروفايل: إعداد WebClip -->
+    <key>PayloadContent</key>
+    <array>
+      <dict>
+        <!-- الإعدادات الرسمية للـ WebClip -->
+        <key>PayloadType</key>
+        <string>com.apple.webClip.managed</string>
+        <key>PayloadIdentifier</key>
+        <string>com.store.rd.fullapp.webclip</string>
+        <key>PayloadUUID</key>
+        <string>CE44C6A6-2E1F-45C0-B0BE-CB128BCFADB2</string>
+        <key>PayloadVersion</key>
+        <integer>1</integer>
+        <key>PayloadOrganization</key>
+        <string>Store RD Official</string>
+        <key>Label</key>
+        <string>Store RD</string>
+        <key>URL</key>
+        <string>https://store-rd.github.io/store-rd/index.html</string>
+        <key>FullScreen</key>
+        <true/>
+        <key>Precomposed</key>
+        <true/>
+        <key>IsRemovable</key>
+        <false/>
+        <key>IconURL</key>
+        <string>https://store-rd.github.io/store-rd/assets/images/logo192.png</string>
+        
+        <!-- المفاتيح المخصصة (Custom Features) لإظهار مميزات إضافية -->
+        <key>Custom_ThemeColor</key>
+        <string>#121212</string>
+        <key>Custom_StatusBarStyle</key>
+        <string>black-translucent</string>
+        <key>Custom_AppName</key>
+        <string>Store RD</string>
+        <key>Custom_FullScreenMode</key>
+        <true/>
+        <key>Custom_NavigationStyle</key>
+        <string>Minimalistic</string>
+        <key>Custom_PageTransition</key>
+        <string>Fade</string>
+        <key>Custom_SupportedPages</key>
+        <array>
+          <string>index.html</string>
+          <string>Bestoffers.html</string>
+          <string>Gift.html</string>
+          <string>infoStore.html</string>
+        </array>
+        <key>Custom_AutomaticReload</key>
+        <true/>
+        <key>Custom_CachePolicy</key>
+        <string>Efficient</string>
+        <key>Custom_SecureConnection</key>
+        <true/>
+        <key>Custom_HideSafariChrome</key>
+        <true/>
+        <key>Custom_CustomIconShape</key>
+        <string>Rounded</string>
+        <key>Custom_SwipeNavigation</key>
+        <true/>
+        <key>Custom_CustomFont</key>
+        <string>Cairo</string>
+        <key>Custom_AppOrientation</key>
+        <string>Portrait</string>
+        <key>Custom_BackgroundGradient</key>
+        <string>Linear</string>
+        <key>Custom_AnimationEffects</key>
+        <string>Subtle</string>
+        <key>Custom_TouchFeedback</key>
+        <true/>
+        <key>Custom_SoundEffects</key>
+        <false/>
+        <key>Custom_BatterySavingMode</key>
+        <true/>
+        <!-- انتهت المفاتيح المخصصة -->
+      </dict>
+    </array>
+  </dict>
+</plist>
