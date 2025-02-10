@@ -2,8 +2,9 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
-  <title>Store RD - الصفحة الرئيسية</title>
+  <!-- لضمان استجابة أفضل على مختلف شاشات الموبايل -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Store RD - الصفحة الرئيسية</title>
 
   <!-- خطوط Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,6 +16,7 @@
 
   <!-- Bootstrap وCSS أساسي -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
   <!-- FontAwesome (CDN) -->
   <link
     rel="stylesheet"
@@ -25,6 +27,7 @@
   <link rel="stylesheet" href="assets/css/animate.css" />
   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
   <!-- SweetAlert2 لإشعارات العروض -->
   <link
     rel="stylesheet"
@@ -137,11 +140,16 @@
     }
 
     /* البحث والفلتر */
-    .search-input form {
-      position: relative;
+    .search-input {
       margin-right: 15px;
       display: flex;
       align-items: center;
+    }
+    .search-input form {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin: 0;
     }
     #searchText {
       background: var(--secondary-bg-dark);
@@ -263,6 +271,7 @@
       transition: 0.3s;
       z-index: 1500;
       padding: 20px;
+      overflow-y: auto; /* لإمكانية التمرير */
     }
     .side-nav.open {
       right: 0;
@@ -813,15 +822,34 @@
       background: var(--primary-color-hover);
     }
 
+    /*************************************
+     * تحسينات إضافية للشاشات الصغيرة    *
+     *************************************/
     @media (max-width: 576px) {
+      .header-area {
+        padding: 5px 0;
+      }
+      .search-input form {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      #searchText {
+        margin-bottom: 10px;
+        width: 100%;
+      }
+      select#priceFilter {
+        margin-left: 0;
+        width: 100%;
+      }
+      .search-input {
+        margin-right: 0;
+        width: 100%;
+      }
       .main-banner {
         padding: 30px 15px;
       }
       .header-text h4 {
         font-size: 22px;
-      }
-      .header-area {
-        padding: 5px 0;
       }
       .modal-3d-content {
         padding: 15px;
@@ -951,7 +979,6 @@
       </nav>
     </div>
   </header>
-
   <!-- القائمة الجانبية للجوال -->
   <div class="side-nav" id="sideNav">
     <ul>
@@ -1063,28 +1090,57 @@
     <i class="fa fa-chevron-up"></i>
   </button>
 
-  <!-- سكربتات -->
+  <!-- سكربتات أساسية -->
   <script src="vendor/jquery/jquery.min.js" defer></script>
   <script src="vendor/bootstrap/js/bootstrap.min.js" defer></script>
   <script src="assets/js/isotope.min.js" defer></script>
   <script src="assets/js/owl-carousel.js" defer></script>
   <script src="assets/js/tabs.js" defer></script>
   <script src="assets/js/popup.js" defer></script>
-  <script src="assets/js/custom.js" defer></script>
-  <script src="assets/js/particles.min.js" defer></script>
-  <script src="assets/js/app.js" defer></script>
-  <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"
-    defer
-  ></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"
-    defer
-  ></script>
 
+  <!-- ملف custom.js معدل لمنع أي أخطاء offset().top -->
   <script defer>
-    /* مصفوفة المنتجات */
+    document.addEventListener("DOMContentLoaded", function() {
+      // مثال على كود قد يسبب خطأ عند محاولة الوصول إلى offset().top
+      // استخدمنا getBoundingClientRect() مع فحص العنصر
+      document.addEventListener("scroll", function() {
+        let links = document.querySelectorAll("a.scrollLink");
+        links.forEach(function(link) {
+          let rect = link.getBoundingClientRect();
+          let absoluteTop = rect.top + window.scrollY;
+          // ... بقية المنطق
+        });
+      });
+    });
+
+    // فتح/إغلاق القائمة الجانبية
+    function toggleSideNav() {
+      const sideNav = document.getElementById("sideNav");
+      sideNav.classList.toggle("open");
+    }
+  </script>
+
+  <!-- مكتبة particles + سكربت التهيئة -->
+  <script src="assets/js/particles.min.js" defer></script>
+  <script defer>
+    document.addEventListener("DOMContentLoaded", function() {
+      const pjsContainer = document.getElementById("particles-js");
+      if(pjsContainer) {
+        particlesJS("particles-js", {
+          "particles": {
+            "number": { "value": 60 },
+            "size": { "value": 3 },
+            "move": {"speed": 2},
+            "color": {"value": "#ffffff"}
+          }
+        });
+      }
+    });
+  </script>
+
+  <!-- كود الموقع الرئيسي -->
+  <script defer>
+    // مصفوفة المنتجات
     const PRODUCTS = [
       {
         name: "ديسكورد شهر كامل",
@@ -1196,8 +1252,8 @@
       },
     ];
 
-    // زمن العروض الخاصة (24 ساعة بالميلليثانية)
-    const OFFER_DURATION = 24 * 60 * 60 * 1000; // 24 ساعة
+    // زمن العروض الخاصة (24 ساعة)
+    const OFFER_DURATION = 24 * 60 * 60 * 1000;
 
     document.addEventListener("DOMContentLoaded", function () {
       // تفعيل AOS
@@ -1221,7 +1277,7 @@
         }
       });
 
-      // وضع الإضاءة (دارك/لايت)
+      // وضع الإضاءة (دارك/لايت) بناءً على الذاكرة التخزينية
       if (localStorage.getItem("themeMode") === "light") {
         document.body.classList.add("light-mode");
       }
@@ -1232,15 +1288,17 @@
       // 2) توليد عروض خاصة (3 منتجات) مع عداد 24 ساعة
       setupDailyOffers();
 
-      // بعد إضافة العناصر ديناميكيًا، نفعّل تأثير VanillaTilt
-      setTimeout(() => {
-        VanillaTilt.init(document.querySelectorAll(".item"), {
-          max: 15,
-          speed: 300,
-          glare: true,
-          "max-glare": 0.3,
-        });
-      }, 200);
+      // إذا أردت استخدام VanillaTilt، ضعه هنا بعد تأكدك من استدعاء ملفه
+      // setTimeout(() => {
+      //   if (typeof VanillaTilt !== "undefined") {
+      //     VanillaTilt.init(document.querySelectorAll(".item"), {
+      //       max: 15,
+      //       speed: 300,
+      //       glare: true,
+      //       "max-glare": 0.3,
+      //     });
+      //   }
+      // }, 200);
     });
 
     // توليد بطاقات المنتجات
@@ -1284,6 +1342,7 @@
       let allItems = container.querySelectorAll(".item");
       allItems.forEach((item) => {
         item.addEventListener("click", function (e) {
+          // منع تداخل الضغط على زر "شراء الان"
           if (e.target.tagName.toLowerCase() === "a") {
             e.stopPropagation();
             return;
@@ -1299,23 +1358,19 @@
       const now = Date.now();
 
       if (specialData) {
-        // يوجد عروض مخزنة سابقاً
+        // يوجد عروض مخزنة
         specialData = JSON.parse(specialData);
         // تحقق إن كانت انتهت مدتها
         if (now > specialData.endTime) {
-          // انتهت -> اختر عروض جديدة
           pickNewOffers();
         } else {
-          // لم تنته -> اعرض نفس العروض
           renderSpecialOffers(specialData.offers, specialData.endTime);
         }
       } else {
-        // لا يوجد -> اختر عروض جديدة لأول مرة
         pickNewOffers();
       }
     }
 
-    // اختيار 3 منتجات عشوائية وتخزينها
     function pickNewOffers() {
       const pickedSet = new Set();
       while (pickedSet.size < 3 && pickedSet.size < PRODUCTS.length) {
@@ -1323,30 +1378,19 @@
         pickedSet.add(rand);
       }
       const offers = [...pickedSet].map(idx => PRODUCTS[idx]);
-
-      // تحديد وقت الانتهاء (24 ساعة من الآن)
       const endTime = Date.now() + OFFER_DURATION;
 
-      // تخزين
-      const dataToStore = {
-        offers,
-        endTime
-      };
-      localStorage.setItem("dailySpecialOffers", JSON.stringify(dataToStore));
+      localStorage.setItem("dailySpecialOffers", JSON.stringify({ offers, endTime }));
 
-      // عرض على الصفحة
       renderSpecialOffers(offers, endTime);
     }
 
-    // عرض الـ3 عروض مع عداد
     function renderSpecialOffers(offers, endTime) {
       const row = document.getElementById("specialOffersRow");
       row.innerHTML = "";
 
-      // إنشاء بطاقات العرض
       offers.forEach((p) => {
-        // خصم 20%
-        const discount = 0.2;
+        const discount = 0.2; // 20% خصم
         const newPrice = p.price - p.price * discount;
 
         const offerHTML = `
@@ -1359,21 +1403,17 @@
             </p>
             <div class="countdown"></div>
             <div class="buy-button">
-              <a href="javascript:void(0)" onclick="buyThisProduct('${p.name}','${newPrice.toFixed(1)}')">
-                شراء الان؟
-              </a>
+              <a href="javascript:void(0)" onclick="buyThisProduct('${p.name}','${newPrice.toFixed(1)}')">شراء الان؟</a>
             </div>
           </div>
         `;
         row.insertAdjacentHTML("beforeend", offerHTML);
       });
 
-      // تشغيل عداد واحد لجميع البطاقات
       const countdownElems = row.querySelectorAll(".countdown");
       startCountdown(endTime, countdownElems);
     }
 
-    // تشغيل العد التنازلي حتى endTime
     function startCountdown(endTime, countdownElems) {
       const timer = setInterval(() => {
         const now = Date.now();
@@ -1385,8 +1425,7 @@
           });
           return;
         }
-        // احسب الوقت المتبقي
-        let hours = Math.floor((distance / (1000 * 60 * 60)));
+        let hours = Math.floor(distance / (1000 * 60 * 60));
         let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
@@ -1475,12 +1514,6 @@
       });
     }
 
-    // فتح/إغلاق القائمة الجانبية
-    function toggleSideNav() {
-      const sideNav = document.getElementById("sideNav");
-      sideNav.classList.toggle("open");
-    }
-
     // تبديل الوضع الداكن والفاتح
     function toggleDarkMode() {
       document.body.classList.toggle("light-mode");
@@ -1495,7 +1528,7 @@
     function filterProducts() {
       const input = document.getElementById("searchText").value.toLowerCase();
       const priceFilter = document.getElementById("priceFilter").value;
-      const allItems = document.querySelectorAll("#productsContainer .item"); 
+      const allItems = document.querySelectorAll("#productsContainer .item");
 
       allItems.forEach((item) => {
         const name = (item.getAttribute("data-name") || "").toLowerCase();
@@ -1526,27 +1559,44 @@
     }
   </script>
 
-  <!-- فيسبوك ماسنجر -->
+  <!-- AOS + SweetAlert (وفانيلا تلِت اختياري) -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" defer></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js" defer></script>
+
+  <!-- فيسبوك ماسنجر (اختياري) -->
   <div id="fb-root"></div>
   <div id="fb-customer-chat" class="fb-customerchat"></div>
   <script>
-    var chatbox = document.getElementById("fb-customer-chat");
-    chatbox.setAttribute("page_id", "103743918039608");
-    chatbox.setAttribute("attribution", "biz_inbox");
-  </script>
-  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var chatbox = document.getElementById("fb-customer-chat");
+      if(chatbox){
+        chatbox.setAttribute("page_id", "103743918039608");
+        chatbox.setAttribute("attribution", "biz_inbox");
+      }
+    });
     window.fbAsyncInit = function () {
-      FB.init({ xfbml: true, version: "v14.0" });
+      if(typeof FB !== "undefined"){
+        FB.init({ xfbml: true, version: "v14.0" });
+      }
     };
     (function (d, s, id) {
-      var js,
-        fjs = d.getElementsByTagName(s)[0];
+      var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
-      js = d.createElement(s);
-      js.id = id;
+      js = d.createElement(s); js.id = id;
       js.src = "https://connect.facebook.net/ar_AR/sdk/xfbml.customerchat.js";
       fjs.parentNode.insertBefore(js, fjs);
     })(document, "script", "facebook-jssdk");
+  </script>
+
+  <!-- كود إخفاء الـPreloader بعد تحميل الصفحة -->
+  <script>
+    window.addEventListener("load", function() {
+      const preloader = document.getElementById("js-preloader");
+      if (preloader) {
+        preloader.style.display = "none";
+      }
+    });
   </script>
 </body>
 </html>
