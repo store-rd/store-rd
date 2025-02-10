@@ -28,19 +28,75 @@
       scroll-behavior: smooth;
       position: relative;
     }
-    .header-area {
-      background: rgba(0,0,0,0.8);
-      backdrop-filter: blur(5px);
+
+    /*********************************************
+     *           شريط التنقل (الهيدر)            *
+     *********************************************/
+    .header-area.header-sticky {
       position: fixed;
+      top: 0;
       width: 100%;
       z-index: 999;
     }
-    /* تنسيق مربع البحث */
+    /* نفس التدرّج والضبابية المستخدم في صفحة Index */
+    .header-area {
+      background: linear-gradient(125deg, rgba(0,0,0,0.9), rgba(15,15,15,0.85));
+      backdrop-filter: blur(5px);
+    }
+    /* الشعار */
+    .logo img {
+      max-width: 120px;
+      transition: transform 0.3s ease;
+    }
+    .logo img:hover {
+      transform: scale(1.05);
+    }
+    /* الروابط في القائمة */
+    .main-nav .nav li a {
+      color: #ccc;
+      font-weight: 500;
+      transition: 0.3s;
+      position: relative;
+    }
+    /* أيقونات FontAwesome بجوار الروابط */
+    .main-nav .nav li a i {
+      margin-left: 5px;
+      color: #00d592;
+      transition: color 0.3s;
+    }
+    .main-nav .nav li a:hover {
+      color: #00f5ac;
+    }
+    .main-nav .nav li a:hover i {
+      color: #00f5ac;
+    }
+    /* الرابط النشط */
+    .main-nav .nav li a.active {
+      color: #00f5ac !important;
+    }
+    /* تأثير خط تحت الرابط عند المرور */
+    .main-nav .nav li a:hover::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #00d592;
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      border-radius: 2px;
+      animation: expandHover 0.3s forwards;
+    }
+    @keyframes expandHover {
+      from { width: 0; }
+      to   { width: 100%; }
+    }
+    /* مربع البحث في الهيدر */
     .search-input form {
       position: relative;
     }
     #searchText {
-      background: #1f1f1f; /* محتفظون به لخانة البحث */
+      background: #1f1f1f; /* خانة البحث */
       color: #fff;
       border: 1px solid #444;
       padding: 8px 35px 8px 10px;
@@ -57,17 +113,43 @@
       top: 8px;
       color: #888;
     }
-    .page-content {
-      margin-top: 120px; /* مسافة كافية أسفل الهيدر الثابت */
+    /* زر القائمة للجوال */
+    .menu-trigger {
+      color: #fff;
+      border: 1px solid #444;
+      padding: 3px 10px;
+      border-radius: 5px;
+      display: none;
+      cursor: pointer;
+      transition: 0.3s;
     }
-    /* نجعل مربعات العناصر أغمق (#27292a) كي تتباين مع الخلفية #1f2122 */
+    .menu-trigger:hover {
+      background: #1f1f1f;
+      border-color: #00d592;
+    }
+    @media (max-width: 991px) {
+      .main-nav .nav {
+        display: none;
+      }
+      .menu-trigger {
+        display: block;
+      }
+    }
+
+    /*********************************************
+     *         محتوى الصفحة وأقسامها            *
+     *********************************************/
+    .page-content {
+      margin-top: 120px; /* المسافة أسفل الهيدر حتى لا يغطي المحتوى */
+    }
+    /* مربعات العناصر أغمق (#27292a) لتظهر مع الخلفية #1f2122 */
     .item {
-      background: #27292a; /* <-- أغمق قليلًا من خلفية الصفحة */
+      background: #27292a;
       border-radius: 10px;
       padding: 15px;
-      margin-bottom: 10px; /* تقليل المسافة بين الصناديق */
+      margin-bottom: 10px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      perspective: 1000px; /* لتمكين الـ 3D */
+      perspective: 1000px;
     }
     .item:hover {
       transform: translateY(-5px);
@@ -82,6 +164,7 @@
       border-radius: 23px;
       max-width: 100%;
     }
+
     /* الأزرار */
     .main-border-button a,
     .main-button a {
@@ -99,9 +182,10 @@
       box-shadow: 0 10px 20px rgba(0,0,0,0.4);
       text-decoration: none;
     }
+
     /* مربعات الإحصائيات (ثري دي) */
     .stats-box {
-      background: #27292a; /* <-- نفس لون .item لضمان التوحيد */
+      background: #27292a;
       border-radius: 12px;
       padding: 20px;
       box-shadow: 0 8px 15px rgba(0,0,0,0.3);
@@ -123,6 +207,7 @@
       font-size: 24px;
       font-weight: 700;
     }
+
     /* العناصر السفلية (الدعم الفني - السرعة ...) */
     .clips .item .thumb img {
       border-radius: 10px;
@@ -133,6 +218,7 @@
       font-size: 16px;
       color: #fff;
     }
+
     /* الفوتر */
     footer {
       background: #111;
@@ -152,6 +238,7 @@
     footer p a:hover {
       text-decoration: underline;
     }
+
     /* زر الصعود للأعلى (Scroll to Top) */
     #scrollTopBtn {
       position: fixed;
@@ -170,7 +257,7 @@
       font-size: 20px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.4);
       z-index: 1000;
-      visibility: hidden; /* يبدأ مخفي */
+      visibility: hidden;
       opacity: 0;
       transition: visibility 0.3s, opacity 0.3s, transform 0.3s;
     }
@@ -199,8 +286,11 @@
   </div>
   <!-- ***** Preloader End ***** -->
 
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky" data-aos="fade-down">
+  <!-- 
+       إزالة data-aos="fade-down" 
+       لجعل الهيدر ثابتًا دون حركة 
+  -->
+  <header class="header-area header-sticky">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -210,6 +300,7 @@
               <img src="assets/images/logo.gif" alt="logo">
             </a>
             <!-- ***** Logo End ***** -->
+
             <!-- ***** Search Start ***** -->
             <div class="search-input">
               <form id="search" action="javascript:void(0);">
@@ -218,12 +309,34 @@
               </form>
             </div>
             <!-- ***** Search End ***** -->
+
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li><a href="index.html">المنزل</a></li>
-              <li><a href="Bestoffers.html">افضل العروض</a></li>
-              <li><a href="Gift.html">الهداية</a></li>
-              <li><a href="infoStore.html" class="active">حول المتجر <img src="assets/images/profile-header.jpg" alt=""></a></li>
+              <li>
+                <a href="index.html">
+                  <i class="fa fa-home"></i>
+                  المنزل
+                </a>
+              </li>
+              <li>
+                <a href="Bestoffers.html">
+                  <i class="fa fa-star"></i>
+                  افضل العروض
+                </a>
+              </li>
+              <li>
+                <a href="Gift.html">
+                  <i class="fa fa-gift"></i>
+                  الهداية
+                </a>
+              </li>
+              <li>
+                <a href="infoStore.html" class="active">
+                  <i class="fa fa-info-circle"></i>
+                  حول المتجر
+                  <img src="assets/images/profile-header.jpg" alt="" style="height: 20px; width: auto; margin-right: 5px; vertical-align: middle; border-radius: 4px;">
+                </a>
+              </li>
             </ul>   
             <a class='menu-trigger'>
               <span>Menu</span>
@@ -421,7 +534,7 @@
 
   <!-- Scripts -->
   <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/isotope.min.js"></script>
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/tabs.js"></script>
@@ -438,13 +551,13 @@
 
     // زر الصعود للأعلى
     var scrollBtn = document.getElementById("scrollTopBtn");
-    window.onscroll = function() {
-      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 300) {
         scrollBtn.classList.add("show");
       } else {
         scrollBtn.classList.remove("show");
       }
-    };
+    });
     function scrollToTop() {
       window.scrollTo({top: 0, behavior: 'smooth'});
     }
@@ -453,7 +566,7 @@
     function handleSearch() {
       var text = document.getElementById('searchText').value.toLowerCase();
       console.log("بحث عن:", text);
-      // يمكنك إضافة منطق بحث مخصص لو أردت
+      // يمكنك إضافة منطق بحث مخصص إن أردت
     }
   </script>
 

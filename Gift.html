@@ -30,34 +30,97 @@
       position: relative;
     }
 
-    /* رأس الصفحة (Header) */
-    .header-area {
-      background: rgba(0,0,0,0.8);
-      backdrop-filter: blur(5px);
+    /************************************
+     *       شريط التنقل (الهيدر)       *
+     ************************************/
+    /* نجعل الهيدر ثابتًا في أعلى الصفحة ونفس تصميم صفحة الإندكس */
+    .header-area.header-sticky {
       position: fixed;
+      top: 0;
       width: 100%;
       z-index: 999;
     }
-    .header-area.header-sticky {
-      top: 0;
-      left: 0;
-      right: 0;
+    .header-area {
+      /* نفس التدرج والخلفية المشابهة لصفحة الإندكس */
+      background: linear-gradient(125deg, rgba(0,0,0,0.9), rgba(15,15,15,0.85));
+      backdrop-filter: blur(5px);
     }
-    .main-nav .nav li a {
-      color: #fff; /* لضمان ظهور الروابط باللون الأبيض */
+    /* الشعار */
+    .logo img {
+      max-width: 120px;
+      transition: transform 0.3s ease;
+    }
+    .logo img:hover {
+      transform: scale(1.05);
     }
 
-    /* شكل البحث */
+    /* القائمة العلوية (روابط) */
+    .main-nav .nav {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+    .main-nav .nav li {
+      position: relative;
+    }
+    .main-nav .nav li a {
+      color: #ccc;
+      font-weight: 500;
+      transition: 0.3s;
+      position: relative;
+    }
+    /* أيقونات (FontAwesome) بجوار الروابط */
+    .main-nav .nav li a i {
+      margin-left: 5px;
+      color: #00d592;
+      transition: color 0.3s;
+    }
+    .main-nav .nav li a:hover {
+      color: #00f5ac;
+    }
+    .main-nav .nav li a:hover i {
+      color: #00f5ac;
+    }
+    /* الرابط النشط */
+    .main-nav .nav li a.active {
+      color: #00f5ac !important;
+    }
+    /* تأثير hover بشريط سفلي */
+    .main-nav .nav li a:hover::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #00d592;
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      border-radius: 2px;
+      animation: expandHover 0.3s forwards;
+    }
+    @keyframes expandHover {
+      from { width: 0; }
+      to   { width: 100%; }
+    }
+
+    /* بحث */
     .search-input form {
       position: relative;
+      margin-right: 15px;
+      display: flex;
+      align-items: center;
     }
     #searchText {
       background: #1f1f1f;
       color: #fff;
       border: 1px solid #444;
-      padding: 8px 35px 8px 10px;
       border-radius: 20px;
+      padding: 8px 35px 8px 10px;
       transition: all 0.3s ease;
+      width: 180px;
+      max-width: 100%;
     }
     #searchText:focus {
       border-color: #04ffac;
@@ -65,19 +128,49 @@
     }
     .search-input i.fa-search {
       position: absolute;
-      right: 10px;
+      right: 20px;
       top: 8px;
       color: #888;
     }
 
-    /* شكل البطاقات مع تأثير 3D */
+    /* زر القائمة (للجوال) */
+    .menu-trigger {
+      color: #fff;
+      border: 1px solid #444;
+      padding: 3px 10px;
+      border-radius: 5px;
+      display: none; /* مخفي في الشاشات الكبيرة */
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .menu-trigger:hover {
+      background: #1f1f1f;
+      border-color: #00d592;
+    }
+    @media (max-width: 991px) {
+      .main-nav .nav {
+        display: none; /* سيظهر بدلًا منه الزر للجوال */
+      }
+      .menu-trigger {
+        display: block;
+      }
+    }
+
+    /* محتوى الصفحة يبدأ أسفل الهيدر */
+    .page-content {
+      margin-top: 120px; /* كما في الصفحة الرئيسية */
+    }
+
+    /************************************
+     *       بطاقات 3D والهدايا         *
+     ************************************/
     .item {
       background: #1c1c1c;
       border-radius: 10px;
       padding: 15px;
       margin-bottom: 30px;
       transition: transform 0.4s ease, box-shadow 0.4s ease;
-      perspective: 1000px; /* لتمكين الـ 3D */
+      perspective: 1000px; /* لتمكين الـ3D */
     }
     .item:hover {
       transform: translateY(-5px) rotateX(3deg) rotateY(3deg);
@@ -94,7 +187,9 @@
       transform: scale(1.05) rotateX(2deg) rotateY(-2deg);
     }
 
-    /* الأزرار مع تأثير 3D */
+    /************************************
+     *       الأزرار مع تأثير 3D        *
+     ************************************/
     .main-button a {
       background: linear-gradient(45deg, #00b09b, #96c93d);
       color: #fff !important;
@@ -108,11 +203,6 @@
       transform: translateY(-5px) scale(1.03);
       box-shadow: 0 10px 20px rgba(0,0,0,0.4);
       text-decoration: none;
-    }
-
-    /* تباعد أسفل الهيدر حتى لا يختفي المحتوى تحته */
-    .page-content {
-      margin-top: 120px; 
     }
 
     /* الفوتر */
@@ -165,7 +255,7 @@
       background: #00b09b;
     }
 
-    /* تنسيقات إضافية لعرض الصور بشكل متناسق */
+    /* بعض التنسيقات الإضافية للصور والتفاصيل */
     .feature-banner .row .item {
       margin-bottom: 15px;
     }
@@ -197,8 +287,11 @@
   </div>
   <!-- ***** Preloader End ***** -->
 
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky" data-aos="fade-down">
+  <!-- 
+    إزالة data-aos="fade-down" من الهيدر
+    لجعله ثابتًا دون حركة
+  -->
+  <header class="header-area header-sticky">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -208,21 +301,43 @@
               <img src="assets/images/logo.gif" alt="logo">
             </a>
             <!-- ***** Logo End ***** -->
+
             <!-- ***** Search Start ***** -->
             <div class="search-input">
-              <!-- يمكنك استخدام onkeyup أو onkeypress للبحث الديناميكي -->
               <form id="search" action="javascript:void(0);">
                 <input type="text" placeholder="اكتب للبحث عن منتج..." id="searchText" onkeyup="filterProducts()"/>
                 <i class="fa fa-search"></i>
               </form>
             </div>
             <!-- ***** Search End ***** -->
+
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li><a href="index.html">المنزل</a></li>
-              <li><a href="Bestoffers.html">افضل العروض</a></li>
-              <li><a href="Gift.html" class="active">الهداية</a></li>
-              <li><a href="infoStore.html">حول المتجر <img src="assets/images/profile-header.jpg" alt=""></a></li>
+              <li>
+                <a href="index.html">
+                  <i class="fa fa-home"></i>
+                  المنزل
+                </a>
+              </li>
+              <li>
+                <a href="Bestoffers.html">
+                  <i class="fa fa-star"></i>
+                  افضل العروض
+                </a>
+              </li>
+              <li>
+                <a href="Gift.html" class="active">
+                  <i class="fa fa-gift"></i>
+                  الهداية
+                </a>
+              </li>
+              <li>
+                <a href="infoStore.html">
+                  <i class="fa fa-info-circle"></i>
+                  حول المتجر 
+                  <img src="assets/images/profile-header.jpg" alt="" style="height: 20px; width: auto; margin-right: 5px; vertical-align: middle; border-radius: 4px;">
+                </a>
+              </li>
             </ul>
             <a class='menu-trigger'>
               <span>Menu</span>
@@ -324,7 +439,7 @@
 
   <!-- ====== سكربتات جافاسكربت الأساسية ====== -->
   <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/isotope.min.js"></script>
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/tabs.js"></script>
@@ -345,36 +460,23 @@
 
     // زر الصعود للأعلى
     var scrollBtn = document.getElementById("scrollTopBtn");
-    window.onscroll = function() {
-      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    window.addEventListener("scroll", function() {
+      if (window.scrollY > 300) {
         scrollBtn.classList.add("show");
       } else {
         scrollBtn.classList.remove("show");
       }
-    };
+    });
     function scrollToTop() {
       window.scrollTo({top: 0, behavior: 'smooth'});
     }
 
-    // كود البحث (إن أردت استخدامه مستقبلًا مع منتجات في الصفحة)
+    // كود بحث (إن أردت استخدامه مستقبلًا مع منتجات في الصفحة)
     function filterProducts() {
       var input = document.getElementById("searchText");
       var filter = input.value.toLowerCase();
-      // ابحث عن حاوية المنتجات لو كانت موجودة في نفس الصفحة
-      // var productsContainer = document.getElementById("productsContainer");
-      // if(!productsContainer) return;
-      // var productCols = productsContainer.getElementsByClassName("col-lg-3");
-      // for (var i = 0; i < productCols.length; i++) {
-      //   var item = productCols[i].getElementsByClassName("item")[0];
-      //   if (item) {
-      //     var textValue = item.textContent || item.innerText;
-      //     if (textValue.toLowerCase().indexOf(filter) > -1) {
-      //       productCols[i].style.display = "";
-      //     } else {
-      //       productCols[i].style.display = "none";
-      //     }
-      //   }
-      // }
+      // في حال وجود قائمة منتجات في الصفحة، أضف كود الفلترة هنا
+      // حاليًا لا توجد منتجات بهذا القسم
     }
   </script>
 
@@ -389,8 +491,8 @@
   <script>
     window.fbAsyncInit = function() {
       FB.init({
-        xfbml            : true,
-        version          : 'v14.0'
+        xfbml : true,
+        version : 'v14.0'
       });
     };
     (function(d, s, id) {

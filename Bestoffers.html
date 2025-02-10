@@ -5,18 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Best-offers Store RD</title>
 
-  <!-- الروابط وأكواد الستايل -->
+  <!-- تحسينات لتحميل الخطوط بسرعة -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- ملفات Bootstrap وCSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- أكواد الستايل الأساسية -->
   <link rel="stylesheet" href="assets/css/fontawesome.css">
   <link rel="stylesheet" href="assets/css/templatemo-cyborg-gaming.css">
   <link rel="stylesheet" href="assets/css/animate.css">
-  <!-- مكتبة Swiper بدلًا من Owl Carousel -->
+  <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
   <!-- AOS للأنيميشن -->
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
   <style>
+    /*********************************************
+     *         الخط العام والخلفية والنصوص        *
+     *********************************************/
     body {
       font-family: 'Poppins', sans-serif;
       background: #0f0f0f;
@@ -26,57 +35,96 @@
       scroll-behavior: smooth;
       position: relative;
     }
-    /* الهيدر */
-    .header-area {
-      background: rgba(0,0,0,0.8);
+
+    /* تعديل الترويسة لتكون عائمة (Sticky) */
+    .header-area.header-sticky {
+      z-index: 999; /* لضمان ظهورها فوق المحتوى */
+    }
+
+    /* اجعل المسافة مثل الـIndex (120px مثلاً) */
+    .page-content {
+      margin-top: 120px; 
+    }
+
+    /*********************************************
+     *                شريط التنقّل              *
+     *********************************************/
+    nav.navbar {
+      /* خلفية بتدرّج + شفافية + تأثير ضبابي */
+      background: linear-gradient(125deg, rgba(0,0,0,0.9), rgba(15,15,15,0.85));
       backdrop-filter: blur(5px);
       position: fixed;
       width: 100%;
-      z-index: 999;
+      top: 0;
     }
-    /* نجعل الشعار في الوسط */
-    .main-nav .logo {
-      margin: 0 auto;
-      text-align: center;
+
+    /* الشعار */
+    .logo img {
+      max-width: 120px;
+      transition: transform 0.3s ease;
+    }
+    .logo img:hover {
+      transform: scale(1.05);
+    }
+
+    /* تنسيق الروابط في القائمة */
+    .navbar-nav .nav-link {
+      color: #ccc;
+      font-weight: 500;
+      transition: 0.3s;
+      position: relative;
+    }
+    /* أيقونات الروابط */
+    .navbar-nav .nav-link i {
+      margin-left: 5px;
+      color: #00d592;
+      transition: color 0.3s;
+    }
+    .navbar-nav .nav-link:hover {
+      color: #00f5ac;
+    }
+    .navbar-nav .nav-link:hover i {
+      color: #00f5ac;
+    }
+    /* تنسيق الرابط النشط */
+    .navbar-nav .nav-link.active {
+      color: #00f5ac !important;
+    }
+
+    /* تأثير Hover خفيف تحت الرابط */
+    .navbar-nav .nav-link:hover::after {
+      content: "";
       display: block;
+      width: 100%;
+      height: 2px;
+      background: #00d592;
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      border-radius: 2px;
+      animation: expandHover 0.3s forwards;
     }
-    .main-nav .logo img {
-      max-width: 120px; /* يمكنك تصغير أو تكبير اللوغو */
+    @keyframes expandHover {
+      from { width: 0; }
+      to   { width: 100%; }
     }
-    /* جعل القوائم والبحث موزعة حول الشعار */
-    .main-nav .nav,
-    .main-nav .search-input {
-      position: relative;
-    }
-    .search-input form {
-      position: relative;
-    }
+
+    /* حقل البحث داخل الشريط */
     #searchText {
       background: #1f1f1f;
       color: #fff;
       border: 1px solid #444;
-      padding: 8px 35px 8px 10px;
       border-radius: 20px;
-      transition: all 0.3s ease;
+      transition: border-color 0.3s;
     }
     #searchText:focus {
       border-color: #04ffac;
       outline: none;
     }
-    .search-input i.fa-search {
-      position: absolute;
-      right: 10px;
-      top: 8px;
-      color: #888;
-    }
-    /* توزيع عناصر القائمة حول الشعار إذا أردت:
-       لكن بشكل افتراضي تبقى يمين ويسار 
-       يمكنك تخصيص أكثر باستخدام Flex */
-    /* المسافة أسفل الهيدر */
-    .page-content {
-      margin-top: 120px;
-    }
-    /* تنسيقات البطاقات */
+
+    /*********************************************
+     *               أقسام المحتوى              *
+     *********************************************/
     .item {
       background: #1c1c1c;
       border-radius: 10px;
@@ -116,6 +164,7 @@
       display: inline-block;
       margin: 0 4px;
     }
+
     /* الأزرار */
     .main-button a {
       background: linear-gradient(45deg, #00b09b, #96c93d);
@@ -135,7 +184,10 @@
       text-align: center;
       margin-bottom: 30px;
     }
-    /* الفوتر */
+
+    /*********************************************
+     *                  الفوتر                  *
+     *********************************************/
     footer {
       background: #111;
       padding: 20px 0;
@@ -153,7 +205,10 @@
     footer p a:hover {
       text-decoration: underline;
     }
-    /* زر الصعود للأعلى */
+
+    /*********************************************
+     *          زر الصعود إلى الأعلى           *
+     *********************************************/
     #scrollTopBtn {
       position: fixed;
       bottom: 20px;
@@ -184,7 +239,9 @@
       background: #00b09b;
     }
 
-    /* تنسيقات Swiper */
+    /*********************************************
+     *                تنسيقات Swiper            *
+     *********************************************/
     .swiper {
       width: 100%;
       position: relative;
@@ -213,6 +270,7 @@
     .swiper-pagination-bullet {
       background: #04ffac; /* لون النقاط */
     }
+
   </style>
 </head>
 
@@ -230,51 +288,78 @@
   </div>
   <!-- ***** Preloader End ***** -->
 
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky" data-aos="fade-down">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav class="main-nav d-flex justify-content-center align-items-center">
-            <!-- الشعار في المنتصف -->
-            <a href="index.html" class="logo">
-              <img src="assets/images/logo.gif" alt="logo">
-            </a>
-            <!-- بحث وقائمة قد تضعها يمين أو يسار الشعار -->
-            <!-- إذا أردت توزيع أفضل، يمكن استخدام Flex columns أو أكواد إضافية -->
-            <div class="search-input" style="position:absolute; left: 15px; top:15px;">
-              <form id="search" action="javascript:void(0);">
-                <input type="text" placeholder="البحث ؟" id="searchText"/>
-                <i class="fa fa-search"></i>
-              </form>
-            </div>
-            <ul class="nav" style="position:absolute; right:15px; top:15px;">
-              <li><a href="index.html">المنزل</a></li>
-              <li><a href="Bestoffers.html" class="active">افضل العروض</a></li>
-              <li><a href="Gift.html">الهداية</a></li>
-              <li><a href="infoStore.html">حول المتجر <img src="assets/images/profile-header.jpg" alt=""></a></li>
-            </ul>
-            <!-- زر لقوائم الجوال -->
-            <a class="menu-trigger">
-              <span>Menu</span>
-            </a>
-          </nav>
+  <!-- 
+       تمت إزالة  data-aos="fade-down" 
+       لمنع حركة انزلاق الهيدر عند بداية التحميل
+  -->
+  <header class="header-area header-sticky">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <!-- الشعار -->
+        <a class="navbar-brand logo" href="index.html">
+          <img src="assets/images/logo.gif" alt="logo" loading="lazy">
+        </a>
+
+        <!-- زر التصغير (للجوال) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- العناصر القابلة للطي -->
+        <div class="collapse navbar-collapse" id="mainNav">
+
+          <!-- قائمة الروابط -->
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">
+                <i class="fa fa-home"></i>
+                الصفحة الرئيسية
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="Bestoffers.html">
+                <i class="fa fa-star"></i>
+                أفضل العروض
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Gift.html">
+                <i class="fa fa-gift"></i>
+                الهدايا
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="infoStore.html">
+                <i class="fa fa-info-circle"></i>
+                عن المتجر
+              </a>
+            </li>
+          </ul>
+
+          <!-- حقل البحث -->
+          <form class="d-flex search-input ms-lg-3" id="search" action="javascript:void(0);" role="search">
+            <input class="form-control me-2" type="search" placeholder="ابحث هنا..." aria-label="Search" id="searchText">
+            <button class="btn text-white" type="submit" style="background: none; border: none;">
+              <i class="fa fa-search"></i>
+            </button>
+          </form>
+
         </div>
       </div>
-    </div>
+    </nav>
   </header>
   <!-- ***** Header Area End ***** -->
 
   <div class="container page-content">
     <div class="row">
       <div class="col-lg-12">
-
         <!-- ***** قسم أفضل العروض (سلايدر) باستخدام Swiper ***** -->
         <div class="row" data-aos="fade-up">
           <div class="col-lg-8">
             <div class="featured-games header-text">
               <div class="heading-section">
-                <h4><em>افضل</em> العروض !</h4>
+                <h4><em>أفضل</em> العروض!</h4>
               </div>
 
               <!-- سلايدر Swiper -->
@@ -283,23 +368,22 @@
                   <!-- شريحة 1 -->
                   <div class="swiper-slide">
                     <div class="thumb">
-                      <img src="assets/images/featured-01.gif" alt="">
-                      <div class="hover-effect"><h6>عرض موقت</h6></div>
+                      <img src="assets/images/featured-01.gif" alt="" loading="lazy">
+                      <div class="hover-effect"><h6>عرض مؤقت</h6></div>
                     </div>
-                    <!-- اجعل النص في سطر واحد -->
-                    <h4> جي بي تي شهري <span style="color: #04ffac;">(5اسيا)</span></h4>
+                    <h4>جي بي تي شهري <span style="color: #04ffac;">(5 آسيا)</span></h4>
                     <ul>
                       <li><i class="fa fa-star"></i> 5.0</li>
-                      <li><i class="fa fa-star"></i> 850 Buy</li>
+                      <li><i class="fa fa-star"></i> 850 عملية شراء</li>
                     </ul>
                   </div>
                   <!-- شريحة 2 -->
                   <div class="swiper-slide">
                     <div class="thumb">
-                      <img src="assets/images/steamoffline1.gif" alt="">
-                      <div class="hover-effect"><h6>عرض موقت</h6></div>
+                      <img src="assets/images/steamoffline1.gif" alt="" loading="lazy">
+                      <div class="hover-effect"><h6>عرض مؤقت</h6></div>
                     </div>
-                    <h4>ديسكورد 3 اشهر  <span style="color: #04ffac;">(12 اسيا)</span></h4>
+                    <h4>ديسكورد 3 أشهر <span style="color: #04ffac;">(12 آسيا)</span></h4>
                     <ul>
                       <li><i class="fa fa-star"></i> 4.8</li>
                       <li><i class="fa fa-star"></i> 41.2</li>
@@ -308,10 +392,10 @@
                   <!-- شريحة 3 -->
                   <div class="swiper-slide">
                     <div class="thumb">
-                      <img src="assets/images/dis1.gif" alt="">
-                      <div class="hover-effect"><h6>عرض موقت</h6></div>
+                      <img src="assets/images/dis1.gif" alt="" loading="lazy">
+                      <div class="hover-effect"><h6>عرض مؤقت</h6></div>
                     </div>
-                    <h4>سبوتفاي 3 اشهر <span style="color: #04ffac;">(8)</span></h4>
+                    <h4>سبوتفاي 3 أشهر <span style="color: #04ffac;">(8)</span></h4>
                     <ul>
                       <li><i class="fa fa-star"></i> 4.6</li>
                       <li><i class="fa fa-star"></i> 20.0</li>
@@ -320,44 +404,44 @@
                   <!-- شريحة 4 -->
                   <div class="swiper-slide">
                     <div class="thumb">
-                      <img src="assets/images/t1.gif" alt="">
-                      <div class="hover-effect"><h6>عرض موقت</h6></div>
+                      <img src="assets/images/t1.gif" alt="" loading="lazy">
+                      <div class="hover-effect"><h6>عرض مؤقت</h6></div>
                     </div>
-                    <h4>امزون برايم <span style="color: #04ffac;">(4)</span></h4>
+                    <h4>أمازون برايم <span style="color: #04ffac;">(4)</span></h4>
                     <ul>
-                      <li><i class="fa fa-star"></i> </li>
-                      <li><i class="fa fa-star"></i> </li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
                     </ul>
                   </div>
                   <!-- شريحة 5 -->
                   <div class="swiper-slide">
                     <div class="thumb">
-                      <img src="assets/images/tes5.gif" alt="">
-                      <div class="hover-effect"><h6>عرض موقت</h6></div>
+                      <img src="assets/images/tes5.gif" alt="" loading="lazy">
+                      <div class="hover-effect"><h6>عرض مؤقت</h6></div>
                     </div>
-                    <h4>نورد في بي ان <span style="color: #04ffac;">(3)</span></h4>
+                    <h4>نورد في بي إن <span style="color: #04ffac;">(3)</span></h4>
                     <ul>
-                      <li><i class="fa fa-star"></i> </li>
-                      <li><i class="fa fa-star"></i> </li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
                     </ul>
                   </div>
                   <!-- شريحة 6 -->
                   <div class="swiper-slide">
                     <div class="thumb">
-                      <img src="assets/images/tes6.gif" alt="">
-                      <div class="hover-effect"><h6>عرض موقت</h6></div>
+                      <img src="assets/images/tes6.gif" alt="" loading="lazy">
+                      <div class="hover-effect"><h6>عرض مؤقت</h6></div>
                     </div>
-                    <h4>يوتيوب برايم <span style="color: #04ffac;">(4)</span></h4>
+                    <h4>يوتيوب بريميوم <span style="color: #04ffac;">(4)</span></h4>
                     <ul>
-                      <li><i class="fa fa-star"></i> </li>
-                      <li><i class="fa fa-star"></i> </li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
                     </ul>
                   </div>
                 </div>
-                <!-- الأزرار -->
+                <!-- أزرار التنقّل -->
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
-                <!-- النقاط (الصفحات) -->
+                <!-- النقاط -->
                 <div class="swiper-pagination"></div>
               </div>
               <!-- نهاية Swiper -->
@@ -372,29 +456,29 @@
               </div>
               <ul>
                 <li>
-                  <img src="assets/images/game-01.jpg" alt="" class="templatemo-item">
-                  <h4>netflix</h4>
+                  <img src="assets/images/game-01.jpg" alt="" class="templatemo-item" loading="lazy">
+                  <h4>Netflix</h4>
                   <h6>TOP 1</h6>
                   <span><i class="fa fa-star" style="color: yellow;"></i> 5.0</span>
-                  <span>850 Buy</span>
+                  <span>850 عملية شراء</span>
                 </li>
                 <li>
-                  <img src="assets/images/game-02.jpg" alt="" class="templatemo-item">
+                  <img src="assets/images/game-02.jpg" alt="" class="templatemo-item" loading="lazy">
                   <h4>Xbox Game Pass</h4>
                   <h6>TOP 2</h6>
                   <span><i class="fa fa-star" style="color: yellow;"></i> 4.2</span>
-                  <span>600 Buy</span>
+                  <span>600 عملية شراء</span>
                 </li>
                 <li>
-                  <img src="assets/images/game-03.jpg" alt="" class="templatemo-item">
+                  <img src="assets/images/game-03.jpg" alt="" class="templatemo-item" loading="lazy">
                   <h4>VPN 3M</h4>
                   <h6>TOP 3</h6>
                   <span><i class="fa fa-star" style="color: yellow;"></i> 4.0</span>
-                  <span>397 Buy</span>
+                  <span>397 عملية شراء</span>
                 </li>
               </ul>
               <div class="main-button">
-                <a href="infoStore.html">من نحن ؟</a>
+                <a href="infoStore.html">من نحن؟</a>
               </div>
             </div>
           </div>
@@ -405,39 +489,39 @@
         <div class="start-stream" data-aos="fade-up" style="margin-top: 60px;">
           <div class="col-lg-12">
             <div class="heading-section">
-              <h4><em>نبذة عن طريقة</em> الدفع</h4>
+              <h4><em>نبذة عن</em> طرق الدفع</h4>
             </div>
             <div class="row">
               <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
                 <div class="item">
                   <div class="icon">
-                    <img src="assets/images/service-01.jpg" alt="" style="max-width: 60px; border-radius: 50%;">
+                    <img src="assets/images/service-01.jpg" alt="" style="max-width: 60px; border-radius: 50%;" loading="lazy">
                   </div>
-                  <h4>من نحن ؟</h4>
+                  <h4>من نحن؟</h4>
                   <p>متجر RD هو أحد المتاجر المعروفة في العراق، يتميز بتقديم أفضل العروض الحصرية وبأسعار تنافسية.</p>
                 </div>
               </div>
               <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
                 <div class="item">
                   <div class="icon">
-                    <img src="assets/images/service-02.jpg" alt="" style="max-width: 60px; border-radius: 50%;">
+                    <img src="assets/images/service-02.jpg" alt="" style="max-width: 60px; border-radius: 50%;" loading="lazy">
                   </div>
-                  <h4>الضمان ؟</h4>
-                  <p>جميع المنتجات تحتوي على ضمان حقيقي. أقل منتج بضمان شهر كامل.</p>
+                  <h4>الضمان</h4>
+                  <p>نوفر ضمانًا حقيقيًا على جميع المنتجات، ويصل ضمان بعض المنتجات إلى شهر كامل.</p>
                 </div>
               </div>
               <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
                 <div class="item">
                   <div class="icon">
-                    <img src="assets/images/service-03.jpg" alt="" style="max-width: 60px; border-radius: 50%;">
+                    <img src="assets/images/service-03.jpg" alt="" style="max-width: 60px; border-radius: 50%;" loading="lazy">
                   </div>
-                  <h4>طرق الدفع ؟</h4>
-                  <p>يدعم المتجر حاليًا الدفع عن طريق آسيا سيل. سيتم إضافة المزيد قريبًا.</p>
+                  <h4>طرق الدفع</h4>
+                  <p>يدعم المتجر حاليًا الدفع عن طريق “آسيا سيل”، وسيتم إضافة المزيد قريبًا.</p>
                 </div>
               </div>
               <div class="col-lg-12" data-aos="zoom-in" data-aos-delay="350">
                 <div class="main-button" style="margin-top: 20px;">
-                  <a href="infoStore.html">معرفة المزيد من المعلومات عنا !</a>
+                  <a href="infoStore.html">معرفة المزيد من المعلومات عنا!</a>
                 </div>
               </div>
             </div>
@@ -449,7 +533,7 @@
         <div class="live-stream" data-aos="fade-up" style="margin-top: 60px;">
           <div class="col-lg-12">
             <div class="heading-section">
-              <h4><em>الدعم</em> الفني ؟</h4>
+              <h4><em>الدعم</em> الفني؟</h4>
             </div>
           </div>
           <div class="row">
@@ -457,7 +541,7 @@
             <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
               <div class="item">
                 <div class="thumb">
-                  <img src="assets/images/stream-01.jpg" alt="">
+                  <img src="assets/images/stream-01.jpg" alt="" loading="lazy">
                   <div class="hover-effect">
                     <div class="content">
                       <div class="live"><a href="#">متوفر</a></div>
@@ -466,14 +550,12 @@
                 </div>
                 <div class="down-content" style="text-align:center;">
                   <div class="avatar">
-                    <img src="assets/images/avatar-01.jpg" alt="" style="max-width: 46px; border-radius: 50%;">
+                    <img src="assets/images/avatar-01.jpg" alt="" style="max-width: 46px; border-radius: 50%;" loading="lazy">
                   </div>
                   <br>
                   <span><i class="fa fa-check"></i> واتساب</span>
                   <div class="main-button" style="margin-top:10px;">
-                    <a href="https://wa.me/+9647711359997" target="_blank">
-                      الذهاب إلى واتساب
-                    </a>
+                    <a href="https://wa.me/+9647711359997" target="_blank">الذهاب إلى واتساب</a>
                   </div>
                 </div>
               </div>
@@ -482,7 +564,7 @@
             <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="150">
               <div class="item">
                 <div class="thumb">
-                  <img src="assets/images/stream-02.jpg" alt="">
+                  <img src="assets/images/stream-02.jpg" alt="" loading="lazy">
                   <div class="hover-effect">
                     <div class="content">
                       <div class="live"><a href="#">متوفر</a></div>
@@ -491,14 +573,12 @@
                 </div>
                 <div class="down-content" style="text-align:center;">
                   <div class="avatar">
-                    <img src="assets/images/avatar-02.jpg" alt="" style="max-width: 46px; border-radius: 50%;">
+                    <img src="assets/images/avatar-02.jpg" alt="" style="max-width: 46px; border-radius: 50%;" loading="lazy">
                   </div>
                   <br>
                   <span><i class="fa fa-check"></i> ماسنجر</span>
                   <div class="main-button" style="margin-top:10px;">
-                    <a href="https://m.me/store.iq.rd" target="_blank">
-                      الذهاب إلى ماسنجر
-                    </a>
+                    <a href="https://m.me/store.iq.rd" target="_blank">الذهاب إلى ماسنجر</a>
                   </div>
                 </div>
               </div>
@@ -507,7 +587,7 @@
             <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
               <div class="item">
                 <div class="thumb">
-                  <img src="assets/images/stream-03.jpg" alt="">
+                  <img src="assets/images/stream-03.jpg" alt="" loading="lazy">
                   <div class="hover-effect">
                     <div class="content">
                       <div class="live"><a href="#">متوفر</a></div>
@@ -516,14 +596,12 @@
                 </div>
                 <div class="down-content" style="text-align:center;">
                   <div class="avatar">
-                    <img src="assets/images/avatar-03.jpg" alt="" style="max-width: 46px; border-radius: 50%;">
+                    <img src="assets/images/avatar-03.jpg" alt="" style="max-width: 46px; border-radius: 50%;" loading="lazy">
                   </div>
                   <br>
                   <span><i class="fa fa-check"></i> ديسكورد</span>
                   <div class="main-button" style="margin-top:10px;">
-                    <a href="https://discord.gg/PEUyyAQadq" target="_blank">
-                      الذهاب إلى ديسكورد
-                    </a>
+                    <a href="https://discord.gg/PEUyyAQadq" target="_blank">الذهاب إلى ديسكورد</a>
                   </div>
                 </div>
               </div>
@@ -532,7 +610,7 @@
             <div class="col-lg-3 col-sm-6" data-aos="zoom-in" data-aos-delay="250">
               <div class="item">
                 <div class="thumb">
-                  <img src="assets/images/stream-04.jpg" alt="">
+                  <img src="assets/images/stream-04.jpg" alt="" loading="lazy">
                   <div class="hover-effect">
                     <div class="content">
                       <div class="live"><a href="#">متوفر</a></div>
@@ -541,21 +619,19 @@
                 </div>
                 <div class="down-content" style="text-align:center;">
                   <div class="avatar">
-                    <img src="assets/images/avatar-04.jpg" alt="" style="max-width: 46px; border-radius: 50%;">
+                    <img src="assets/images/avatar-04.jpg" alt="" style="max-width: 46px; border-radius: 50%;" loading="lazy">
                   </div>
                   <br>
-                  <span><i class="fa fa-check"></i> اتصال هاتفي</span>
+                  <span><i class="fa fa-check"></i> الاتصال الهاتفي</span>
                   <div class="main-button" style="margin-top:10px;">
-                    <a href="tel:+9647711359997" target="_blank">
-                      07711 35 999 7
-                    </a>
+                    <a href="tel:+9647711359997" target="_blank">07711 35 999 7</a>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-lg-12" data-aos="zoom-in" data-aos-delay="300" style="margin-top: 20px; text-align:center;">
               <div class="main-button">
-                <a href="index.html">الرجوع إلى الصفحة الرئيسية</a>
+                <a href="index.html">العودة للصفحة الرئيسية</a>
               </div>
             </div>
           </div>
@@ -572,9 +648,9 @@
       <div class="row">
         <div class="col-lg-12">
           <p>
-            Copyright © 2022 
-            <a href="https://www.facebook.com/anwar.rd.129" target="_blank" title="">ANO-RD</a> Cy. All rights reserved.
-            <br>facebook:
+            &copy; 2022 
+            <a href="https://www.facebook.com/anwar.rd.129" target="_blank" title="">ANO-RD</a>. جميع الحقوق محفوظة.
+            <br>Facebook:
             <a href="https://www.facebook.com/store.iq.rd" target="_blank" title="">Store RD</a>
           </p>
         </div>
@@ -590,61 +666,62 @@
 
   <!-- سكربتات أساسية -->
   <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/isotope.min.js"></script>
   <script src="assets/js/tabs.js"></script>
   <script src="assets/js/popup.js"></script>
   <script src="assets/js/custom.js"></script>
   <script src="assets/js/particles.min.js"></script>
   <script src="assets/js/app.js"></script>
+
   <!-- مكتبة AOS للأنيميشن -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
-  <!-- استيراد Swiper JS من الـCDN -->
+  <!-- استيراد Swiper JS -->
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
   <script>
-    // تفعيل مكتبة AOS
-    AOS.init({
-      duration: 1000,
-      offset: 50
+    document.addEventListener('DOMContentLoaded', function() {
+      // تفعيل مكتبة AOS
+      AOS.init({
+        duration: 1000,
+        offset: 50
+      });
+
+      // إعدادات Swiper
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 2,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          0:   { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          992: { slidesPerView: 3 }
+        },
+      });
+
+      // زر الصعود للأعلى
+      var scrollBtn = document.getElementById("scrollTopBtn");
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+          scrollBtn.classList.add("show");
+        } else {
+          scrollBtn.classList.remove("show");
+        }
+      });
     });
 
-    // إعدادات Swiper
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 2,
-      spaceBetween: 20,
-      loop: true,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      breakpoints: {
-        0:   { slidesPerView: 1 },
-        768: { slidesPerView: 2 },
-        992: { slidesPerView: 3 }
-      },
-      // لو احتجت إجبار الاتجاه RTL استخدم:
-      // direction: 'rtl',
-    });
-
-    // زر الصعود للأعلى
-    var scrollBtn = document.getElementById("scrollTopBtn");
-    window.onscroll = function() {
-      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        scrollBtn.classList.add("show");
-      } else {
-        scrollBtn.classList.remove("show");
-      }
-    };
     function scrollToTop() {
       window.scrollTo({top: 0, behavior: 'smooth'});
     }
