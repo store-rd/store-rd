@@ -1,1602 +1,3122 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <!-- لضمان استجابة أفضل على مختلف شاشات الموبايل -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>Store RD - الصفحة الرئيسية</title>
+    <meta charset="utf-8" />
+    <!-- لضمان استجابة أفضل على مختلف شاشات الموبايل -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Store RD - الصفحة الرئيسية</title>
 
-  <!-- خطوط Google -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap"
-    rel="stylesheet"
-  />
+    <!-- خطوط Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Bootstrap وCSS أساسي -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap وCSS أساسي -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
-  <!-- FontAwesome (CDN) -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-  />
-  <link rel="stylesheet" href="assets/css/templatemo-cyborg-gaming.css" />
-  <link rel="stylesheet" href="assets/css/owl.css" />
-  <link rel="stylesheet" href="assets/css/animate.css" />
-  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- FontAwesome (CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/templatemo-cyborg-gaming.css" />
+    <link rel="stylesheet" href="assets/css/owl.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-  <!-- SweetAlert2 لإشعارات العروض -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
-  />
+    <!-- SweetAlert2 لإشعارات العروض -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
 
-  <style>
-    /***********************************
-     *   الألوان والخلفيات العامة     *
-     ***********************************/
-    :root {
-      --bg-dark: #121212;
-      --text-dark: #eeeeee;
-      --primary-color: #00d592;
-      --primary-color-hover: #00f5ac;
-      --secondary-bg-dark: #1e1e1e;
+    <style>
+        /***********************************
+        *   الألوان والخلفيات العامة     *
+        ***********************************/
+        :root {
+            --bg-dark: #121212;
+            --text-dark: #eeeeee;
+            --primary-color: #00d592;
+            --primary-color-hover: #00f5ac;
+            --primary-color-rgb: 0, 213, 146;
+            --secondary-bg-dark: #1e1e1e;
+            --accent-color: #ff7e5f;
+            --bg-light: #ffffff;
+            --text-light: #000000;
+            --secondary-bg-light: #f5f5f5;
+            /* الوضع الحالي */
+            --current-bg: var(--bg-dark);
+            --current-text: var(--text-dark);
+            --current-secondary-bg: var(--secondary-bg-dark);
+        }
 
-      --bg-light: #ffffff;
-      --text-light: #000000;
-      --secondary-bg-light: #f5f5f5;
+        /* عند تفعيل الوضع الفاتح بإضافة .light-mode للـ body */
+        body.light-mode {
+            --current-bg: var(--bg-light);
+            --current-text: var(--text-light);
+            --current-secondary-bg: var(--secondary-bg-light);
+        }
 
-      /* الوضع الحالي */
-      --current-bg: var(--bg-dark);
-      --current-text: var(--text-dark);
-      --current-secondary-bg: var(--secondary-bg-dark);
-    }
-    /* عند تفعيل الوضع الفاتح بإضافة .light-mode للـ body */
-    body.light-mode {
-      --current-bg: var(--bg-light);
-      --current-text: var(--text-light);
-      --current-secondary-bg: var(--secondary-bg-light);
-    }
+        body {
+            font-family: "Cairo", sans-serif;
+            background: var(--current-bg);
+            color: var(--current-text);
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            transition: background 0.3s, color 0.3s;
+        }
 
-    body {
-      font-family: "Cairo", sans-serif;
-      background: var(--current-bg);
-      color: var(--current-text);
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-      overflow-x: hidden;
-      transition: background 0.3s, color 0.3s;
-    }
-    a,
-    a:visited {
-      color: var(--primary-color);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    a:hover {
-      color: var(--primary-color-hover);
-    }
+        a,
+        a:visited {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
 
-    /* خلفية Particles */
-    #particles-js {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      pointer-events: none;
-    }
+            a:hover {
+                color: var(--primary-color-hover);
+            }
 
-    /***********************************
-     *  الشريط العلوي (الهيدر)        *
-     ***********************************/
-    .header-area {
-      background: linear-gradient(
-        125deg,
-        rgba(0, 0, 0, 0.9),
-        rgba(15, 15, 15, 0.85)
-      );
-      backdrop-filter: blur(10px);
-      position: fixed;
-      width: 100%;
-      z-index: 999;
-      padding: 10px 0;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    body.light-mode .header-area {
-      background: #fdfdfd;
-      border-bottom: 1px solid #ccc;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
+        /* خلفية Particles - تحسين جديد */
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
 
-    .main-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo img {
-      height: 45px;
-      width: auto;
-      transition: transform 0.3s;
-    }
-    .logo img:hover {
-      transform: scale(1.1);
-    }
+        /***********************************
+        *  الشريط العلوي (الهيدر) - تم إصلاحه *
+        ***********************************/
+        .header-area {
+            background: linear-gradient(125deg, rgba(0, 0, 0, 0.92), rgba(15, 15, 15, 0.9));
+            backdrop-filter: blur(15px);
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 9999;
+            padding: 10px 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            transform: translateZ(0); /* تثبيت على طبقة 3D */
+        }
 
-    /* أيقونات القائمة العلوية */
-    .nav li a i {
-      margin-left: 5px;
-      color: var(--primary-color);
-      transition: color 0.3s;
-    }
-    .nav li a:hover i {
-      color: var(--primary-color-hover);
-    }
+            .header-area.scrolled {
+                padding: 5px 0;
+                background: linear-gradient(125deg, rgba(0, 0, 0, 0.95), rgba(15, 15, 15, 0.95));
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+            }
 
-    /* البحث والفلتر */
-    .search-input {
-      margin-right: 15px;
-      display: flex;
-      align-items: center;
-    }
-    .search-input form {
-      position: relative;
-      display: flex;
-      align-items: center;
-      margin: 0;
-    }
-    #searchText {
-      background: var(--secondary-bg-dark);
-      color: #fff;
-      border: 1px solid #444;
-      padding: 8px 35px 8px 10px;
-      border-radius: 20px;
-      transition: all 0.3s;
-      width: 180px;
-      max-width: 100%;
-    }
-    body.light-mode #searchText {
-      background: var(--secondary-bg-light);
-      color: var(--text-light);
-      border: 1px solid #ccc;
-    }
-    #searchText:focus {
-      border-color: var(--primary-color);
-      outline: none;
-    }
-    .search-input i.fa-search {
-      position: absolute;
-      right: 20px;
-      top: 8px;
-      color: #888;
-    }
-    select#priceFilter {
-      margin-left: 10px;
-      background: var(--secondary-bg-dark);
-      color: #fff;
-      border-radius: 20px;
-      border: 1px solid #444;
-      padding: 5px 20px;
-      transition: all 0.3s;
-      cursor: pointer;
-    }
-    body.light-mode select#priceFilter {
-      background: var(--secondary-bg-light);
-      color: var(--text-light);
-      border: 1px solid #ccc;
-    }
-    select#priceFilter:focus {
-      border-color: var(--primary-color);
-      outline: none;
-    }
+        body.light-mode .header-area {
+            background: rgba(253, 253, 253, 0.95);
+            border-bottom: 1px solid #ccc;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+        }
 
-    /* القائمة */
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      list-style: none;
-    }
-    .nav li {
-      position: relative;
-    }
-    .nav li a {
-      display: inline-block;
-      color: #ccc;
-      padding: 6px 12px;
-      border-radius: 5px;
-      transition: 0.3s;
-      font-weight: 500;
-    }
-    .nav li a.active,
-    .nav li a:hover {
-      color: var(--primary-color);
-      background: rgba(255, 255, 255, 0.1);
-    }
-    body.light-mode .nav li a {
-      color: #333;
-    }
-    body.light-mode .nav li a.active,
-    body.light-mode .nav li a:hover {
-      background: #ddd;
-      color: var(--primary-color);
-    }
+            body.light-mode .header-area.scrolled {
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+                background: rgba(255, 255, 255, 0.98);
+            }
 
-    /* زر القائمة للجوال */
-    .menu-trigger {
-      color: #fff;
-      border: 1px solid #444;
-      padding: 3px 10px;
-      border-radius: 5px;
-      display: none;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .menu-trigger:hover {
-      background: #1f1f1f;
-      border-color: var(--primary-color);
-    }
-    body.light-mode .menu-trigger {
-      color: #333;
-      border: 1px solid #ccc;
-    }
-    body.light-mode .menu-trigger:hover {
-      background: #eee;
-      border-color: var(--primary-color);
-    }
-    @media (max-width: 991px) {
-      .nav {
-        display: none; /* إخفاء القائمة العلوية في الجوال */
-      }
-      .menu-trigger {
-        display: block;
-      }
-    }
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    /* القائمة الجانبية (Side Nav) */
-    .side-nav {
-      position: fixed;
-      right: -250px; /* خارج الشاشة */
-      top: 0;
-      width: 250px;
-      height: 100vh;
-      background: var(--current-bg);
-      box-shadow: -2px 0 5px rgba(0,0,0,0.5);
-      transition: 0.3s;
-      z-index: 1500;
-      padding: 20px;
-      overflow-y: auto; /* لإمكانية التمرير */
-    }
-    .side-nav.open {
-      right: 0;
-    }
-    .side-nav ul {
-      list-style: none;
-      padding: 0;
-      margin-top: 40px;
-    }
-    .side-nav ul li a {
-      display: block;
-      padding: 10px;
-      margin-bottom: 5px;
-      color: var(--current-text);
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
-    .side-nav ul li a:hover {
-      background: rgba(255,255,255,0.1);
-      color: var(--primary-color-hover);
-    }
+        .logo img {
+            height: 45px;
+            width: auto;
+            transition: transform 0.3s;
+        }
 
-    /***********************************
-     * محتوى الصفحة (البانر + المنتجات) *
-     ***********************************/
-    .page-content {
-      margin-top: 120px;
-      background-color: var(--current-secondary-bg);
-      border: 1px solid #333;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    }
-    body.light-mode .page-content {
-      border: 1px solid #ccc;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    }
+            .logo img:hover {
+                transform: scale(1.1);
+            }
 
-    /***********************************
-     *  أزرار عائمة: واتساب + إشعارات  *
-     ***********************************/
-    .whatsapp-btn {
-      position: fixed;
-      bottom: 80px;
-      left: 20px;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: var(--primary-color);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-      z-index: 1001;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .whatsapp-btn:hover {
-      transform: translateY(-4px) scale(1.05);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
-    }
-    .whatsapp-btn img {
-      width: 30px;
-      height: 30px;
-    }
+        /* أيقونات القائمة العلوية */
+        .nav li a i {
+            margin-left: 5px;
+            color: var(--primary-color);
+            transition: color 0.3s;
+        }
 
-    .notification-btn {
-      position: fixed;
-      bottom: 140px;
-      left: 20px;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: var(--primary-color);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-      z-index: 1001;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .notification-btn i {
-      color: #000;
-      font-size: 22px;
-    }
-    .notification-btn:hover {
-      transform: translateY(-4px) scale(1.05);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
-    }
+        .nav li a:hover i {
+            color: var(--primary-color-hover);
+        }
 
-    /***********************************
-     *   زر "افضل العروض" ثلاثي الأبعاد
-     ***********************************/
-    .best-offers-btn {
-      display: inline-block;
-      background: linear-gradient(135deg, #ff7e5f, #feb47b);
-      color: #fff;
-      font-size: 20px;
-      font-weight: 600;
-      padding: 15px 30px;
-      border-radius: 10px;
-      text-decoration: none;
-      box-shadow: 0 8px 0px #d96b53;
-      transition: 0.3s;
-      margin-top: 15px;
-    }
-    .best-offers-btn:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 15px rgba(0, 0, 0, 0.4);
-    }
+        /* البحث والفلتر */
+        .search-input {
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+        }
 
-    /***********************************
-     *  نص ترحيبي متحرك (3D Animation)  *
-     ***********************************/
-    .header-text h4.animated-text {
-      display: inline-block;
-      font-size: 30px;
-      font-weight: 700;
-      color: var(--primary-color);
-      text-transform: uppercase;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
-      perspective: 500px;
-      transform: rotateX(20deg) translateZ(0);
-      animation: text3D 3s infinite alternate ease-in-out;
-    }
-    @keyframes text3D {
-      0% {
-        transform: rotateX(20deg) translateZ(0);
-      }
-      100% {
-        transform: rotateX(-20deg) translateZ(30px);
-      }
-    }
+            .search-input form {
+                position: relative;
+                display: flex;
+                align-items: center;
+                margin: 0;
+            }
 
-    /***********************************
-     *   قسم العروض الخاصة (24 ساعة)    *
-     ***********************************/
-    .special-offers {
-      margin: 30px 0;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
-      position: relative;
-      overflow: hidden;
-    }
-    body.light-mode .special-offers {
-      background: #f9f9f9;
-    }
-    .special-offers h2 {
-      color: var(--primary-color);
-      font-size: 28px;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 20px;
-      text-shadow: 0 0 6px rgba(0,0,0,0.4);
-    }
-    .special-offers .offers-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-    }
-    /* بطاقة العرض داخل قسم العروض الخاصة */
-    .offer-item {
-      background: #242424;
-      border-radius: 10px;
-      padding: 15px;
-      min-width: 280px;
-      flex: 1 1 280px;
-      text-align: center;
-      position: relative;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .offer-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 30px rgba(0,0,0,0.7), 0 0 15px var(--primary-color);
-    }
-    .offer-item img {
-      width: 100%;
-      border-radius: 8px;
-      height: auto;
-      margin-bottom: 10px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.8);
-    }
-    .offer-item h4 {
-      font-size: 18px;
-      color: var(--primary-color);
-      margin-bottom: 5px;
-    }
-    .offer-item .old-price {
-      text-decoration: line-through;
-      color: #ff4d4d;
-      margin: 0 4px;
-      font-size: 15px;
-    }
-    .offer-item .new-price {
-      color: #0df18f;
-      font-weight: bold;
-      margin: 0 4px;
-      font-size: 16px;
-    }
-    .offer-item .countdown {
-      margin: 10px 0;
-      font-weight: bold;
-      font-size: 18px;
-      color: #ffd600;
-      text-shadow: 0 0 2px rgba(0,0,0,0.8);
-    }
-    .offer-item .buy-button {
-      margin-top: 10px;
-    }
+        #searchText {
+            background: var(--secondary-bg-dark);
+            color: #fff;
+            border: 1px solid #444;
+            padding: 8px 35px 8px 10px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            width: 180px;
+            max-width: 100%;
+        }
 
-    /***********************************
-     * بطاقات المنتجات (3D Tilt)       *
-     ***********************************/
-    .item {
-      background: #27292a;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-      position: relative;
-      cursor: pointer;
-      overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-      perspective: 1000px;
-      transform-style: preserve-3d;
-    }
-    .item:hover {
-      transform: translateY(-6px) scale(1.03);
-      box-shadow: 0 25px 30px rgba(0, 0, 0, 0.7), 0 0 15px var(--primary-color);
-    }
-    .item img {
-      border-radius: 10px;
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .item h4,
-    .item h3 {
-      text-align: center;
-      margin: 5px 0;
-    }
-    .item h3 {
-      color: var(--primary-color);
-      font-size: 18px;
-    }
-    .item ul {
-      list-style: none;
-      padding: 0;
-      text-align: center;
-      color: #bbb;
-      margin-bottom: 0;
-    }
-    .item ul li {
-      display: inline-block;
-      margin: 0 4px;
-      font-size: 13px;
-    }
-    .item ul li i.fa-shopping-basket {
-      color: #ffc107 !important;
-      margin-right: 4px;
-    }
+        body.light-mode #searchText {
+            background: var(--secondary-bg-light);
+            color: var(--text-light);
+            border: 1px solid #ccc;
+        }
 
-    /* مؤشر (انقر للعرض) */
-    .view-notify {
-      position: absolute;
-      top: 5px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #fff;
-      font-size: 13px;
-      pointer-events: none;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
-    }
-    .view-notify i {
-      color: var(--primary-color);
-    }
+        #searchText:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.2);
+            width: 200px;
+        }
 
-    /* زر الشراء خارج البطاقة */
-    .buy-button {
-      margin-top: -10px;
-      margin-bottom: 15px;
-      text-align: center;
-    }
-    .buy-button a {
-      background: #00e7b8;
-      color: #000;
-      font-weight: 600;
-      padding: 8px 14px;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background 0.3s, transform 0.3s;
-      display: inline-block;
-      box-shadow: 0 3px 0 #00ab8a;
-    }
-    .buy-button a:hover {
-      background: var(--primary-color-hover);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
-    }
+        .search-input i.fa-search {
+            position: absolute;
+            right: 20px;
+            top: 8px;
+            color: #888;
+        }
 
-    /* تقييم النجوم */
-    .product-rating {
-      text-align: center;
-      margin-top: 10px;
-    }
-    .product-rating i {
-      color: #ffb400;
-      margin: 0 1px;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-    .product-rating i:hover {
-      transform: scale(1.2);
-    }
+        select#priceFilter {
+            margin-right: 10px;
+            background: var(--secondary-bg-dark);
+            color: #fff;
+            border-radius: 20px;
+            border: 1px solid #444;
+            padding: 5px 20px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
 
-    /***********************************
-     * النافذة المنبثقة (Popup Modal)  *
-     ***********************************/
-    .modal-3d-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 2000;
-      backdrop-filter: blur(5px);
-    }
-    .modal-3d-content {
-      background: #1e1e1e;
-      border-radius: 10px;
-      padding: 25px;
-      width: 90%;
-      max-width: 560px;
-      box-shadow: 0 0 30px var(--primary-color), 0 0 10px rgba(0, 0, 0, 0.8);
-      transform: scale(0.8) translateY(50px);
-      transition: transform 0.3s, opacity 0.3s, box-shadow 0.3s;
-      opacity: 0;
-      position: relative;
-    }
-    .modal-3d-content.show {
-      transform: scale(1) translateY(0);
-      opacity: 1;
-    }
-    .modal-3d-header img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-    }
-    .modal-3d-content h2 {
-      margin: 8px 0;
-      text-align: center;
-      font-size: 22px;
-      font-weight: 600;
-    }
-    .modal-close-btn {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: none;
-      border: none;
-      color: var(--primary-color);
-      font-size: 36px;
-      cursor: pointer;
-      z-index: 3000;
-      transition: transform 0.3s;
-    }
-    .modal-close-btn:hover {
-      transform: scale(1.2);
-    }
-    .modal-details {
-      color: #eee;
-      font-size: 15px;
-      margin-top: 10px;
-      text-align: center;
-      line-height: 1.7;
-    }
-    .modal-details h5 {
-      margin: 4px 0;
-      font-size: 14px;
-      font-weight: 400;
-    }
-    .modal-details h5 span {
-      color: var(--primary-color);
-    }
-    .modal-3d-footer {
-      text-align: center;
-      margin-top: 15px;
-    }
-    .modal-3d-footer .main-button a {
-      background: var(--primary-color);
-      color: #000;
-      font-size: 15px;
-      padding: 10px 25px;
-      border-radius: 5px;
-      transition: all 0.3s;
-    }
-    .modal-3d-footer .main-button a:hover {
-      background: var(--primary-color-hover);
-      transform: translateY(-3px);
-    }
+        body.light-mode select#priceFilter {
+            background: var(--secondary-bg-light);
+            color: var(--text-light);
+            border: 1px solid #ccc;
+        }
 
-    /***********************************
-     *     عناوين الأقسام (Sections)    *
-     ***********************************/
-    .heading-section h1,
-    .heading-section h4 {
-      text-align: center;
-      margin-bottom: 30px;
-      text-shadow: 0 0 5px var(--primary-color);
-    }
-    .heading-section h1 {
-      font-size: 32px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
+        select#priceFilter:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.2);
+        }
 
-    /***********************************
-     * قسم الضمان والثقة (3D)          *
-     ***********************************/
-    .trust-section {
-      background: #27292a;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 8px;
-      padding: 20px;
-      margin-top: 40px;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-      position: relative;
-      overflow: hidden;
-    }
-    .trust-section::before {
-      /* ديكور خلفي دائري */
-      content: "";
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      background: var(--primary-color);
-      border-radius: 50%;
-      top: -80px;
-      left: -80px;
-      opacity: 0.1;
-    }
-    .trust-section::after {
-      content: "";
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      background: var(--primary-color-hover);
-      border-radius: 50%;
-      bottom: -80px;
-      right: -80px;
-      opacity: 0.1;
-    }
-    .trust-section h2 {
-      color: var(--primary-color);
-      margin-bottom: 15px;
-      font-size: 24px;
-      text-transform: uppercase;
-      text-shadow: 0 0 5px rgba(0,0,0,0.5);
-    }
-    .trust-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .trust-item {
-      background: #242424;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 8px;
-      padding: 20px;
-      width: 250px;
-      max-width: 100%;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-      transition: transform 0.4s, box-shadow 0.4s;
-      position: relative;
-      overflow: hidden;
-    }
-    .trust-item:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 25px 30px rgba(0, 0, 0, 0.7), 0 0 15px var(--primary-color);
-    }
-    .trust-icon {
-      font-size: 40px;
-      margin-bottom: 10px;
-      color: var(--primary-color);
-      transition: transform 0.3s;
-    }
-    .trust-item:hover .trust-icon {
-      transform: scale(1.2) rotate(10deg);
-    }
-    .trust-item h3 {
-      color: var(--primary-color-hover);
-      margin-bottom: 10px;
-      font-size: 18px;
-    }
-    .trust-item p {
-      color: #ccc;
-      margin-bottom: 0;
-      line-height: 1.6;
-      font-size: 14px;
-    }
+        /* القائمة */
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
 
-    /***********************************
-     * زر الصعود للأعلى (ScrollTop)    *
-     ***********************************/
-    #scrollTopBtn {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background: var(--primary-color);
-      color: #000;
-      border: none;
-      border-radius: 50%;
-      width: 45px;
-      height: 45px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 20px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-      z-index: 1000;
-      visibility: hidden;
-      opacity: 0;
-      transition: visibility 0.3s, opacity 0.3s, transform 0.3s;
-    }
-    #scrollTopBtn.show {
-      visibility: visible;
-      opacity: 1;
-      transform: translateY(0);
-    }
-    #scrollTopBtn:hover {
-      background: var(--primary-color-hover);
-    }
+            .nav li {
+                position: relative;
+            }
 
-    /*************************************
-     * تحسينات إضافية للشاشات الصغيرة    *
-     *************************************/
-    @media (max-width: 576px) {
-      .header-area {
-        padding: 5px 0;
-      }
-      .search-input form {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      #searchText {
-        margin-bottom: 10px;
-        width: 100%;
-      }
-      select#priceFilter {
-        margin-left: 0;
-        width: 100%;
-      }
-      .search-input {
-        margin-right: 0;
-        width: 100%;
-      }
-      .main-banner {
-        padding: 30px 15px;
-      }
-      .header-text h4 {
-        font-size: 22px;
-      }
-      .modal-3d-content {
-        padding: 15px;
-      }
-      .special-offers .offers-row {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  </style>
+                .nav li a {
+                    display: inline-block;
+                    color: #ccc;
+                    padding: 6px 12px;
+                    border-radius: 5px;
+                    transition: 0.3s;
+                    font-weight: 500;
+                }
+
+                    .nav li a.active,
+                    .nav li a:hover {
+                        color: var(--primary-color);
+                        background: rgba(255, 255, 255, 0.1);
+                        transform: translateY(-2px);
+                    }
+
+        body.light-mode .nav li a {
+            color: #333;
+        }
+
+            body.light-mode .nav li a.active,
+            body.light-mode .nav li a:hover {
+                background: #ddd;
+                color: var(--primary-color);
+            }
+
+        /* زر القائمة للجوال */
+        .menu-trigger {
+            color: #fff;
+            border: 1px solid #444;
+            padding: 3px 10px;
+            border-radius: 5px;
+            display: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+            .menu-trigger:hover {
+                background: #1f1f1f;
+                border-color: var(--primary-color);
+            }
+
+        body.light-mode .menu-trigger {
+            color: #333;
+            border: 1px solid #ccc;
+        }
+
+            body.light-mode .menu-trigger:hover {
+                background: #eee;
+                border-color: var(--primary-color);
+            }
+
+        @media (max-width: 991px) {
+            .nav {
+                display: none; /* إخفاء القائمة العلوية في الجوال */
+            }
+
+            .menu-trigger {
+                display: block;
+            }
+        }
+
+        /* القائمة الجانبية (Side Nav) */
+        .side-nav {
+            position: fixed;
+            right: -280px; /* خارج الشاشة */
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--current-bg);
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+            transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+            z-index: 1500;
+            padding: 25px 20px;
+            overflow-y: auto; /* لإمكانية التمرير */
+        }
+
+            .side-nav.open {
+                right: 0;
+            }
+
+            .side-nav ul {
+                list-style: none;
+                padding: 0;
+                margin-top: 40px;
+            }
+
+                .side-nav ul li a {
+                    display: block;
+                    padding: 12px;
+                    margin-bottom: 8px;
+                    color: var(--current-text);
+                    border-radius: 8px;
+                    transition: all 0.3s;
+                    font-weight: 500;
+                }
+
+                    .side-nav ul li a:hover {
+                        background: rgba(var(--primary-color-rgb), 0.1);
+                        color: var(--primary-color-hover);
+                        transform: translateX(-5px);
+                    }
+
+        .side-nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(3px);
+            z-index: 1499;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            animation: fadeIn 0.3s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .side-nav-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: var(--current-text);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /***********************************
+        * محتوى الصفحة (البانر + المنتجات) *
+        ***********************************/
+        .page-content {
+            margin-top: 120px;
+            background-color: var(--current-secondary-bg);
+            border: 1px solid #333;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+            .page-content::before {
+                content: "";
+                position: absolute;
+                top: -100px;
+                right: -100px;
+                width: 200px;
+                height: 200px;
+                background: radial-gradient( circle, rgba(var(--primary-color-rgb), 0.1) 0%, transparent 70% );
+                z-index: -1;
+                border-radius: 50%;
+            }
+
+            .page-content::after {
+                content: "";
+                position: absolute;
+                bottom: -100px;
+                left: -100px;
+                width: 200px;
+                height: 200px;
+                background: radial-gradient( circle, rgba(var(--primary-color-rgb), 0.05) 0%, transparent 70% );
+                z-index: -1;
+                border-radius: 50%;
+            }
+
+        body.light-mode .page-content {
+            border: 1px solid #ccc;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /***********************************
+        *  أزرار عائمة: واتساب + إشعارات  *
+        ***********************************/
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 80px;
+            left: 20px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            z-index: 1001;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+            .whatsapp-btn:hover {
+                transform: translateY(-6px) scale(1.05);
+                box-shadow: 0 15px 20px rgba(0, 0, 0, 0.6);
+            }
+
+            .whatsapp-btn img {
+                width: 32px;
+                height: 32px;
+                filter: brightness(0.95);
+                transition: transform 0.3s;
+            }
+
+            .whatsapp-btn:hover img {
+                transform: scale(1.1);
+            }
+
+        .notification-btn {
+            position: fixed;
+            bottom: 150px;
+            left: 20px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            z-index: 1001;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+            .notification-btn i {
+                color: #000;
+                font-size: 22px;
+                transition: transform 0.3s;
+            }
+
+            .notification-btn:hover {
+                transform: translateY(-6px) scale(1.05);
+                box-shadow: 0 15px 20px rgba(0, 0, 0, 0.6);
+            }
+
+                .notification-btn:hover i {
+                    transform: scale(1.1);
+                }
+
+        /***********************************
+        *   زر "افضل العروض" ثلاثي الأبعاد
+        ***********************************/
+        .best-offers-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: #fff;
+            font-size: 20px;
+            font-weight: 600;
+            padding: 15px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            box-shadow: 0 8px 0px #d96b53, 0 10px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+            margin-top: 15px;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transform: perspective(500px) translateZ(0);
+        }
+
+            .best-offers-btn::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(255, 255, 255, 0.1);
+                transform: translateY(100%);
+                transition: transform 0.3s;
+            }
+
+            .best-offers-btn:hover {
+                transform: perspective(500px) translateY(-7px) translateZ(20px);
+                box-shadow: 0 15px 0px #d96b53, 0 20px 25px rgba(0, 0, 0, 0.4);
+                color: #fff;
+            }
+
+                .best-offers-btn:hover::before {
+                    transform: translateY(0);
+                }
+
+            .best-offers-btn:active {
+                transform: perspective(500px) translateY(2px) translateZ(10px);
+                box-shadow: 0 6px 0px #d96b53, 0 8px 10px rgba(0, 0, 0, 0.3);
+            }
+
+        /***********************************
+        *  نص ترحيبي متحرك (3D Animation)  *
+        ***********************************/
+        .header-text h4.animated-text {
+            display: inline-block;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            perspective: 800px;
+            transform-style: preserve-3d;
+            animation: text3D 3s infinite alternate ease-in-out;
+            position: relative;
+        }
+
+            .header-text h4.animated-text::after {
+                content: "";
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: linear-gradient( 90deg, transparent, var(--primary-color), transparent );
+                animation: gradientMove 2s infinite alternate ease-in-out;
+            }
+
+        @keyframes text3D {
+            0% {
+                transform: rotateX(20deg) translateZ(0);
+                text-shadow: 0 0 5px rgba( var(--primary-color-rgb), 0.3 ), 0 5px 10px rgba(0, 0, 0, 0.5);
+            }
+
+            100% {
+                transform: rotateX(-20deg) translateZ(30px);
+                text-shadow: 0 0 15px rgba( var(--primary-color-rgb), 0.8 ), 0 15px 20px rgba(0, 0, 0, 0.7);
+            }
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        /***********************************
+        *   قسم العروض الخاصة (24 ساعة)    *
+        ***********************************/
+        .special-offers {
+            margin: 30px 0;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+            .special-offers::before {
+                content: "";
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: radial-gradient( circle, rgba(var(--primary-color-rgb), 0.1), transparent 70% );
+                opacity: 0.7;
+                pointer-events: none;
+            }
+
+        body.light-mode .special-offers {
+            background: #f9f9f9;
+            border: 1px solid #eaeaea;
+        }
+
+        .special-offers h2 {
+            color: var(--primary-color);
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 25px;
+            text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+            .special-offers h2::after {
+                content: "";
+                position: absolute;
+                bottom: -8px;
+                left: 10%;
+                width: 80%;
+                height: 2px;
+                background: linear-gradient( 90deg, transparent, var(--primary-color), transparent );
+            }
+
+        .special-offers .offers-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* بطاقة العرض داخل قسم العروض الخاصة */
+        .offer-item {
+            background: #242424;
+            border-radius: 15px;
+            padding: 20px;
+            min-width: 280px;
+            flex: 1 1 280px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+            transition: transform 0.4s, box-shadow 0.4s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        body.light-mode .offer-item {
+            background: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .offer-item:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 25px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(var(--primary-color-rgb), 0.5);
+        }
+
+        body.light-mode .offer-item:hover {
+            box-shadow: 0 25px 30px rgba(0, 0, 0, 0.15), 0 0 20px rgba(var(--primary-color-rgb), 0.3);
+        }
+
+        .offer-item img {
+            width: 100%;
+            border-radius: 12px;
+            height: auto;
+            margin-bottom: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+            transition: transform 0.4s;
+            transform: translateZ(10px);
+        }
+
+        .offer-item:hover img {
+            transform: translateZ(30px);
+        }
+
+        .offer-item h4 {
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            transition: transform 0.3s;
+            transform: translateZ(15px);
+        }
+
+        .offer-item:hover h4 {
+            transform: translateZ(35px);
+        }
+
+        .offer-item .old-price {
+            text-decoration: line-through;
+            color: #ff4d4d;
+            margin: 0 4px;
+            font-size: 16px;
+            position: relative;
+        }
+
+        .offer-item .new-price {
+            color: #0df18f;
+            font-weight: bold;
+            margin: 0 4px;
+            font-size: 18px;
+        }
+
+        .offer-item .countdown {
+            margin: 15px 0;
+            font-weight: bold;
+            color: #ffd600;
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+        }
+
+        .countdown-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 10px 0;
+        }
+
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 5px 10px;
+            border-radius: 8px;
+            min-width: 50px;
+        }
+
+        body.light-mode .countdown-item {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .countdown-item span:first-child {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffd600;
+        }
+
+        .countdown-item span:last-child {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .offer-item .buy-button {
+            margin-top: 15px;
+            transform: translateZ(15px);
+        }
+
+        /***********************************
+        * بطاقات المنتجات (3D Tilt)       *
+        ***********************************/
+        .item {
+            background: #27292a;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            transition: transform 0.4s, box-shadow 0.4s;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        body.light-mode .item {
+            background: #fff;
+            border: 1px solid #eaeaea;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .item::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient( circle, rgba(255, 255, 255, 0.1) 0%, transparent 70% );
+            transform: rotate(30deg);
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+        }
+
+        .item:hover::before {
+            opacity: 1;
+        }
+
+        .item:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 25px 30px rgba(0, 0, 0, 0.7), 0 0 15px var(--primary-color);
+        }
+
+        body.light-mode .item:hover {
+            box-shadow: 0 25px 30px rgba(0, 0, 0, 0.15), 0 0 15px var(--primary-color);
+        }
+
+        .item img {
+            border-radius: 12px;
+            width: 100%;
+            height: auto;
+            display: block;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s;
+            transform: translateZ(10px);
+        }
+
+        .item:hover img {
+            transform: translateZ(30px);
+        }
+
+        .item h4,
+        .item h3 {
+            text-align: center;
+            margin: 10px 0 5px;
+            transition: transform 0.3s;
+            transform: translateZ(15px);
+        }
+
+        .item:hover h4,
+        .item:hover h3 {
+            transform: translateZ(35px);
+        }
+
+        .item h3 {
+            color: var(--primary-color);
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .item ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+            color: #bbb;
+            margin: 10px 0;
+            transition: transform 0.3s;
+            transform: translateZ(10px);
+        }
+
+        body.light-mode .item ul {
+            color: #555;
+        }
+
+        .item:hover ul {
+            transform: translateZ(25px);
+        }
+
+        .item ul li {
+            display: inline-block;
+            margin: 0 4px;
+            font-size: 14px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 3px 8px;
+            border-radius: 5px;
+        }
+
+        body.light-mode .item ul li {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .item ul li i.fa-shopping-basket {
+            color: #ffc107 !important;
+            margin-right: 4px;
+        }
+
+        /* مؤشر (انقر للعرض) */
+        .view-notify {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%) translateZ(20px);
+            color: #fff;
+            font-size: 13px;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .item:hover .view-notify {
+            opacity: 1;
+            transform: translateX(-50%) translateZ(40px);
+        }
+
+        .view-notify i {
+            color: var(--primary-color);
+        }
+
+        /* زر الشراء خارج البطاقة */
+        .buy-button {
+            margin-top: -5px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+            .buy-button a {
+                background: #00e7b8;
+                color: #000;
+                font-weight: 600;
+                padding: 10px 20px;
+                border-radius: 8px;
+                text-decoration: none;
+                transition: all 0.3s;
+                display: inline-block;
+                box-shadow: 0 4px 0 #00ab8a, 0 5px 10px rgba(0, 0, 0, 0.2);
+                transform: translateY(0);
+            }
+
+                .buy-button a:hover {
+                    background: var(--primary-color-hover);
+                    transform: translateY(-3px);
+                    box-shadow: 0 7px 0 #00ab8a, 0 10px 15px rgba(0, 0, 0, 0.4);
+                }
+
+                .buy-button a:active {
+                    transform: translateY(2px);
+                    box-shadow: 0 2px 0 #00ab8a, 0 3px 5px rgba(0, 0, 0, 0.2);
+                }
+
+        /* تقييم النجوم */
+        .product-rating {
+            text-align: center;
+            margin-top: 12px;
+            transition: transform 0.3s;
+            transform: translateZ(10px);
+        }
+
+        .item:hover .product-rating {
+            transform: translateZ(25px);
+        }
+
+        .product-rating i {
+            color: #ffb400;
+            margin: 0 1px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            font-size: 16px;
+        }
+
+            .product-rating i:hover {
+                transform: scale(1.4) rotate(5deg);
+            }
+
+        /***********************************
+        * النافذة المنبثقة (Popup Modal)  *
+        ***********************************/
+        .modal-3d-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-3d-content {
+            background: linear-gradient( 145deg, #1e1e1e, #272727 );
+            border-radius: 15px;
+            padding: 30px;
+            width: 90%;
+            max-width: 580px;
+            box-shadow: 0 0 30px var(--primary-color), 0 0 10px rgba(0, 0, 0, 0.8);
+            transform: scale(0.8) rotateX(10deg);
+            transition: transform 0.4s cubic-bezier( 0.175, 0.885, 0.32, 1.275 ), opacity 0.4s, box-shadow 0.4s;
+            opacity: 0;
+            position: relative;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+            .modal-3d-content::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: radial-gradient( ellipse at center, rgba( var(--primary-color-rgb), 0.1 ) 0%, transparent 70% );
+                pointer-events: none;
+                border-radius: 15px;
+            }
+
+        body.light-mode .modal-3d-content {
+            background: linear-gradient( 145deg, #ffffff, #f5f5f5 );
+            box-shadow: 0 0 30px rgba(var(--primary-color-rgb), 0.5), 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-3d-content.show {
+            transform: scale(1) rotateX(0deg);
+            opacity: 1;
+        }
+
+        .modal-3d-header img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transform: translateZ(20px);
+            transition: transform 0.3s;
+        }
+
+        .modal-3d-content:hover .modal-3d-header img {
+            transform: translateZ(40px);
+        }
+
+        .modal-3d-content h2 {
+            margin: 15px 0;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            transform: translateZ(15px);
+            transition: transform 0.3s;
+        }
+
+        .modal-3d-content:hover h2 {
+            transform: translateZ(30px);
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border: none;
+            color: var(--primary-color);
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 3000;
+            transition: transform 0.3s, background 0.3s;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        body.light-mode .modal-close-btn {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .modal-close-btn:hover {
+            transform: scale(1.2) rotate(90deg);
+            background: rgba( var(--primary-color-rgb), 0.2 );
+        }
+
+        .modal-details {
+            color: #eee;
+            font-size: 15px;
+            margin-top: 15px;
+            text-align: center;
+            line-height: 1.7;
+            transform: translateZ(10px);
+            transition: transform 0.3s;
+        }
+
+        body.light-mode .modal-details {
+            color: #333;
+        }
+
+        .modal-3d-content:hover .modal-details {
+            transform: translateZ(25px);
+        }
+
+        .modal-details h5 {
+            margin: 8px 0;
+            font-size: 16px;
+            font-weight: 400;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+
+            .modal-details h5 span {
+                color: var(--primary-color);
+                font-weight: 600;
+            }
+
+            .modal-details h5 i {
+                color: var(--primary-color);
+                font-size: 14px;
+            }
+
+        .modal-3d-footer {
+            text-align: center;
+            margin-top: 20px;
+            transform: translateZ(15px);
+            transition: transform 0.3s;
+        }
+
+        .modal-3d-content:hover .modal-3d-footer {
+            transform: translateZ(35px);
+        }
+
+        .modal-3d-footer .main-button a {
+            background: var(--primary-color);
+            color: #000;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            display: inline-block;
+            box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+            .modal-3d-footer .main-button a:hover {
+                background: var(--primary-color-hover);
+                transform: translateY(-5px);
+                box-shadow: 0 10px 0 rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.4);
+            }
+
+            .modal-3d-footer .main-button a:active {
+                transform: translateY(2px);
+                box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2), 0 3px 5px rgba(0, 0, 0, 0.2);
+            }
+
+        /***********************************
+        *     عناوين الأقسام (Sections)    *
+        ***********************************/
+        .heading-section h1,
+        .heading-section h4 {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .heading-section h1 {
+            font-size: 32px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-color);
+            display: inline-block;
+            position: relative;
+            padding: 0 20px;
+        }
+
+            .heading-section h1 em {
+                font-style: normal;
+                position: relative;
+                z-index: 2;
+            }
+
+            .heading-section h1::before {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 8px;
+                background: linear-gradient( 90deg, transparent, var(--primary-color), transparent );
+                opacity: 0.3;
+                border-radius: 4px;
+            }
+
+            .heading-section h1::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 120%;
+                height: 120%;
+                background: radial-gradient( ellipse at center, rgba( var(--primary-color-rgb), 0.1 ) 0%, transparent 70% );
+                z-index: 1;
+                border-radius: 50%;
+            }
+
+        /***********************************
+        * قسم الضمان والثقة (3D)          *
+        ***********************************/
+        .trust-section {
+            background: linear-gradient( 145deg, #27292a, #222 );
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 50px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        body.light-mode .trust-section {
+            background: linear-gradient( 145deg, #fafafa, #f0f0f0 );
+            border: 1px solid #eaeaea;
+        }
+
+        .trust-section::before {
+            /* ديكور خلفي دائري */
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            top: -150px;
+            left: -150px;
+            opacity: 0.05;
+        }
+
+        .trust-section::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--primary-color-hover);
+            border-radius: 50%;
+            bottom: -150px;
+            right: -150px;
+            opacity: 0.05;
+        }
+
+        .trust-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 28px;
+            text-transform: uppercase;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            position: relative;
+            display: inline-block;
+        }
+
+            .trust-section h2::after {
+                content: "";
+                position: absolute;
+                bottom: -8px;
+                left: 10%;
+                width: 80%;
+                height: 2px;
+                background: linear-gradient( 90deg, transparent, var(--primary-color), transparent );
+            }
+
+        .trust-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .trust-item {
+            background: linear-gradient( 145deg, #242424, #1e1e1e );
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            width: 280px;
+            max-width: 100%;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.5s, box-shadow 0.5s;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        body.light-mode .trust-item {
+            background: linear-gradient( 145deg, #ffffff, #f8f8f8 );
+            border: 1px solid #eaeaea;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .trust-item::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient( circle, rgba(255, 255, 255, 0.1) 0%, transparent 70% );
+            transform: rotate(30deg);
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+        }
+
+        .trust-item:hover::before {
+            opacity: 1;
+        }
+
+        .trust-item:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 25px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(var(--primary-color-rgb), 0.5);
+        }
+
+        body.light-mode .trust-item:hover {
+            box-shadow: 0 25px 30px rgba(0, 0, 0, 0.15), 0 0 20px rgba(var(--primary-color-rgb), 0.3);
+        }
+
+        .trust-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            transition: transform 0.4s, color 0.3s;
+            transform: translateZ(10px);
+        }
+
+        .trust-item:hover .trust-icon {
+            transform: translateZ(30px) scale(1.2) rotate(10deg);
+            color: var(--primary-color-hover);
+        }
+
+        .trust-item h3 {
+            color: var(--primary-color-hover);
+            margin-bottom: 15px;
+            font-size: 20px;
+            transition: transform 0.3s;
+            transform: translateZ(15px);
+        }
+
+        .trust-item:hover h3 {
+            transform: translateZ(35px);
+        }
+
+        .trust-item p {
+            color: #ccc;
+            margin-bottom: 0;
+            line-height: 1.7;
+            font-size: 15px;
+            transition: transform 0.3s;
+            transform: translateZ(5px);
+        }
+
+        body.light-mode .trust-item p {
+            color: #555;
+        }
+
+        .trust-item:hover p {
+            transform: translateZ(20px);
+        }
+
+        /***********************************
+        * زر الصعود للأعلى (ScrollTop)    *
+        ***********************************/
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: var(--primary-color);
+            color: #000;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: visibility 0.3s, opacity 0.3s, transform 0.3s;
+        }
+
+            #scrollTopBtn.show {
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            #scrollTopBtn:hover {
+                background: var(--primary-color-hover);
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+            }
+
+        /* تأثير الماوس الضوئي */
+        .circle-cursor {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-color);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.5;
+            transition: width 0.3s, height 0.3s, opacity 0.3s, background 0.3s;
+            display: none;
+        }
+
+            .circle-cursor.active {
+                width: 20px;
+                height: 20px;
+                opacity: 0.8;
+                background: rgba( var(--primary-color-rgb), 0.2 );
+            }
+
+        /* إشعارات مخصصة للموقع - تم تحسينها */
+        .custom-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(145deg, #1e1e1e, #272727);
+            color: #fff;
+            padding: 18px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 2000;
+            max-width: 380px;
+            transform: translateX(120%);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-left: 4px solid var(--primary-color);
+            transform-style: preserve-3d;
+            perspective: 800px;
+        }
+
+        body.light-mode .custom-notification {
+            background: linear-gradient(145deg, #ffffff, #f5f5f5);
+            color: #333;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .custom-notification.show {
+            transform: translateX(0);
+            animation: notificationPulse 2s infinite;
+        }
+
+        @keyframes notificationPulse {
+            0% {
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+                transform: translateX(0) translateZ(0);
+            }
+
+            50% {
+                box-shadow: 0 12px 30px rgba(var(--primary-color-rgb), 0.3), 0 8px 25px rgba(0, 0, 0, 0.6);
+                transform: translateX(0) translateZ(10px);
+            }
+
+            100% {
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+                transform: translateX(0) translateZ(0);
+            }
+        }
+
+        .custom-notification .notification-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(var(--primary-color-rgb), 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transform: translateZ(15px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+            .custom-notification .notification-icon i {
+                color: var(--primary-color);
+                font-size: 22px;
+            }
+
+        .custom-notification .notification-content {
+            flex-grow: 1;
+            transform: translateZ(5px);
+        }
+
+        .custom-notification h4 {
+            margin: 0 0 8px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .custom-notification p {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .custom-notification .notification-close {
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 22px;
+            cursor: pointer;
+            transition: color 0.3s, transform 0.3s;
+            padding: 0;
+            transform: translateZ(10px);
+        }
+
+            .custom-notification .notification-close:hover {
+                color: #fff;
+                transform: translateZ(10px) rotate(90deg);
+            }
+
+        body.light-mode .custom-notification .notification-close:hover {
+            color: #333;
+        }
+
+        .custom-notification.success {
+            border-left-color: #4CAF50;
+        }
+
+            .custom-notification.success .notification-icon {
+                background: rgba(76, 175, 80, 0.2);
+            }
+
+                .custom-notification.success .notification-icon i {
+                    color: #4CAF50;
+                }
+
+        .custom-notification.error {
+            border-left-color: #F44336;
+        }
+
+            .custom-notification.error .notification-icon {
+                background: rgba(244, 67, 54, 0.2);
+            }
+
+                .custom-notification.error .notification-icon i {
+                    color: #F44336;
+                }
+
+        /*************************************
+        * تحسينات إضافية للشاشات الصغيرة    *
+        *************************************/
+        @media (max-width: 767px) {
+            .header-area {
+                padding: 5px 0;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+
+            .search-input form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            #searchText {
+                margin-bottom: 10px;
+                width: 100%;
+            }
+
+            select#priceFilter {
+                margin-left: 0;
+                margin-right: 0;
+                width: 100%;
+            }
+
+            .search-input {
+                margin-right: 0;
+                width: 100%;
+                max-width: 260px;
+            }
+
+            .main-banner {
+                padding: 30px 15px;
+            }
+
+            .header-text h4 {
+                font-size: 22px;
+            }
+
+                .header-text h4.animated-text {
+                    font-size: 26px;
+                }
+
+            .modal-3d-content {
+                padding: 20px;
+            }
+
+            .special-offers .offers-row {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .trust-row {
+                gap: 15px;
+            }
+
+            .trust-item {
+                width: 260px;
+                padding: 20px;
+            }
+
+            .page-content {
+                margin-top: 100px;
+                padding: 20px 15px;
+            }
+
+            .item img,
+            .offer-item img {
+                height: auto;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .best-offers-btn {
+                font-size: 18px;
+                padding: 12px 25px;
+            }
+
+            .heading-section h1 {
+                font-size: 26px;
+            }
+
+            .trust-section h2 {
+                font-size: 24px;
+            }
+
+            .special-offers h2 {
+                font-size: 24px;
+            }
+
+            .modal-3d-content h2 {
+                font-size: 20px;
+            }
+
+            .whatsapp-btn,
+            .notification-btn {
+                width: 45px;
+                height: 45px;
+            }
+
+                .whatsapp-btn img {
+                    width: 25px;
+                    height: 25px;
+                }
+
+                .notification-btn i {
+                    font-size: 18px;
+                }
+
+            .custom-notification {
+                max-width: 300px;
+                padding: 15px;
+            }
+        }
+
+        /* تحسين المظهر على الشاشات الصغيرة جدًا */
+        @media (max-width: 380px) {
+            .header-text h4.animated-text {
+                font-size: 22px;
+            }
+
+            .best-offers-btn {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+
+            .search-input {
+                max-width: 220px;
+            }
+
+            .custom-notification {
+                max-width: 280px;
+                padding: 12px;
+            }
+
+                .custom-notification .notification-icon {
+                    width: 35px;
+                    height: 35px;
+                }
+        }
+
+        /* تأكيد التوافق مع صفحات الطباعة */
+        @media print {
+            .header-area,
+            .whatsapp-btn,
+            .notification-btn,
+            #scrollTopBtn {
+                display: none !important;
+            }
+
+            .page-content {
+                margin-top: 20px;
+                box-shadow: none;
+                border: none;
+            }
+
+            * {
+                background: transparent !important;
+                color: #000 !important;
+                box-shadow: none !important;
+                text-shadow: none !important;
+            }
+        }
+
+        /* تأثير انتقالي عند تغيير الصفحات */
+        body.page-transition {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        /* تأثير الحركة عند البحث */
+        @keyframes searchHighlight {
+            0% {
+                box-shadow: 0 0 0 rgba(var(--primary-color-rgb), 0);
+            }
+
+            50% {
+                box-shadow: 0 0 25px rgba(var(--primary-color-rgb), 0.7);
+            }
+
+            100% {
+                box-shadow: 0 0 0 rgba(var(--primary-color-rgb), 0);
+            }
+        }
+
+        .search-match {
+            animation: searchHighlight 1s ease-in-out;
+        }
+
+        /* تحسين Preloader */
+        .js-preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(145deg, #121212, #1a1a1a);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+            .js-preloader.loaded {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+        .preloader-inner {
+            transform-style: preserve-3d;
+        }
+
+            .preloader-inner .dot {
+                width: 12px;
+                height: 12px;
+                background: var(--primary-color);
+                border-radius: 50%;
+                animation: bounceDot 1.5s infinite alternate;
+                transform-style: preserve-3d;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            }
+
+            .preloader-inner .dots {
+                transform-style: preserve-3d;
+                margin-top: 15px;
+            }
+
+                .preloader-inner .dots span {
+                    width: 12px;
+                    height: 12px;
+                    background: var(--primary-color);
+                    border-radius: 50%;
+                    margin: 0 5px;
+                    display: inline-block;
+                    animation: bounceDots 1.5s infinite alternate;
+                    transform-style: preserve-3d;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+                }
+
+                    .preloader-inner .dots span:nth-child(2) {
+                        animation-delay: 0.2s;
+                    }
+
+                    .preloader-inner .dots span:nth-child(3) {
+                        animation-delay: 0.4s;
+                    }
+
+        @keyframes bounceDot {
+            0% {
+                transform: translateY(0) scale(1) translateZ(0);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            }
+
+            100% {
+                transform: translateY(-25px) scale(1.5) translateZ(30px);
+                background: var(--primary-color-hover);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+            }
+        }
+
+        @keyframes bounceDots {
+            0% {
+                transform: translateY(0) translateZ(0);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            }
+
+            100% {
+                transform: translateY(-15px) translateZ(20px);
+                background: var(--primary-color-hover);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- خلفية Particles -->
-  <div id="particles-js"></div>
+    <!-- خلفية Particles -->
+    <div id="particles-js"></div>
 
-  <!-- زر واتساب عائم -->
-  <a class="whatsapp-btn" href="https://wa.me/9647711359997" target="_blank">
-    <img src="assets/images/kkk.jpg" alt="WhatsApp" />
-  </a>
+    <!-- تأثير مؤشر الماوس الخاص -->
+    <div class="circle-cursor" id="circleCursor"></div>
 
-  <!-- زر الإشعارات -->
-  <button class="notification-btn" onclick="showNotification()">
-    <i class="fa fa-bell"></i>
-  </button>
+    <!-- زر واتساب عائم -->
+    <a class="whatsapp-btn"
+       href="https://wa.me/9647711359997"
+       target="_blank"
+       aria-label="تواصل معنا عبر واتساب">
+        <img src="assets/images/kkk.jpg" alt="WhatsApp" />
+    </a>
 
-  <!-- نافذة منبثقة (Popup) للمنتجات -->
-  <div class="modal-3d-overlay" id="modal3DOverlay">
-    <div class="modal-3d-content" id="modal3DContent">
-      <button class="modal-close-btn" onclick="close3DModal()">&times;</button>
-      <div class="modal-3d-header">
-        <img src="" alt="Product" id="modalProductImg" />
-      </div>
-      <h2 id="modalProductName"></h2>
-      <div class="modal-details">
-        <h5>السعر: <span id="modalPriceVal"></span></h5>
-        <h5>مدة الاشتراك: <span id="modalDuration"></span></h5>
-        <h5>ينتهي العرض في: <span id="modalEndDate"></span></h5>
-        <p id="modalProductDesc" style="margin: 10px 0; font-size: 14px;"></p>
-      </div>
-      <div class="modal-3d-footer">
-        <div class="main-button">
-          <a href="#" id="modalBuyLink" target="_blank">شراء الان؟</a>
-        </div>
-      </div>
-    </div>
-  </div>
+    <!-- زر الإشعارات -->
+    <button class="notification-btn"
+            onclick="showNotification()"
+            aria-label="عرض الإشعارات">
+        <i class="fa fa-bell"></i>
+    </button>
 
-  <!-- Preloader Start -->
-  <div id="js-preloader" class="js-preloader">
-    <div class="preloader-inner">
-      <span class="dot"></span>
-      <div class="dots">
-        <span></span><span></span><span></span>
-      </div>
-    </div>
-  </div>
-  <!-- Preloader End -->
-
-  <!-- Header Start -->
-  <header class="header-area header-sticky" data-aos="fade-down">
-    <div class="container">
-      <nav class="main-nav">
-        <!-- الشعار -->
-        <a href="index.html" class="logo">
-          <img src="assets/images/logo.gif" alt="Store Logo" loading="lazy" />
-        </a>
-
-        <!-- البحث + الفلتر -->
-        <div class="search-input">
-          <form id="search" action="javascript:void(0);" class="d-flex align-items-center">
-            <input
-              type="text"
-              placeholder="اكتب للبحث عن منتج..."
-              id="searchText"
-              onkeyup="filterProducts()"
-            />
-            <i class="fa fa-search"></i>
-            <select id="priceFilter" onchange="filterProducts()">
-              <option value="">السعر</option>
-              <option value="low">اقل من 5 الف</option>
-              <option value="med">5 الف - 10 الف</option>
-              <option value="high">اكثر من 10 الف</option>
-            </select>
-          </form>
-        </div>
-
-        <!-- قائمة الروابط -->
-        <ul class="nav">
-          <li>
-            <a href="index.html" class="active">
-              <i class="fa fa-home"></i>المنزل
-            </a>
-          </li>
-          <li>
-            <a href="Bestoffers.html">
-              <i class="fa fa-star"></i>افضل العروض
-            </a>
-          </li>
-          <li>
-            <a href="Gift.html">
-              <i class="fa fa-gift"></i>الهداية
-            </a>
-          </li>
-          <li>
-            <a href="infoStore.html">
-              <i class="fa fa-info-circle"></i>حول المتجر
-              <img
-                src="assets/images/profile-header.jpg"
-                alt="profile"
-                loading="lazy"
-                style="
-                  height: 20px;
-                  width: auto;
-                  margin-right: 5px;
-                  vertical-align: middle;
-                  border-radius: 4px;
-                "
-              />
-            </a>
-          </li>
-        </ul>
-
-        <!-- زر القائمة للجوال -->
-        <a class="menu-trigger" onclick="toggleSideNav()">
-          <span><i class="fa fa-bars"></i></span>
-        </a>
-      </nav>
-    </div>
-  </header>
-  <!-- القائمة الجانبية للجوال -->
-  <div class="side-nav" id="sideNav">
-    <ul>
-      <li><a href="index.html"><i class="fa fa-home"></i> المنزل</a></li>
-      <li><a href="Bestoffers.html"><i class="fa fa-star"></i> افضل العروض</a></li>
-      <li><a href="Gift.html"><i class="fa fa-gift"></i> الهداية</a></li>
-      <li><a href="infoStore.html"><i class="fa fa-info-circle"></i> حول المتجر</a></li>
-      <hr />
-      <!-- زر التبديل بين الوضعين -->
-      <li>
-        <a href="javascript:void(0)" onclick="toggleDarkMode()">
-          <i class="fa fa-adjust"></i> تبديل الوضع
-        </a>
-      </li>
-    </ul>
-  </div>
-  <!-- Header End -->
-
-  <!-- صفحة المحتوى -->
-  <div class="container page-content">
-    <div class="row">
-      <div class="col-lg-12">
-        <!-- بانر ترحيبي -->
-        <div class="main-banner" data-aos="fade-up">
-          <div class="row">
-            <div class="col-lg-7">
-              <div class="header-text">
-                <h4>مرحباً بك في</h4>
-                <!-- نص متحرك ثلاثي الأبعاد -->
-                <h4 class="animated-text">Store RD</h4>
-                <div>
-                  <a href="Bestoffers.html" class="best-offers-btn">
-                    افضل العروض
-                  </a>
+    <!-- نافذة منبثقة (Popup) للمنتجات -->
+    <div class="modal-3d-overlay"
+         id="modal3DOverlay">
+        <div class="modal-3d-content"
+             id="modal3DContent">
+            <button class="modal-close-btn"
+                    onclick="close3DModal()"
+                    aria-label="إغلاق">
+                &times;
+            </button>
+            <div class="modal-3d-header">
+                <img src=""
+                     alt="Product"
+                     id="modalProductImg" />
+            </div>
+            <h2 id="modalProductName"></h2>
+            <div class="modal-details">
+                <h5>
+                    <i class="fa fa-tag"></i> السعر:
+                    <span id="modalPriceVal"></span>
+                </h5>
+                <h5>
+                    <i class="fa fa-clock"></i> مدة الاشتراك:
+                    <span id="modalDuration"></span>
+                </h5>
+                <h5>
+                    <i class="fa fa-calendar"></i> ينتهي العرض في:
+                    <span id="modalEndDate"></span>
+                </h5>
+                <p id="modalProductDesc"
+                   style="margin: 10px 0; font-size: 14px;"></p>
+            </div>
+            <div class="modal-3d-footer">
+                <div class="main-button">
+                    <a href="#"
+                       id="modalBuyLink"
+                       target="_blank">
+                        شراء الان
+                    </a>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
+    </div>
 
-        <!-- قسم العروض الخاصة (3 منتجات) يدوم 24 ساعة -->
-        <div class="special-offers" data-aos="fade-up">
-          <h2>عرض خاص لك، انتهز الفرصة</h2>
-          <div class="offers-row" id="specialOffersRow">
-            <!-- يتم ملؤه ديناميكيًا بـ3 منتجات مع countdown واحد -->
-          </div>
+    <!-- Preloader Start -->
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+            <span class="dot"></span>
+            <div class="dots">
+                <span></span><span></span><span></span>
+            </div>
         </div>
+    </div>
+    <!-- Preloader End -->
+    <!-- Header Start -->
+    <header class="header-area header-sticky"
+            id="headerArea"
+            data-aos="fade-down">
+        <div class="container">
+            <nav class="main-nav">
+                <!-- الشعار -->
+                <a href="index.html" class="logo">
+                    <img src="assets/images/logo.gif"
+                         alt="Store Logo"
+                         loading="lazy" />
+                </a>
 
-        <!-- قسم المنتجات المتوفرة -->
-        <div class="most-popular">
-          <div class="row">
+                <!-- البحث + الفلتر -->
+                <div class="search-input">
+                    <form id="search"
+                          action="javascript:void(0);"
+                          class="d-flex align-items-center">
+                        <input type="text"
+                               placeholder="اكتب للبحث عن منتج..."
+                               id="searchText"
+                               onkeyup="filterProducts()"
+                               aria-label="بحث عن منتج" />
+                        <i class="fa fa-search"></i>
+                        <select id="priceFilter"
+                                onchange="filterProducts()"
+                                aria-label="تصفية بالسعر">
+                            <option value="">السعر</option>
+                            <option value="low">اقل من 5 الف</option>
+                            <option value="med">5 الف - 10 الف</option>
+                            <option value="high">اكثر من 10 الف</option>
+                        </select>
+                    </form>
+                </div>
+
+                <!-- قائمة الروابط -->
+                <ul class="nav">
+                    <li>
+                        <a href="index.html" class="active">
+                            <i class="fa fa-home"></i>المنزل
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Bestoffers.html">
+                            <i class="fa fa-star"></i>افضل العروض
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Gift.html">
+                            <i class="fa fa-gift"></i>الهداية
+                        </a>
+                    </li>
+                    <li>
+                        <a href="infoStore.html">
+                            <i class="fa fa-info-circle"></i>حول المتجر
+                            <img src="assets/images/profile-header.jpg"
+                                 alt="profile"
+                                 loading="lazy"
+                                 style="
+                                    height: 20px;
+                                    width: auto;
+                                    margin-right: 5px;
+                                    vertical-align: middle;
+                                    border-radius: 4px;
+                                " />
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- زر القائمة للجوال -->
+                <a class="menu-trigger"
+                   onclick="toggleSideNav()"
+                   aria-label="فتح القائمة">
+                    <span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                </a>
+            </nav>
+        </div>
+    </header>
+    <!-- القائمة الجانبية للجوال -->
+    <div class="side-nav" id="sideNav">
+        <button class="side-nav-close"
+                onclick="toggleSideNav()"
+                aria-label="إغلاق القائمة">
+            &times;
+        </button>
+        <ul>
+            <li>
+                <a href="index.html"><i class="fa fa-home"></i> المنزل</a>
+            </li>
+            <li>
+                <a href="Bestoffers.html"><i class="fa fa-star"></i> افضل العروض</a>
+            </li>
+            <li>
+                <a href="Gift.html"><i class="fa fa-gift"></i> الهداية</a>
+            </li>
+            <li>
+                <a href="infoStore.html"><i class="fa fa-info-circle"></i> حول المتجر</a>
+            </li>
+            <hr />
+            <!-- زر التبديل بين الوضعين -->
+            <li>
+                <a href="javascript:void(0)"
+                   onclick="toggleDarkMode()">
+                    <i class="fa fa-adjust"></i> تبديل الوضع
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- Header End -->
+    <!-- صفحة المحتوى -->
+    <div class="container page-content">
+        <div class="row">
             <div class="col-lg-12">
-              <div class="heading-section" data-aos="zoom-in">
-                <h1><em>(المنتجات المتوفرة)</em></h1>
-              </div>
-              <div class="row" id="productsContainer">
-                <!-- سيتم توليد البطاقات آليًا -->
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- نهاية قسم المنتجات المتوفرة -->
+                <!-- بانر ترحيبي -->
+                <div class="main-banner" data-aos="fade-up">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <div class="header-text">
+                                <h4>مرحباً بك في</h4>
+                                <!-- نص متحرك ثلاثي الأبعاد -->
+                                <h4 class="animated-text">Store RD</h4>
+                                <div>
+                                    <a href="Bestoffers.html"
+                                       class="best-offers-btn">
+                                        افضل العروض
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- قسم الضمان والثقة (3D) -->
-        <div class="trust-section" data-aos="fade-up">
-          <h2>ضمان متجرنا</h2>
-          <div class="trust-row">
-            <div class="trust-item">
-              <div class="trust-icon"><i class="fa fa-shield"></i></div>
-              <h3>الحماية والثقة</h3>
-              <p>نوفر لك أعلى مستوى من الأمان والثقة في عمليات الشراء.</p>
+                <!-- قسم العروض الخاصة (3 منتجات) يدوم 24 ساعة -->
+                <div class="special-offers" data-aos="fade-up">
+                    <h2>عرض خاص لك، انتهز الفرصة</h2>
+                    <div class="offers-row" id="specialOffersRow">
+                        <!-- يتم ملؤه ديناميكيًا بـ3 منتجات مع countdown واحد -->
+                    </div>
+                </div>
+
+                <!-- قسم المنتجات المتوفرة -->
+                <div class="most-popular">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="heading-section"
+                                 data-aos="zoom-in">
+                                <h1>
+                                    <em>(المنتجات المتوفرة)</em>
+                                </h1>
+                            </div>
+                            <div class="row"
+                                 id="productsContainer">
+                                <!-- سيتم توليد البطاقات آليًا -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- نهاية قسم المنتجات المتوفرة -->
+                <!-- قسم الضمان والثقة (3D) -->
+                <div class="trust-section"
+                     data-aos="fade-up">
+                    <h2>ضمان متجرنا</h2>
+                    <div class="trust-row">
+                        <div class="trust-item"
+                             data-aos="fade-up"
+                             data-aos-delay="100">
+                            <div class="trust-icon">
+                                <i class="fa fa-shield"></i>
+                            </div>
+                            <h3>الحماية والثقة</h3>
+                            <p>
+                                نوفر لك أعلى مستوى من الأمان والثقة
+                                في عمليات الشراء. جميع التعاملات آمنة
+                                ومضمونة.
+                            </p>
+                        </div>
+                        <div class="trust-item"
+                             data-aos="fade-up"
+                             data-aos-delay="200">
+                            <div class="trust-icon">
+                                <i class="fa fa-bolt"></i>
+                            </div>
+                            <h3>سرعة الاستجابة</h3>
+                            <p>
+                                دعم فني سريع على مدار الساعة ومتابعة
+                                فورية لأي مشكلة أو استفسار خلال
+                                دقائق.
+                            </p>
+                        </div>
+                        <div class="trust-item"
+                             data-aos="fade-up"
+                             data-aos-delay="300">
+                            <div class="trust-icon">
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <h3>جودة مضمونة</h3>
+                            <p>
+                                منتجات بأسعار مميزة وبجودة تلبي
+                                توقعاتك بكل ثقة. نضمن رضاك التام أو
+                                استرداد أموالك.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="trust-item">
-              <div class="trust-icon"><i class="fa fa-bolt"></i></div>
-              <h3>سرعة الاستجابة</h3>
-              <p>دعم فني سريع ومتابعة فورية لأي مشكلة أو استفسار.</p>
-            </div>
-            <div class="trust-item">
-              <div class="trust-icon"><i class="fa fa-star"></i></div>
-              <h3>جودة مضمونة</h3>
-              <p>منتجات بأسعار مميزة وبجودة تلبي توقعاتك بكل ثقة.</p>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 
-  <!-- Footer Start -->
-  <footer data-aos="fade-up">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <p>
-            Copyright © 2022
-            <a href="https://www.facebook.com/anwar.rd.129" target="_blank">ANO-RD</a>
-            Cy. All rights reserved.
-            <br>facebook:
-            <a href="https://www.facebook.com/store.iq.rd" target="_blank">Store RD</a>
-          </p>
+    <!-- Footer Start -->
+    <footer data-aos="fade-up">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>
+                        Copyright
+                        ©
+                        2022
+                        <a href="https://www.facebook.com/anwar.rd.129"
+                           target="_blank">ANO-RD</a>
+                        Cy. All rights reserved.
+                        <br />
+                        facebook:
+                        <a href="https://www.facebook.com/store.iq.rd"
+                           target="_blank">Store RD</a>
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </footer>
-  <!-- Footer End -->
+    </footer>
+    <!-- Footer End -->
+    <!-- زر الصعود للأعلى -->
+    <button id="scrollTopBtn"
+            onclick="scrollToTop()"
+            aria-label="العودة للأعلى">
+        <i class="fa fa-chevron-up"></i>
+    </button>
 
-  <!-- زر الصعود للأعلى -->
-  <button id="scrollTopBtn" onclick="scrollToTop()">
-    <i class="fa fa-chevron-up"></i>
-  </button>
+    <!-- سكربتات أساسية -->
+    <script src="vendor/jquery/jquery.min.js" defer></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js" defer></script>
+    <script src="assets/js/isotope.min.js" defer></script>
+    <script src="assets/js/owl-carousel.js" defer></script>
+    <script src="assets/js/tabs.js" defer></script>
+    <script src="assets/js/popup.js" defer></script>
 
-  <!-- سكربتات أساسية -->
-  <script src="vendor/jquery/jquery.min.js" defer></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js" defer></script>
-  <script src="assets/js/isotope.min.js" defer></script>
-  <script src="assets/js/owl-carousel.js" defer></script>
-  <script src="assets/js/tabs.js" defer></script>
-  <script src="assets/js/popup.js" defer></script>
+    <!-- مكتبة particles + سكربت التهيئة -->
+    <script src="assets/js/particles.min.js" defer></script>
 
-  <!-- ملف custom.js معدل لمنع أي أخطاء offset().top -->
-  <script defer>
-    document.addEventListener("DOMContentLoaded", function() {
-      // مثال على كود قد يسبب خطأ عند محاولة الوصول إلى offset().top
-      // استخدمنا getBoundingClientRect() مع فحص العنصر
-      document.addEventListener("scroll", function() {
-        let links = document.querySelectorAll("a.scrollLink");
-        links.forEach(function(link) {
-          let rect = link.getBoundingClientRect();
-          let absoluteTop = rect.top + window.scrollY;
-          // ... بقية المنطق
+    <!-- AOS + SweetAlert + VanillaTilt -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"
+            defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"
+            defer></script>
+    <script src="https://unpkg.com/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"
+            defer></script>
+
+    <!-- كود الموقع الرئيسي -->
+    <script>
+        // مصفوفة المنتجات
+        const PRODUCTS = [
+            {
+                name: "ديسكورد شهر كامل",
+                price: 8,
+                img: "assets/images/11.jpg",
+                desc: "اشتراك ديسكورد شهري مع بوست Nitro ودعم فني للمزايا كاملة",
+                duration: "شهر",
+                endDate: "31 ديسمبر 2025",
+                ratingHTML: `<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i><i class="fa fa-star-o"></i>`,
+            },
+            {
+                name: "نتفليكس شهر كامل",
+                price: 4,
+                img: "assets/images/9.jpg",
+                desc: "نتفليكس بريميوم بدقة 4K لمدة شهر كامل مع دعم مشاهدة متعددة",
+                duration: "شهر",
+                endDate: "31 ديسمبر 2025",
+                ratingHTML: `<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>`,
+            },
+            {
+                name: "برايم فيديو شهر كامل",
+                price: 4,
+                img: "assets/images/8.jpg",
+                desc: "Amazon Prime Video لشهر بجودة عالية مع مزايا الاشتراك المميزة",
+                duration: "شهر",
+                endDate: "31 ديسمبر 2025",
+                ratingHTML: `<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>`,
+            },
+            {
+                name: "شاهد اشتراك شامل",
+                price: 4,
+                img: "assets/images/10.jpg",
+                desc: "اشتراك لجميع قنوات شاهد VIP لمدة شهر مع كامل محتوى المسلسلات والأفلام",
+                duration: "شهر",
+                endDate: "31 ديسمبر 2025",
+                ratingHTML: `<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>`,
+            },
+            {
+                name: "ديسكورد 3 اشهر",
+                price: 15,
+                img: "assets/images/12.jpg",
+                desc: "ديسكورد Nitro لمدة 3 أشهر على حساب جديد مع كامل المزايا والإضافات",
+                duration: "3 اشهر",
+                endDate: "31 ديسمبر 2025",
+                ratingHTML: `<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>`,
+            },
+            {
+                name: "شات جي بي تي بلس",
+                price: 5,
+                img: "assets/images/13.jpg",
+                desc: "ChatGPT Plus لمدة شهر مع ميزات متقدمة والوصول إلى أحدث النماذج والإضافات",
+                duration: "شهر",
+                endDate: "31 ديسمبر 2025",
+                ratingHTML: `<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i><i class="fa fa-star-o"></i>`,
+            },
+            {
+                name: "قيم باس شهري",
+                price: 5,
+                img: "assets/images/19.jpg",
+                desc: "Xbox Game Pass لمدة شهر كامل مع إمكانية الوصول لأكثر من 100 لعبة",
+                duration: "شهر",
+                endDate: "31 ديسمبر 2025",
+                ratingHTML: `<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>`,
+            },
+            {
+                name: "يوتيوب بريميوم",
+                price: 5,
+                img: "assets/images/14.jpg",
+                desc: "YouTube Premium بدون إعلانات لمدة شهر مع إمكانية التنزيل والتشغيل الخلفي",
+                duration: "شهر",
+                endDate: "31 ديسمبر 2025",
+                ratingHTML: `<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>`,
+            },
+            {
+                name: "سبوتفاي بريميوم",
+                price: 5,
+                img: "assets/images/15.jpg",
+                desc: "Spotify Premium لمدة شهر بدعم كامل للاستماع بدون إعلانات وبجودة عالية",
+                duration: "شهر",
+                endDate: "31 ديسمبر 2025",
+                ratingHTML: `<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i><i class="fa fa-star-o"></i>`,
+            },
+            {
+                name: "كريتيف كلاود شهري",
+                price: 5,
+                img: "assets/images/16.jpg",
+                desc: "Adobe Creative Cloud شهر كامل لكل البرامج مع إمكانية الوصول لأكثر من 20 تطبيق",
+                duration: "شهر",
+                endDate: "31 ديسمبر 2025",
+                ratingHTML: `<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>`,
+            },
+            {
+                name: "نورد في بي ان شهري",
+                price: 3,
+                img: "assets/images/17.jpg",
+                desc: "NordVPN لمدة شهر كامل لجميع الأجهزة مع أقصى سرعات وأمان للتصفح",
+                duration: "شهر",
+                endDate: "31 ديسمبر 2025",
+                ratingHTML: `<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>`,
+            },
+            {
+                name: "انمي شهري",
+                price: 5,
+                img: "assets/images/18.jpg",
+                desc: "اشتراك كرانشي رول أو بديل لمدة شهر لمشاهدة آلاف حلقات الأنمي بجودة عالية",
+                duration: "شهر",
+                endDate: "31 ديسمبر 2025",
+                ratingHTML: `<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>`,
+            },
+        ];
+
+        // زمن العروض الخاصة (24 ساعة) بالميلي ثانية
+        const OFFER_DURATION = 24 * 60 * 60 * 1000;
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // التأكد من تثبيت شريط التنقل (Header Bar)
+            ensureFixedHeader();
+
+            // إخفاء الـ preloader
+            const preloader = document.getElementById("js-preloader");
+            if (preloader) {
+                preloader.classList.add("loaded");
+                setTimeout(() => {
+                    preloader.style.display = "none";
+                }, 500);
+            }
+
+            // تفعيل AOS إذا كانت المكتبة موجودة
+            if (typeof AOS !== "undefined") {
+                AOS.init({
+                    duration: 1000,
+                    offset: 50,
+                    once: false,
+                    mirror: false,
+                });
+            }
+
+            // تأثير تغيير شريط التنقل عند التمرير
+            window.addEventListener("scroll", function () {
+                const header = document.querySelector(".header-area");
+                if (window.scrollY > 50) {
+                    header.classList.add("scrolled");
+                } else {
+                    header.classList.remove("scrolled");
+                }
+            });
+
+            // زر الصعود للأعلى
+            const scrollBtn = document.getElementById("scrollTopBtn");
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 300) {
+                    scrollBtn.classList.add("show");
+                } else {
+                    scrollBtn.classList.remove("show");
+                }
+            });
+
+            // إغلاق النافذة المنبثقة عند الضغط خارجها
+            const overlay = document.getElementById("modal3DOverlay");
+            overlay.addEventListener("click", (e) => {
+                if (e.target === overlay) {
+                    close3DModal();
+                }
+            });
+
+            // وضع الإضاءة (دارك/لايت) بناءً على الذاكرة التخزينية
+            if (localStorage.getItem("themeMode") === "light") {
+                document.body.classList.add("light-mode");
+            }
+
+            // 1) توليد بطاقات المنتجات الأساسية
+            generateProducts();
+
+            // 2) توليد عروض خاصة (3 منتجات) مع عداد 24 ساعة
+            setupDailyOffers();
+
+            // تفعيل VanillaTilt إذا كانت المكتبة موجودة
+            setTimeout(() => {
+                if (typeof VanillaTilt !== "undefined") {
+                    VanillaTilt.init(document.querySelectorAll(".item"), {
+                        max: 15,
+                        speed: 300,
+                        glare: true,
+                        "max-glare": 0.3,
+                        scale: 1.05,
+                    });
+
+                    VanillaTilt.init(document.querySelectorAll(".trust-item"), {
+                        max: 10,
+                        speed: 400,
+                        glare: true,
+                        "max-glare": 0.2,
+                        scale: 1.03,
+                    });
+                }
+            }, 200);
+
+            // تفعيل تأثير مؤشر الماوس المخصص
+            setupCustomCursor();
+
+            // تبديل الوضع الداكن تلقائيًا عند تغيير النظام في المتصفح
+            window
+                .matchMedia("(prefers-color-scheme: light)")
+                .addEventListener("change", function (e) {
+                    if (e.matches && !localStorage.getItem("themeMode")) {
+                        document.body.classList.add("light-mode");
+                    } else if (!e.matches && !localStorage.getItem("themeMode")) {
+                        document.body.classList.remove("light-mode");
+                    }
+                });
+
+            // تحميل الصور مسبقًا لتجنب التأخير
+            preloadImages();
         });
-      });
-    });
 
-    // فتح/إغلاق القائمة الجانبية
-    function toggleSideNav() {
-      const sideNav = document.getElementById("sideNav");
-      sideNav.classList.toggle("open");
-    }
-  </script>
+        // التأكد من تثبيت شريط التنقل العلوي
+        function ensureFixedHeader() {
+            const header = document.querySelector(".header-area");
+            header.style.position = "fixed";
+            header.style.top = "0";
+            header.style.left = "0";
+            header.style.right = "0";
+            header.style.width = "100%";
+            header.style.zIndex = "9999";
 
-  <!-- مكتبة particles + سكربت التهيئة -->
-  <script src="assets/js/particles.min.js" defer></script>
-  <script defer>
-    document.addEventListener("DOMContentLoaded", function() {
-      const pjsContainer = document.getElementById("particles-js");
-      if(pjsContainer) {
-        particlesJS("particles-js", {
-          "particles": {
-            "number": { "value": 60 },
-            "size": { "value": 3 },
-            "move": {"speed": 2},
-            "color": {"value": "#ffffff"}
-          }
+            // تعديل هامش الصفحة بناءً على ارتفاع الهيدر
+            setTimeout(() => {
+                const headerHeight = header.offsetHeight;
+                document.querySelector('.page-content').style.marginTop = `${headerHeight + 40}px`;
+            }, 100);
+        }
+
+        // تحميل الصور مسبقًا
+        function preloadImages() {
+            PRODUCTS.forEach((product) => {
+                const img = new Image();
+                img.src = product.img;
+            });
+        }
+
+        // إعداد مؤشر الماوس المخصص
+        function setupCustomCursor() {
+            const cursor = document.getElementById("circleCursor");
+            if (!cursor) return;
+
+            cursor.style.display = "block";
+
+            document.addEventListener("mousemove", (e) => {
+                cursor.style.left = e.clientX + "px";
+                cursor.style.top = e.clientY + "px";
+            });
+
+            document.addEventListener("mousedown", () => {
+                cursor.classList.add("active");
+            });
+
+            document.addEventListener("mouseup", () => {
+                cursor.classList.remove("active");
+            });
+
+            // إخفاء المؤشر على العناصر التفاعلية
+            const interactives = document.querySelectorAll(
+                "a, button, input, select, .item, .trust-item, .offer-item"
+            );
+            interactives.forEach((el) => {
+                el.addEventListener("mouseenter", () => {
+                    cursor.classList.add("active");
+                });
+                el.addEventListener("mouseleave", () => {
+                    cursor.classList.remove("active");
+                });
+            });
+
+            // إخفاء المؤشر على الأجهزة اللمسية
+            window.addEventListener("touchstart", () => {
+                cursor.style.display = "none";
+            });
+        }
+
+        // توليد بطاقات المنتجات
+        function generateProducts() {
+            const container = document.getElementById("productsContainer");
+            container.innerHTML = "";
+
+            PRODUCTS.forEach((p, idx) => {
+                let cardHTML = `
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12"
+                         data-aos="fade-up"
+                         data-aos-delay="${100 + idx * 50}">
+                        <div class="item"
+                             data-img="${p.img}"
+                             data-name="${p.name}"
+                             data-price="${p.price}"
+                             data-desc="${p.desc}"
+                             data-duration="${p.duration}"
+                             data-enddate="${p.endDate}">
+                            <div class="view-notify">
+                                <i class="fa fa-eye"></i> انقر للعرض
+                            </div>
+                            <img src="${p.img}"
+                                 alt="${p.name}"
+                                 loading="lazy" />
+                            <ul>
+                                <li>
+                                    <i class="fa fa-shopping-basket"></i>متوفر
+                                </li>
+                            </ul>
+                            <h4>
+                                ${p.name}<br />
+                                <h3>${p.price},000 د.ع</h3>
+                            </h4>
+                            <div class="product-rating">
+                                ${p.ratingHTML}
+                            </div>
+                        </div>
+                        <div class="buy-button">
+                            <a href="javascript:void(0)"
+                               onclick="buyThisProduct('${p.name}','${p.price}')">
+                                شراء الان
+                            </a>
+                        </div>
+                    </div>`;
+                container.insertAdjacentHTML("beforeend", cardHTML);
+            });
+
+            // ربط حدث النقر لفتح المنبثق
+            let allItems = container.querySelectorAll(".item");
+            allItems.forEach((item) => {
+                item.addEventListener("click", function (e) {
+                    // منع تداخل الضغط على زر "شراء الان"
+                    if (e.target.tagName.toLowerCase() === "a") {
+                        e.stopPropagation();
+                        return;
+                    }
+                    open3DModal(item);
+                });
+            });
+        }
+
+        // إعداد عروض خاصة يومية
+        function setupDailyOffers() {
+            let specialData = localStorage.getItem("dailySpecialOffers");
+            const now = Date.now();
+
+            if (specialData) {
+                // يوجد عروض مخزنة
+                specialData = JSON.parse(specialData);
+                // تحقق إن كان انتهت مدتها
+                if (now > specialData.endTime) {
+                    pickNewOffers();
+                } else {
+                    renderSpecialOffers(
+                        specialData.offers,
+                        specialData.endTime
+                    );
+                }
+            } else {
+                pickNewOffers();
+            }
+        }
+
+        function pickNewOffers() {
+            const pickedSet = new Set();
+            while (pickedSet.size < 3 && pickedSet.size < PRODUCTS.length) {
+                const rand = Math.floor(Math.random() * PRODUCTS.length);
+                pickedSet.add(rand);
+            }
+            const offers = [...pickedSet].map(
+                (idx) => PRODUCTS[idx]
+            );
+            const endTime = Date.now() + OFFER_DURATION;
+
+            localStorage.setItem(
+                "dailySpecialOffers",
+                JSON.stringify({ offers, endTime })
+            );
+
+            renderSpecialOffers(offers, endTime);
+        }
+
+        function renderSpecialOffers(offers, endTime) {
+            const row = document.getElementById("specialOffersRow");
+            row.innerHTML = "";
+
+            offers.forEach((p, index) => {
+                const discount = 0.2; // 20% خصم
+                const newPrice = p.price - p.price * discount;
+
+                const offerHTML = `
+                    <div class="offer-item"
+                         data-name="${p.name}"
+                         data-price="${newPrice.toFixed(1)}"
+                         data-aos="fade-up"
+                         data-aos-delay="${100 * index}">
+                        <img src="${p.img}" alt="${p.name}" />
+                        <h4>${p.name}</h4>
+                        <p>
+                            <span class="old-price">${p.price},000 د.ع</span>
+                            <span class="new-price">${newPrice.toFixed(1)},000 د.ع</span>
+                        </p>
+                        <div class="countdown" id="countdown-${index}"></div>
+                        <div class="buy-button">
+                            <a href="javascript:void(0)"
+                               onclick="buyThisProduct('${p.name}','${newPrice.toFixed(1)}')">
+                                شراء الان
+                            </a>
+                        </div>
+                    </div>`;
+                row.insertAdjacentHTML("beforeend", offerHTML);
+            });
+
+            const countdownElems = row.querySelectorAll(".countdown");
+            startCountdown(endTime, countdownElems);
+        }
+
+        function startCountdown(endTime, countdownElems) {
+            const timer = setInterval(() => {
+                const now = Date.now();
+                const distance = endTime - now;
+
+                if (distance < 0) {
+                    clearInterval(timer);
+                    countdownElems.forEach((elem) => {
+                        elem.innerHTML =
+                            '<span class="expired">انتهى العرض!</span>';
+                    });
+
+                    // إعادة تحديث العروض بعد انتهاء المدة
+                    setTimeout(() => {
+                        pickNewOffers();
+                    }, 3000);
+
+                    return;
+                }
+
+                // حساب الوقت المتبقي
+                const days = Math.floor(
+                    distance / (1000 * 60 * 60 * 24)
+                );
+                let hours = Math.floor(
+                    (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+                );
+                let minutes = Math.floor(
+                    (distance % (1000 * 60 * 60)) / (1000 * 60)
+                );
+                let seconds = Math.floor(
+                    (distance % (1000 * 60)) / 1000
+                );
+
+                // تنسيق رقمي
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                const displayHTML = `
+                    <div class="countdown-wrapper">
+                        ${days > 0 ? `<div class="countdown-item"><span>${days}</span><span>يوم</span></div>` : ""}
+                        <div class="countdown-item">
+                            <span>${hours}</span>
+                            <span>ساعة</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span>${minutes}</span>
+                            <span>دقيقة</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span>${seconds}</span>
+                            <span>ثانية</span>
+                        </div>
+                    </div>`;
+
+                countdownElems.forEach((elem) => {
+                    elem.innerHTML = displayHTML;
+                });
+            }, 1000);
+        }
+
+        // فتح النافذة المنبثقة
+        function open3DModal(item) {
+            const overlay = document.getElementById("modal3DOverlay");
+            const content = document.getElementById("modal3DContent");
+            const productImg = document.getElementById("modalProductImg");
+            const productName = document.getElementById("modalProductName");
+            const priceVal = document.getElementById("modalPriceVal");
+            const duration = document.getElementById("modalDuration");
+            const endDate = document.getElementById("modalEndDate");
+            const productDesc = document.getElementById("modalProductDesc");
+            const buyLink = document.getElementById("modalBuyLink");
+
+            let img = item.getAttribute("data-img") || "";
+            let name = item.getAttribute("data-name") || "المنتج";
+            let price = item.getAttribute("data-price") || "0";
+            let desc = item.getAttribute("data-desc") || "وصف المنتج غير متوفر";
+            let dur = item.getAttribute("data-duration") || "غير محدد";
+            let end = item.getAttribute("data-enddate") || "غير محدد";
+
+            productImg.src = img;
+            productName.textContent = name;
+            priceVal.textContent = price + ",000 د.ع";
+            duration.textContent = dur;
+            endDate.textContent = end;
+            productDesc.textContent = desc;
+
+            // تكوين رابط شراء واتساب
+            const encodedText = encodeURIComponent(
+                `أرغب بشراء منتج: ${name}\nالسعر: ${price},000 د.ع\n`
+            );
+            const phone = "9647711359997";
+            const finalLink = `https://wa.me/${phone}?text=${encodedText}`;
+            buyLink.href = finalLink;
+
+            overlay.style.display = "flex";
+            setTimeout(() => {
+                content.classList.add("show");
+            }, 50);
+        }
+
+        // إغلاق النافذة المنبثقة
+        function close3DModal() {
+            const overlay = document.getElementById("modal3DOverlay");
+            const content = document.getElementById("modal3DContent");
+            content.classList.remove("show");
+            setTimeout(() => {
+                overlay.style.display = "none";
+            }, 300);
+        }
+
+        // عند الضغط على "شراء الآن" - تحسين مدة الإشعار
+        function buyThisProduct(productName, productPrice) {
+            const encodedText = encodeURIComponent(
+                `أرغب بشراء منتج: ${productName}\nالسعر: ${productPrice},000 د.ع\n`
+            );
+            const phone = "9647711359997";
+            const finalLink = `https://wa.me/${phone}?text=${encodedText}`;
+            window.open(finalLink, "_blank");
+
+            // عرض إشعار تأكيد بمدة أطول (10 ثوان)
+            createNotification(
+                "تم تحويلك إلى واتساب",
+                "نشكرك على اختيار متجرنا. سيتم الرد على طلبك بأسرع وقت ممكن.",
+                "success",
+                10000  // زيادة المدة إلى 10 ثوان
+            );
+        }
+
+        // إشعارات (SweetAlert2 أو مخصصة)
+        function showNotification() {
+            if (typeof Swal !== "undefined") {
+                Swal.fire({
+                    title: "أحدث العروض!",
+                    text: "خصم 25% على اشتراكات مختارة لهذا الأسبوع!",
+                    icon: "info",
+                    confirmButtonText: "رؤية العروض",
+                    confirmButtonColor: "#00d592",
+                    background: document.body.classList.contains("light-mode")
+                        ? "#fff"
+                        : "#242424",
+                    color: document.body.classList.contains("light-mode")
+                        ? "#000"
+                        : "#fff",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "Bestoffers.html";
+                    }
+                });
+            } else {
+                createNotification(
+                    "أحدث العروض!",
+                    "خصم 25% على اشتراكات مختارة لهذا الأسبوع!",
+                    "info",
+                    8000  // زيادة المدة
+                );
+            }
+        }
+
+        // نظام إشعارات مخصص - محسّن
+        function createNotification(
+            title,
+            message,
+            type = "info",
+            duration = 10000
+        ) {
+            const notification = document.createElement("div");
+            notification.className = `custom-notification ${type}`;
+            notification.style.transform = "translateX(120%)";
+
+            // تحسين ظهور الأيقونة
+            const iconType = type === "success"
+                ? "check-circle"
+                : type === "error"
+                    ? "exclamation-circle"
+                    : "info-circle";
+
+            notification.innerHTML = `
+                    <div class="notification-icon">
+                        <i class="fa fa-${iconType}"></i>
+                    </div>
+                    <div class="notification-content">
+                        <h4>${title}</h4>
+                        <p>${message}</p>
+                    </div>
+                    <button class="notification-close">&times;</button>
+                `;
+
+            document.body.appendChild(notification);
+
+            // ظهور بتأثير انزلاق
+            setTimeout(() => {
+                notification.classList.add("show");
+            }, 10);
+
+            // إغلاق تلقائي
+            const timeout = setTimeout(() => {
+                closeNotification(notification);
+            }, duration);
+
+            // إغلاق يدوي
+            notification
+                .querySelector(".notification-close")
+                .addEventListener("click", () => {
+                    clearTimeout(timeout);
+                    closeNotification(notification);
+                });
+
+            // تفعيل تأثير 3D عند تحريك الماوس فوق الإشعار
+            if (typeof VanillaTilt !== "undefined") {
+                VanillaTilt.init(notification, {
+                    max: 10,
+                    speed: 400,
+                    glare: true,
+                    "max-glare": 0.2,
+                    scale: 1.05,
+                });
+            }
+        }
+
+        function closeNotification(notification) {
+            notification.classList.remove("show");
+            notification.style.transform = "translateX(120%)";
+            setTimeout(() => {
+                notification.remove();
+            }, 500);
+        }
+
+        // تبديل الوضع الداكن والفاتح
+        function toggleDarkMode() {
+            document.body.classList.toggle("light-mode");
+            if (document.body.classList.contains("light-mode")) {
+                localStorage.setItem("themeMode", "light");
+                createNotification(
+                    "تم التبديل إلى الوضع الفاتح",
+                    "يمكنك العودة للوضع الداكن في أي وقت.",
+                    "info",
+                    5000
+                );
+            } else {
+                localStorage.removeItem("themeMode");
+                createNotification(
+                    "تم التبديل إلى الوضع الداكن",
+                    "يمكنك العودة للوضع الفاتح في أي وقت.",
+                    "info",
+                    5000
+                );
+            }
+        }
+
+        // بحث + فلتر السعر
+        function filterProducts() {
+            const input = document
+                .getElementById("searchText")
+                .value.toLowerCase();
+            const priceFilter = document.getElementById("priceFilter").value;
+            const allItems = document.querySelectorAll(
+                "#productsContainer .item"
+            );
+            let results = 0;
+
+            allItems.forEach((item) => {
+                const parent = item.parentElement;
+                const name =
+                    (item.getAttribute("data-name") || "").toLowerCase();
+                const price = parseInt(
+                    item.getAttribute("data-price") || "0",
+                    10
+                );
+
+                let matchSearch = name.indexOf(input) > -1;
+                let matchPrice = true;
+
+                if (priceFilter === "low" && price >= 5) {
+                    matchPrice = false;
+                } else if (
+                    priceFilter === "med" &&
+                    (price < 5 || price > 10)
+                ) {
+                    matchPrice = false;
+                } else if (
+                    priceFilter === "high" &&
+                    price <= 10
+                ) {
+                    matchPrice = false;
+                }
+
+                if (matchSearch && matchPrice) {
+                    parent.style.display = "";
+                    results++;
+                    // تأثير التمييز المتحرك عند تطابق البحث
+                    if (input.length > 0) {
+                        item.classList.add("search-match");
+                        setTimeout(() => {
+                            item.classList.remove("search-match");
+                        }, 1000);
+                    }
+                } else {
+                    parent.style.display = "none";
+                }
+            });
+
+            // إظهار رسالة في حالة عدم وجود نتائج
+            const noResultsElem = document.getElementById(
+                "noResultsMessage"
+            );
+            if (
+                results === 0 &&
+                (input.length > 0 || priceFilter !== "")
+            ) {
+                if (!noResultsElem) {
+                    const message = document.createElement("div");
+                    message.id = "noResultsMessage";
+                    message.className = "col-12 text-center mt-4";
+                    message.innerHTML = `
+                        <div style="
+                            padding: 30px;
+                            background: rgba(255, 255, 255, 0.05);
+                            border-radius: 10px;
+                            margin: 15px 0;
+                        ">
+                            <i class="fa fa-search"
+                               style="
+                                 font-size: 48px;
+                                 color: var(--primary-color);
+                                 margin-bottom: 15px;
+                               "></i>
+                            <h3>لا توجد نتائج مطابقة</h3>
+                            <p>
+                              جرب تعديل معايير البحث أو تصفح جميع
+                              المنتجات.
+                            </p>
+                            <button
+                              onclick="resetSearch()"
+                              style="
+                                padding: 8px 15px;
+                                background: var(--primary-color);
+                                border: none;
+                                border-radius: 5px;
+                                color: #000;
+                                margin-top: 10px;
+                                cursor: pointer;
+                              ">
+                              عرض كل المنتجات
+                            </button>
+                        </div>
+                        `;
+                    document
+                        .getElementById("productsContainer")
+                        .appendChild(message);
+                }
+            } else if (noResultsElem) {
+                noResultsElem.remove();
+            }
+        }
+
+        // إعادة ضبط البحث
+        function resetSearch() {
+            document.getElementById("searchText").value = "";
+            document.getElementById("priceFilter").value = "";
+            filterProducts();
+        }
+
+        // زر الصعود للأعلى
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        // فتح/إغلاق القائمة الجانبية
+        function toggleSideNav() {
+            const sideNav = document.getElementById("sideNav");
+            sideNav.classList.toggle("open");
+
+            // إضافة/إزالة overlay
+            if (sideNav.classList.contains("open")) {
+                const overlay = document.createElement("div");
+                overlay.className = "side-nav-overlay";
+                overlay.id = "sideNavOverlay";
+                overlay.addEventListener("click", toggleSideNav);
+                document.body.appendChild(overlay);
+            } else {
+                const overlay = document.getElementById("sideNavOverlay");
+                if (overlay) {
+                    overlay.classList.remove("show");
+                    setTimeout(() => overlay.remove(), 300);
+                }
+            }
+        }
+
+        // تهيئة Particles.js محسنة للتأثيرات ثلاثية الأبعاد
+        document.addEventListener("DOMContentLoaded", function () {
+            if (typeof particlesJS !== "undefined") {
+                particlesJS("particles-js", {
+                    particles: {
+                        number: {
+                            value: 100,
+                            density: { enable: true, value_area: 800 },
+                        },
+                        color: {
+                            value: ["#00d592", "#0df18f", "#00ab8a", "#007a63"]
+                        },
+                        shape: {
+                            type: ["circle", "triangle", "polygon"],
+                            stroke: {
+                                width: 0,
+                                color: "#000000"
+                            },
+                            polygon: {
+                                nb_sides: 5
+                            }
+                        },
+                        opacity: {
+                            value: 0.15,
+                            random: true,
+                            anim: {
+                                enable: true,
+                                speed: 1,
+                                opacity_min: 0.05,
+                                sync: false
+                            }
+                        },
+                        size: {
+                            value: 5,
+                            random: true,
+                            anim: {
+                                enable: true,
+                                speed: 2,
+                                size_min: 1,
+                                sync: false
+                            }
+                        },
+                        line_linked: {
+                            enable: true,
+                            distance: 150,
+                            color: "#00d592",
+                            opacity: 0.2,
+                            width: 1,
+                        },
+                        move: {
+                            enable: true,
+                            speed: 1.5,
+                            direction: "none",
+                            random: true,
+                            straight: false,
+                            out_mode: "out",
+                            bounce: false,
+                            attract: {
+                                enable: true,
+                                rotateX: 600,
+                                rotateY: 1200
+                            }
+                        },
+                    },
+                    interactivity: {
+                        detect_on: "canvas",
+                        events: {
+                            onhover: {
+                                enable: true,
+                                mode: "bubble",
+                            },
+                            onclick: {
+                                enable: true,
+                                mode: "push",
+                            },
+                            resize: true,
+                        },
+                        modes: {
+                            grab: {
+                                distance: 140,
+                                line_linked: {
+                                    opacity: 0.8
+                                }
+                            },
+                            bubble: {
+                                distance: 200,
+                                size: 8,
+                                duration: 2,
+                                opacity: 0.3,
+                                speed: 3
+                            },
+                            repulse: {
+                                distance: 100,
+                                duration: 0.4
+                            },
+                            push: {
+                                particles_nb: 4
+                            },
+                            remove: {
+                                particles_nb: 2
+                            }
+                        }
+                    },
+                    retina_detect: true,
+                });
+            }
         });
-      }
-    });
-  </script>
 
-  <!-- كود الموقع الرئيسي -->
-  <script defer>
-    // مصفوفة المنتجات
-    const PRODUCTS = [
-      {
-        name: "ديسكورد شهر كامل",
-        price: 8,
-        img: "assets/images/11.jpg",
-        desc: "اشتراك ديسكورد شهري مع بوست Nitro",
-        duration: "شهر",
-        endDate: "31 ديسمبر 2025",
-        ratingHTML: `<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i><i class="fa fa-star-o"></i>`
-      },
-      {
-        name: "نتفليكس شهر كامل",
-        price: 4,
-        img: "assets/images/9.jpg",
-        desc: "نتفليكس بريميوم بدقة 4K لمدة شهر كامل",
-        duration: "شهر",
-        endDate: "31 ديسمبر 2025",
-        ratingHTML: `<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>`
-      },
-      {
-        name: "برايم فيديو شهر كامل",
-        price: 4,
-        img: "assets/images/8.jpg",
-        desc: "Amazon Prime Video لشهر بجودة عالية",
-        duration: "شهر",
-        endDate: "31 ديسمبر 2025",
-        ratingHTML: `<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>`
-      },
-      {
-        name: "شاهد اشتراك شامل",
-        price: 4,
-        img: "assets/images/10.jpg",
-        desc: "اشتراك لجميع قنوات شاهد VIP لمدة شهر",
-        duration: "شهر",
-        endDate: "31 ديسمبر 2025",
-        ratingHTML: `<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>`
-      },
-      {
-        name: "ديسكورد 3 اشهر",
-        price: 15,
-        img: "assets/images/12.jpg",
-        desc: "ديسكورد Nitro لمدة 3 أشهر على حساب جديد",
-        duration: "3 اشهر",
-        endDate: "31 ديسمبر 2025",
-        ratingHTML: `<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>`
-      },
-      {
-        name: "شات جي بي تي بلس",
-        price: 5,
-        img: "assets/images/13.jpg",
-        desc: "ChatGPT Plus لمدة شهر مع ميزات متقدمة",
-        duration: "شهر",
-        endDate: "31 ديسمبر 2025",
-        ratingHTML: `<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i><i class="fa fa-star-o"></i>`
-      },
-      {
-        name: "قيم باس شهري",
-        price: 5,
-        img: "assets/images/19.jpg",
-        desc: "Xbox Game Pass لمدة شهر كامل",
-        duration: "شهر",
-        endDate: "31 ديسمبر 2025",
-        ratingHTML: `<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>`
-      },
-      {
-        name: "يوتيوب بريميوم",
-        price: 5,
-        img: "assets/images/14.jpg",
-        desc: "YouTube Premium بدون إعلانات لمدة شهر",
-        duration: "شهر",
-        endDate: "31 ديسمبر 2025",
-        ratingHTML: `<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>`
-      },
-      {
-        name: "سبوتفاي بريميوم",
-        price: 5,
-        img: "assets/images/15.jpg",
-        desc: "Spotify Premium لمدة شهر بدعم كامل",
-        duration: "شهر",
-        endDate: "31 ديسمبر 2025",
-        ratingHTML: `<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i><i class="fa fa-star-o"></i>`
-      },
-      {
-        name: "كريتيف كلاود شهري",
-        price: 5,
-        img: "assets/images/16.jpg",
-        desc: "Adobe Creative Cloud شهر كامل لكل البرامج",
-        duration: "شهر",
-        endDate: "31 ديسمبر 2025",
-        ratingHTML: `<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>`
-      },
-      {
-        name: "نورد في بي ان شهري",
-        price: 3,
-        img: "assets/images/17.jpg",
-        desc: "NordVPN لمدة شهر كامل لجميع الأجهزة",
-        duration: "شهر",
-        endDate: "31 ديسمبر 2025",
-        ratingHTML: `<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>`
-      },
-      {
-        name: "انمي شهري",
-        price: 5,
-        img: "assets/images/18.jpg",
-        desc: "اشتراك كرانشي رول أو بديل لمدة شهر",
-        duration: "شهر",
-        endDate: "31 ديسمبر 2025",
-        ratingHTML: `<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>`
-      },
-    ];
-
-    // زمن العروض الخاصة (24 ساعة)
-    const OFFER_DURATION = 24 * 60 * 60 * 1000;
-
-    document.addEventListener("DOMContentLoaded", function () {
-      // تفعيل AOS
-      AOS.init({ duration: 1000, offset: 50 });
-
-      // زر الصعود للأعلى
-      const scrollBtn = document.getElementById("scrollTopBtn");
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-          scrollBtn.classList.add("show");
-        } else {
-          scrollBtn.classList.remove("show");
-        }
-      });
-
-      // إغلاق النافذة المنبثقة عند الضغط خارجها
-      const overlay = document.getElementById("modal3DOverlay");
-      overlay.addEventListener("click", (e) => {
-        if (e.target === overlay) {
-          close3DModal();
-        }
-      });
-
-      // وضع الإضاءة (دارك/لايت) بناءً على الذاكرة التخزينية
-      if (localStorage.getItem("themeMode") === "light") {
-        document.body.classList.add("light-mode");
-      }
-
-      // 1) توليد بطاقات المنتجات الأساسية
-      generateProducts();
-
-      // 2) توليد عروض خاصة (3 منتجات) مع عداد 24 ساعة
-      setupDailyOffers();
-
-      // إذا أردت استخدام VanillaTilt، ضعه هنا بعد تأكدك من استدعاء ملفه
-      // setTimeout(() => {
-      //   if (typeof VanillaTilt !== "undefined") {
-      //     VanillaTilt.init(document.querySelectorAll(".item"), {
-      //       max: 15,
-      //       speed: 300,
-      //       glare: true,
-      //       "max-glare": 0.3,
-      //     });
-      //   }
-      // }, 200);
-    });
-
-    // توليد بطاقات المنتجات
-    function generateProducts() {
-      const container = document.getElementById("productsContainer");
-      container.innerHTML = "";
-
-      PRODUCTS.forEach((p, idx) => {
-        let cardHTML = `
-          <div class="col-lg-3 col-md-6 col-sm-6 col-12" data-aos="zoom-in" data-aos-delay="${100 + idx * 50}">
-            <div
-              class="item"
-              data-img="${p.img}"
-              data-name="${p.name}"
-              data-price="${p.price}"
-              data-desc="${p.desc}"
-              data-duration="${p.duration}"
-              data-enddate="${p.endDate}"
-            >
-              <div class="view-notify">
-                <i class="fa fa-eye"></i> انقر للعرض
-              </div>
-              <img src="${p.img}" alt="${p.name}" loading="lazy" />
-              <ul>
-                <li><i class="fa fa-shopping-basket"></i>متوفر</li>
-              </ul>
-              <h4>${p.name}<br><h3>${p.price},000 د.ع</h3></h4>
-              <div class="product-rating">
-                ${p.ratingHTML}
-              </div>
-            </div>
-            <div class="buy-button">
-              <a href="javascript:void(0)" onclick="buyThisProduct('${p.name}','${p.price}')">شراء الان؟</a>
-            </div>
-          </div>
-        `;
-        container.insertAdjacentHTML("beforeend", cardHTML);
-      });
-
-      // ربط حدث النقر لفتح المنبثق
-      let allItems = container.querySelectorAll(".item");
-      allItems.forEach((item) => {
-        item.addEventListener("click", function (e) {
-          // منع تداخل الضغط على زر "شراء الان"
-          if (e.target.tagName.toLowerCase() === "a") {
-            e.stopPropagation();
-            return;
-          }
-          open3DModal(item);
+        // معالجة الصور التي تفشل في التحميل
+        document.addEventListener("DOMContentLoaded", function () {
+            const images = document.querySelectorAll("img");
+            images.forEach((img) => {
+                img.onerror = function () {
+                    this.src = "assets/images/placeholder.jpg";
+                    this.onerror = null;
+                };
+            });
         });
-      });
-    }
 
-    // إعداد عروض خاصة يومية
-    function setupDailyOffers() {
-      let specialData = localStorage.getItem("dailySpecialOffers");
-      const now = Date.now();
+        // تعديل سلوك روابط التنقل
+        document.addEventListener("DOMContentLoaded", function () {
+            const navLinks = document.querySelectorAll(
+                ".nav a, .side-nav a"
+            );
+            navLinks.forEach((link) => {
+                if (
+                    link.getAttribute("href") &&
+                    !link
+                        .getAttribute("href")
+                        .startsWith("javascript")
+                ) {
+                    link.addEventListener("click", function (e) {
+                        e.preventDefault();
+                        const href = this.getAttribute("href");
 
-      if (specialData) {
-        // يوجد عروض مخزنة
-        specialData = JSON.parse(specialData);
-        // تحقق إن كانت انتهت مدتها
-        if (now > specialData.endTime) {
-          pickNewOffers();
-        } else {
-          renderSpecialOffers(specialData.offers, specialData.endTime);
-        }
-      } else {
-        pickNewOffers();
-      }
-    }
-
-    function pickNewOffers() {
-      const pickedSet = new Set();
-      while (pickedSet.size < 3 && pickedSet.size < PRODUCTS.length) {
-        const rand = Math.floor(Math.random() * PRODUCTS.length);
-        pickedSet.add(rand);
-      }
-      const offers = [...pickedSet].map(idx => PRODUCTS[idx]);
-      const endTime = Date.now() + OFFER_DURATION;
-
-      localStorage.setItem("dailySpecialOffers", JSON.stringify({ offers, endTime }));
-
-      renderSpecialOffers(offers, endTime);
-    }
-
-    function renderSpecialOffers(offers, endTime) {
-      const row = document.getElementById("specialOffersRow");
-      row.innerHTML = "";
-
-      offers.forEach((p) => {
-        const discount = 0.2; // 20% خصم
-        const newPrice = p.price - p.price * discount;
-
-        const offerHTML = `
-          <div class="offer-item" data-name="${p.name}" data-price="${newPrice.toFixed(1)}">
-            <img src="${p.img}" alt="${p.name}" />
-            <h4>${p.name}</h4>
-            <p>
-              <span class="old-price">${p.price},000 د.ع</span>
-              <span class="new-price">${newPrice.toFixed(1)},000 د.ع</span>
-            </p>
-            <div class="countdown"></div>
-            <div class="buy-button">
-              <a href="javascript:void(0)" onclick="buyThisProduct('${p.name}','${newPrice.toFixed(1)}')">شراء الان؟</a>
-            </div>
-          </div>
-        `;
-        row.insertAdjacentHTML("beforeend", offerHTML);
-      });
-
-      const countdownElems = row.querySelectorAll(".countdown");
-      startCountdown(endTime, countdownElems);
-    }
-
-    function startCountdown(endTime, countdownElems) {
-      const timer = setInterval(() => {
-        const now = Date.now();
-        const distance = endTime - now;
-        if (distance < 0) {
-          clearInterval(timer);
-          countdownElems.forEach(elem => {
-            elem.textContent = "انتهى العرض!";
-          });
-          return;
-        }
-        let hours = Math.floor(distance / (1000 * 60 * 60));
-        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        hours = hours < 10 ? "0" + hours : hours;
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        const displayText = `${hours}:${minutes}:${seconds}`;
-        countdownElems.forEach(elem => {
-          elem.textContent = displayText;
+                        // تأثير انتقال الصفحة
+                        document.body.classList.add(
+                            "page-transition"
+                        );
+                        setTimeout(() => {
+                            window.location.href = href;
+                        }, 300);
+                    });
+                }
+            });
         });
-      }, 1000);
-    }
-
-    // فتح النافذة المنبثقة
-    function open3DModal(item) {
-      const overlay = document.getElementById("modal3DOverlay");
-      const content = document.getElementById("modal3DContent");
-      const productImg = document.getElementById("modalProductImg");
-      const productName = document.getElementById("modalProductName");
-      const priceVal = document.getElementById("modalPriceVal");
-      const duration = document.getElementById("modalDuration");
-      const endDate = document.getElementById("modalEndDate");
-      const productDesc = document.getElementById("modalProductDesc");
-      const buyLink = document.getElementById("modalBuyLink");
-
-      let img = item.getAttribute("data-img") || "";
-      let name = item.getAttribute("data-name") || "المنتج";
-      let price = item.getAttribute("data-price") || "0";
-      let desc = item.getAttribute("data-desc") || "وصف المنتج غير متوفر";
-      let dur = item.getAttribute("data-duration") || "غير محدد";
-      let end = item.getAttribute("data-enddate") || "غير محدد";
-
-      productImg.src = img;
-      productName.textContent = name;
-      priceVal.textContent = price + ",000 د.ع";
-      duration.textContent = dur;
-      endDate.textContent = end;
-      productDesc.textContent = desc;
-
-      // تكوين رابط شراء واتساب
-      const encodedText = encodeURIComponent(
-        `أرغب بشراء منتج: ${name}\nالسعر: ${price},000 د.ع\n`
-      );
-      const phone = "9647711359997";
-      const finalLink = `https://wa.me/${phone}?text=${encodedText}`;
-      buyLink.href = finalLink;
-
-      overlay.style.display = "flex";
-      setTimeout(() => {
-        content.classList.add("show");
-      }, 50);
-    }
-
-    // إغلاق النافذة المنبثقة
-    function close3DModal() {
-      const overlay = document.getElementById("modal3DOverlay");
-      const content = document.getElementById("modal3DContent");
-      content.classList.remove("show");
-      setTimeout(() => {
-        overlay.style.display = "none";
-      }, 300);
-    }
-
-    // عند الضغط على "شراء الآن"
-    function buyThisProduct(productName, productPrice) {
-      const encodedText = encodeURIComponent(
-        `أرغب بشراء منتج: ${productName}\nالسعر: ${productPrice},000 د.ع\n`
-      );
-      const phone = "9647711359997";
-      const finalLink = `https://wa.me/${phone}?text=${encodedText}`;
-      window.open(finalLink, "_blank");
-    }
-
-    // إشعارات (SweetAlert2)
-    function showNotification() {
-      Swal.fire({
-        title: "أحدث العروض!",
-        text: "خصم 25% على اشتراكات مختارة لهذا الأسبوع!",
-        icon: "info",
-        confirmButtonText: "رؤية العروض",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          window.location.href = "Bestoffers.html";
-        }
-      });
-    }
-
-    // تبديل الوضع الداكن والفاتح
-    function toggleDarkMode() {
-      document.body.classList.toggle("light-mode");
-      if (document.body.classList.contains("light-mode")) {
-        localStorage.setItem("themeMode", "light");
-      } else {
-        localStorage.removeItem("themeMode");
-      }
-    }
-
-    // بحث + فلتر السعر
-    function filterProducts() {
-      const input = document.getElementById("searchText").value.toLowerCase();
-      const priceFilter = document.getElementById("priceFilter").value;
-      const allItems = document.querySelectorAll("#productsContainer .item");
-
-      allItems.forEach((item) => {
-        const name = (item.getAttribute("data-name") || "").toLowerCase();
-        const price = parseInt(item.getAttribute("data-price") || "0", 10);
-
-        let matchSearch = name.indexOf(input) > -1;
-        let matchPrice = true;
-
-        if (priceFilter === "low" && price >= 5) {
-          matchPrice = false;
-        } else if (priceFilter === "med" && (price < 5 || price > 10)) {
-          matchPrice = false;
-        } else if (priceFilter === "high" && price <= 10) {
-          matchPrice = false;
-        }
-
-        if (matchSearch && matchPrice) {
-          item.parentElement.style.display = "";
-        } else {
-          item.parentElement.style.display = "none";
-        }
-      });
-    }
-
-    // زر الصعود للأعلى
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  </script>
-
-  <!-- AOS + SweetAlert (وفانيلا تلِت اختياري) -->
-  <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" defer></script> -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js" defer></script>
-
-  <!-- فيسبوك ماسنجر (اختياري) -->
-  <div id="fb-root"></div>
-  <div id="fb-customer-chat" class="fb-customerchat"></div>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      var chatbox = document.getElementById("fb-customer-chat");
-      if(chatbox){
-        chatbox.setAttribute("page_id", "103743918039608");
-        chatbox.setAttribute("attribution", "biz_inbox");
-      }
-    });
-    window.fbAsyncInit = function () {
-      if(typeof FB !== "undefined"){
-        FB.init({ xfbml: true, version: "v14.0" });
-      }
-    };
-    (function (d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "https://connect.facebook.net/ar_AR/sdk/xfbml.customerchat.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    })(document, "script", "facebook-jssdk");
-  </script>
-
-  <!-- كود إخفاء الـPreloader بعد تحميل الصفحة -->
-  <script>
-    window.addEventListener("load", function() {
-      const preloader = document.getElementById("js-preloader");
-      if (preloader) {
-        preloader.style.display = "none";
-      }
-    });
-  </script>
+    </script>
 </body>
 </html>
